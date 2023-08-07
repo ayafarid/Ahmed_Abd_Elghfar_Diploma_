@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1691417172 source:c:\users\aya farid\documents\codeblocksexamples\patterns\main.c
+	<stdio.h>
+	<stdlib.h>
+
