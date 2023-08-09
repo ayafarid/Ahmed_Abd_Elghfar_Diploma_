@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1691585332 source:c:\users\aya farid\documents\codeblocksexamples\functions\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
