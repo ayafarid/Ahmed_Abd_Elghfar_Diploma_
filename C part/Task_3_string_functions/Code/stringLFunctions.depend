@@ -1,4 +1,15 @@
 # depslib dependency file v1.0
-1692436876 source:c:\users\aya farid\documents\codeblocksexamples\stringlfunctions\main.c
+1692464314 source:c:\users\aya farid\documents\codeblocksexamples\stringlfunctions\main.c
 	<stdio.h>
+	<errno.h>
+	"my_string.h"
+
+1692464314 c:\users\aya farid\documents\codeblocksexamples\stringlfunctions\my_string.h
+
+1692464443 source:c:\users\aya farid\documents\codeblocksexamples\stringlfunctions\my_string.c
+	<stdio.h>
+	<string.h>
+	<errno.h>
+	<stdlib.h>
+	"my_string.h"
 
