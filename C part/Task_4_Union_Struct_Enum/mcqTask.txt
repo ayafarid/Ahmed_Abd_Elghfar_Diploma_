@@ -1,0 +1,22 @@
+?	·„«  Œ·’ „Õ«÷—«  «·‹ Structs - Union - Enums ›« Õ· «·«”∆·… œÏ - Œ·Ï »«·ﬂ œÏ «›ﬂ«— «”∆·… ÊÕ·Ê· «·«”∆·…:
+https://www.geeksforgeeks.org/c-structure-union-question-1
+https://www.geeksforgeeks.org/c-structure-union-question-2
+https://www.geeksforgeeks.org/c-structure-union-question-3
+https://www.geeksforgeeks.org/c-structure-union-question-4
+https://www.geeksforgeeks.org/c-structure-union-question-5
+
+
+https://www.geeksforgeeks.org/c-structure-union-question-6
+A structure variable can be assigned to other using =, but cannot be compared with other using ==
+
+https://www.geeksforgeeks.org/c-structure-union-question-7
+
+https://www.geeksforgeeks.org/c-structure-union-question-8
+Explanation: Since x and arr[4] share the same memory,
+ when we set x = 0, all characters of arr are set as 0. O is ASCII value of ë\0í. When we do ìt.arr[1] = ëG'î,
+ arr[] becomes ì\0G\0\0î. When we print a string using ì%sî,
+ the printf function starts from the first character and keeps printing till it finds a \0. 
+Since the first character itself is \0, nothing is printed
+
+https://www.geeksforgeeks.org/c-structure-union-question-9
+
