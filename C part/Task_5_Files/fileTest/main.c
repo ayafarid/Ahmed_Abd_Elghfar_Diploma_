@@ -21,9 +21,12 @@ FILE * my_file;
 char read_data_student[TOTAL_SIZE_OF_STRING];
 void getStudentData(Student_t*);
 void fetchStudentData(Student_t*,char data_std[]);
+int inline sum(int num1,int num2)__attribute__((always_inline));
 int main()
 {
-#if 1
+    int num1=12,num2=24;
+    printf("%d",sum(num1,num2));
+#if 0
     int checkClose=0;
     int studentCount=0;
 
@@ -92,4 +95,7 @@ void printStudentInfo(Student_t* ptrStd){
     printf("_____________________________________________\n");
     printf("Id: %d\nName: %s\nDegree: %0.2f\n",ptrStd->id,ptrStd->name,ptrStd->degree);
     printf("_____________________________________________\n");
+}
+int inline sum(int num1,int num2){
+    return num1+num2;
 }
