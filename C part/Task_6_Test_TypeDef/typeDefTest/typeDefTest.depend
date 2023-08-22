@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1692705026 source:c:\users\aya farid\documents\codeblocksexamples\typedeftest\main.c
+	<stdio.h>
+	<stdlib.h>
+
