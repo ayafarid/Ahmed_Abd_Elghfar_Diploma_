@@ -2,13 +2,19 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define TOTAL_SIZE_OF_STRING    84
+#define TOTAL_SIZE_OF_STRING             84
 
+#define STUDENT_ID_SIZE                  3
+#define STUDENT_NAME_SIZE                50
+#define STUDENT_DEGREE_SIZE              4
 
+#define STUDENT_ID_INFO_START_INDEX      4
+#define STUDENT_NAME_INFO_START_INDEX    16
+#define STUDENT_DEGREE_INFO_START_INDEX  78
 typedef struct{
     int id;
     float degree;
-    char name[50];
+    char name[STUDENT_NAME_SIZE];
 }Student_t;
 Student_t myStudent;
 FILE * my_file;
@@ -68,16 +74,16 @@ void getStudentData(Student_t* myStudent){
     printf("Enter Student Degree: ");
     scanf("%f",&(*myStudent).degree);
     int size=strlen(myStudent->name);
-    for(int i=size;i<50;i++)
+    for(int i=size;i<STUDENT_NAME_SIZE;i++)
         myStudent->name[i]=' ';
 }
 void fetchStudentData(Student_t * ptrStd,char read_std[]){
-    char student_id_str[3]={0};
-    char student_name_str[50]={0};
-    char student_degree_str[5]={0};
-    strncpy(student_id_str,read_data_student+4,2);
-    strncpy(student_name_str,read_data_student+16,50);
-    strncpy(student_degree_str,read_data_student+78,4);
+    char student_id_str[STUDENT_ID_SIZE]={0};
+    char student_name_str[STUDENT_NAME_SIZE]={0};
+    char student_degree_str[STUDENT_DEGREE_SIZE]={0};
+    strncpy(student_id_str,read_std+STUDENT_ID_INFO_START_INDEX,STUDENT_ID_SIZE);
+    strncpy(student_name_str,read_std+STUDENT_NAME_INFO_START_INDEX,STUDENT_NAME_SIZE);
+    strncpy(student_degree_str,read_std+STUDENT_DEGREE_INFO_START_INDEX,STUDENT_DEGREE_SIZE);
     strcpy(ptrStd->name,student_name_str);
     ptrStd->degree=atof(student_degree_str);
     ptrStd->id=atoi(student_id_str);
