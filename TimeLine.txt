@@ -1,0 +1,24 @@
+C programming Part:
+Lec 1 : 2.274  Hours
+Lec 2 : 2.3725 Hours
+Lec 3 :2.3645  Hours
+Lec 4 :2.328   Hours
+Lec 5 :2.384   Hours
+Lec 6 :1.7     Hours
+Lec 7 :3.1496  Hours
+Lec 8 :4.344   Hours
+Lec 9 :2.38    Hours
+Lec 10:2.9126  Hours
+Lec 11:2.409   Hours
+Lec 12:2.427   Hours
+Lec 13:3.1475  Hours
+Lec 14:4.6408  Hours
+Lec 15:3.5578  Hours
+Lec 16:2.07    Hours
+Data Structure Part:
+Lec 17:3.7766  Hours
+Lec 18:        Hours
+Lec 19:        Hours
+Lec 20:        Hours
+Lec 21:        Hours
+Lec 22:        Hours
