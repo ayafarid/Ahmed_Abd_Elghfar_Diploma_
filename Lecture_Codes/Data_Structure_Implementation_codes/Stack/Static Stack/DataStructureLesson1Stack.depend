@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1693056772 source:c:\users\aya farid\documents\codeblocksexamples\datastructurelesson1stack\main.c
+	<stdio.h>
+	<stdlib.h>
+	"stack.h"
+	"Platform_Types.h"
+
+1693057630 c:\users\aya farid\documents\codeblocksexamples\datastructurelesson1stack\stack.h
+	"Platform_Types.h"
+
+1693052867 c:\users\aya farid\documents\codeblocksexamples\datastructurelesson1stack\platform_types.h
+
+1693056735 source:c:\users\aya farid\documents\codeblocksexamples\datastructurelesson1stack\stack.c
+	"stdio.h"
+	"stack.h"
+	"Platform_Types.h"
+
