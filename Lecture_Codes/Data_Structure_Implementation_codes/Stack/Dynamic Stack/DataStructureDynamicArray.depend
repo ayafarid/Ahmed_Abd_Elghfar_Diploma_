@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1693067389 source:c:\users\aya farid\documents\codeblocksexamples\datastructuredynamicarray\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Platform_Types.h"
+	"stack.h"
+
+1693059684 c:\users\aya farid\documents\codeblocksexamples\datastructuredynamicarray\platform_types.h
+
+1693066874 c:\users\aya farid\documents\codeblocksexamples\datastructuredynamicarray\stack.h
+
+1693067520 source:c:\users\aya farid\documents\codeblocksexamples\datastructuredynamicarray\stack.c
+	"stdio.h"
+	"Platform_Types.h"
+	"stack.h"
+
