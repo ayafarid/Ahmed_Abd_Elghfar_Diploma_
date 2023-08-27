@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1693157668 source:c:\users\aya farid\documents\codeblocksexamples\queuedatastructure\queue.c
+	<stdio.h>
+	"Platform_Types.h"
+	"queue.h"
+
+1693144801 c:\users\aya farid\documents\codeblocksexamples\queuedatastructure\platform_types.h
+
+1693152338 c:\users\aya farid\documents\codeblocksexamples\queuedatastructure\queue.h
+	"Platform_Types.h"
+
+1693157684 source:c:\users\aya farid\documents\codeblocksexamples\queuedatastructure\main.c
+	<stdio.h>
+	<stdlib.h>
+	"queue.h"
+
