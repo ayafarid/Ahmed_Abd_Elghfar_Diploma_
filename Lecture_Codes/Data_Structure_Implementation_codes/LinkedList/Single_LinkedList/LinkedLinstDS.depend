@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1693228882 source:c:\users\aya farid\documents\codeblocksexamples\linkedlinstds\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Platfrom_Types.h"
+	"linkedList.h"
+
+1693228859 source:c:\users\aya farid\documents\codeblocksexamples\linkedlinstds\linkedlist.c
+	<stdio.h>
+	"Platfrom_Types.h"
+	"linkedList.h"
+
+1693218494 c:\users\aya farid\documents\codeblocksexamples\linkedlinstds\platfrom_types.h
+
+1693228803 c:\users\aya farid\documents\codeblocksexamples\linkedlinstds\linkedlist.h
+
