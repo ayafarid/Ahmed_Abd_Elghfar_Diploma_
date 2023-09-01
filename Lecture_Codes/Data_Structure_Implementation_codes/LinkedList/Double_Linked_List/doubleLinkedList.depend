@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1693573352 source:c:\users\aya farid\documents\codeblocksexamples\doublelinkedlist\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Platform_Types.h"
+	"doubleLinkedList.h"
+
+1693573316 source:c:\users\aya farid\documents\codeblocksexamples\doublelinkedlist\doublelinkedlist.c
+	<stdio.h>
+	"Platform_Types.h"
+	"doubleLinkedList.h"
+
+1693562669 c:\users\aya farid\documents\codeblocksexamples\doublelinkedlist\platform_types.h
+
+1693570283 c:\users\aya farid\documents\codeblocksexamples\doublelinkedlist\doublelinkedlist.h
+	"Platform_Types.h"
+
