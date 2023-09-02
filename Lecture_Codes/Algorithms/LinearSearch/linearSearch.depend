@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1693671650 source:c:\users\aya farid\documents\codeblocksexamples\linearsearch\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Platform_Types.h"
+
+1693670387 c:\users\aya farid\documents\codeblocksexamples\linearsearch\platform_types.h
+
