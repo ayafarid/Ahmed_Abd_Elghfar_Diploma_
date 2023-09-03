@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1693743603 source:c:\users\aya farid\documents\codeblocksexamples\seclectionsort\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Platform_Types.h"
+
+1693743158 c:\users\aya farid\documents\codeblocksexamples\seclectionsort\platform_types.h
+
