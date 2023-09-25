@@ -1,0 +1,40 @@
+/* 
+ * File:   ecu_7_seg_config.h
+ * Author: Aya farid
+ *
+ * Created on September 20, 2023, 6:26 PM
+ */
+
+#ifndef ECU_7_SEG_CONFIG_H
+#define	ECU_7_SEG_CONFIG_H
+
+/* Includes Section */
+
+
+/* Macros Declarations Section */
+#define CONFIG_SEVEN_SEGMENT_DECODED     1
+#define CONFIG_SEVEN_SEGMENT_NOT_DECODED 0
+
+#define CONFIG_ENABLE_DP                 1
+#define CONFIG_DISABLE_DP                0
+
+#define CONFIG_DECODED_STATUS            CONFIG_SEVEN_SEGMENT_DECODED
+#define CONFIG_DP_CONECT_STATUS          CONFIG_DISABLE_DP
+
+#if CONFIG_DECODED_STATUS==CONFIG_SEVEN_SEGMENT_DECODED && CONFIG_DP_CONECT_STATUS==CONFIG_DISABLE_DP
+#define PIN_NUM     4
+#elif CONFIG_DECODED_STATUS==CONFIG_SEVEN_SEGMENT_DECODED && CONFIG_DP_CONECT_STATUS==CONFIG_ENABLE_DP
+#define PIN_NUM     5
+#elif CONFIG_DECODED_STATUS==CONFIG_SEVEN_SEGMENT_NOT_DECODED && CONFIG_DP_CONECT_STATUS==CONFIG_DISABLE_DP
+#define PIN_NUM     7
+#elif CONFIG_DECODED_STATUS==CONFIG_SEVEN_SEGMENT_NOT_DECODED && CONFIG_DP_CONECT_STATUS==CONFIG_ENABLE_DP
+#define PIN_NUM     8
+#endif
+
+/* Function Like Macros Declarations Section*/
+
+
+/* Function Declarations Section */
+
+#endif	/* ECU_7_SEG_CONFIG_H */
+
