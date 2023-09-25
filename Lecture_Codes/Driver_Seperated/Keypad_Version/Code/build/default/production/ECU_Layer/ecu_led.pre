@@ -3849,7 +3849,7 @@ typedef struct {
 uint8 port_index : 4;
 uint8 pin_num : 3;
 uint8 led_status : 1;
-}led_t;
+} led_t;
 
 # 38
 Std_ReturnType led_initizlize(const led_t* led);
@@ -3866,62 +3866,3 @@ Std_ReturnType led_toggle(const led_t* led);
 # 71
 Std_ReturnType led_read_status(const led_t*led, led_status_t* ledStatus);
 
-# 15 "ECU_Layer/ecu_led.c"
-Std_ReturnType led_initizlize(const led_t* led){
-Std_ReturnType Local_Status=(Std_ReturnType)0x00;
-if((0) == led){
-Local_Status=(Std_ReturnType)0x00;
-}else{
-(*tris_register[led->port_index] &= ~((uint8)1 << led->pin_num));
-Local_Status=(Std_ReturnType)0x01;
-}
-return Local_Status;
-}
-
-# 32
-Std_ReturnType led_turn_on(const led_t*led){
-Std_ReturnType LocalReturn=(Std_ReturnType)0x00;
-if(led==(0)){
-LocalReturn=(Std_ReturnType)0x00;
-}else{
-(*lat_register[led->port_index] |= ((uint8)1 << led->pin_num));
-LocalReturn=(Std_ReturnType)0x01;
-}
-return LocalReturn;
-}
-
-# 49
-Std_ReturnType led_turn_off(const led_t*led){
-Std_ReturnType Local_Status=(Std_ReturnType)0x00;
-if((0) == led){
-Local_Status=(Std_ReturnType)0x00;
-}else{
-(*port_register[led->port_index] &= ~((uint8)1 << led->pin_num));
-Local_Status=(Std_ReturnType)0x01;
-}
-return Local_Status;
-}
-
-# 66
-Std_ReturnType led_toggle(const led_t* led){
-Std_ReturnType Local_Status=(Std_ReturnType)0x00;
-if((0) == led){
-Local_Status=(Std_ReturnType)0x00;
-}else{
-(*lat_register[led->port_index] ^= ((uint8)1 << led->pin_num));
-Local_Status=(Std_ReturnType)0x01;
-}
-return Local_Status;
-}
-
-# 84
-Std_ReturnType led_read_status(const led_t*led, led_status_t* ledStatus){
-Std_ReturnType Local_Status=(Std_ReturnType)0x00;
-if((0) == led || (0)==ledStatus || led->port_index>5 || led->pin_num>8){
-Local_Status=(Std_ReturnType)0x00;
-}else{
-*ledStatus=(*lat_register[led->port_index] ^= ((uint8)1 << led->pin_num));
-Local_Status=(Std_ReturnType)0x01;
-}
-return Local_Status;
-}

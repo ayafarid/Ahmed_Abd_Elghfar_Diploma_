@@ -1,14 +1,15 @@
 /* 
- * File:   ecu_led.h
+ * File:   ecu_led_init.h
  * Author: Aya farid
  *
- * Created on September 8, 2023, 11:14 PM
+ * Created on September 25, 2023, 4:34 PM
  */
 
-#ifndef ECU_LED_1_H
-#define	ECU_LED_1_H
+#ifndef ECU_LED_INIT_H
+#define	ECU_LED_INIT_H
+
 /* Includes Section */
-#include "../MCAL_Layer/GPIO/hal_gpio.h"
+#include "../../MCAL_Layer/GPIO/hal_gpio.h"
 
 /* Macros Declarations Section */
 
@@ -69,5 +70,6 @@ Std_ReturnType led_toggle(const led_t* led);
  *         (E_NOT_OK): The function has issue to perform this action
  */
 Std_ReturnType led_read_status(const led_t*led, led_status_t* ledStatus);
-#endif	/* ECU_LED_H */
+
+#endif	/* ECU_LED_INIT_H */
 

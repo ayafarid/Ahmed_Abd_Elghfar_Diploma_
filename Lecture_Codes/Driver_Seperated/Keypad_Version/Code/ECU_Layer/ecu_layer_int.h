@@ -9,7 +9,6 @@
 #define	ECU_LAYER_INT_H
 
 #include "Keypad_Driver/ecu_keypad_init.h"
-#include "ecu_led.h"
 
 Std_ReturnType ecu_layer_initialize();
 
