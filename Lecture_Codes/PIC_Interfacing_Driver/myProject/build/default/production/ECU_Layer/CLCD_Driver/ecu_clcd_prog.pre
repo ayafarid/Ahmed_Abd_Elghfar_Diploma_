@@ -1,5 +1,5 @@
 
-# 1 "application.c"
+# 1 "ECU_Layer/CLCD_Driver/ecu_clcd_prog.c"
 
 # 49 "C:\Program Files\Microchip\xc8\v1.41\include\pic18f4620.h"
 extern volatile unsigned char PORTA @ 0xF80;
@@ -3769,7 +3769,7 @@ extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
 
-# 19 "ECU_Layer/Keypad_Driver/../../MCAL_Layer/GPIO/../std_types.h"
+# 19 "ECU_Layer/CLCD_Driver/../../MCAL_Layer/GPIO/../std_types.h"
 typedef unsigned char boolean;
 typedef unsigned char uint8;
 typedef unsigned short uint16;
@@ -3784,7 +3784,7 @@ typedef double float64;
 
 typedef uint8 Std_ReturnType;
 
-# 37 "ECU_Layer/Keypad_Driver/../../MCAL_Layer/GPIO/hal_gpio.h"
+# 37 "ECU_Layer/CLCD_Driver/../../MCAL_Layer/GPIO/hal_gpio.h"
 typedef enum{
 LOW,
 HIGH
@@ -3839,18 +3839,6 @@ Std_ReturnType gpio_port_write_logic(port_index_t port,uint8 logic);
 Std_ReturnType gpio_port_read_logic(port_index_t port,uint8* logic);
 Std_ReturnType gpio_port_toggle_logic(port_index_t port);
 
-# 22 "ECU_Layer/Keypad_Driver/ecu_keypad_init.h"
-typedef struct{
-pin_config_t keypad_rows_pins[4];
-pin_config_t keypad_colums_pins[4];
-}keypad_t;
-
-# 35
-Std_ReturnType keypad_initialize(keypad_t* keypad_obj);
-
-# 43
-Std_ReturnType keypad_get_key(keypad_t* keypad_obj,uint8* value);
-
 # 53 "ECU_Layer/CLCD_Driver/ecu_clcd_init.h"
 typedef struct{
 pin_config_t lcd_rs;
@@ -3897,123 +3885,240 @@ Std_ReturnType lcd_convert_uint16_to_string(uint16 value,uint8* str);
 # 185
 Std_ReturnType lcd_convert_uint32_to_string(uint32 value,uint8* str);
 
-# 14 "ECU_Layer/ecu_layer_int.h"
-Std_ReturnType ecu_layer_initialize();
+# 8 "ECU_Layer/CLCD_Driver/ecu_clcd_prog.c"
+void *memset(void *str, int c, size_t n){
+unsigned char* tempStr=str;
+if(tempStr!=(0)){
+while(n--){
+*tempStr++=(char)c;
+}
+}else{
+return (0);
+}
+return str;
+}
+static Std_ReturnType lcd_send_4_Bits(const char_lcd_t* lcd_obj,uint8 data_command){
+Std_ReturnType Local_Status=(Std_ReturnType)0x00;
+for(int i=0;i<4;i++){
+Local_Status=gpio_pin_write_logic(&(lcd_obj->lcd_data[i]),(data_command>>i)&0x01);
+}
+return Local_Status;
+}
+static Std_ReturnType lcd_send_enable_sginal(const char_lcd_t* lcd){
+Std_ReturnType Local_Status=(Std_ReturnType)0x00;
+Local_Status=gpio_pin_write_logic(&(lcd->lcd_en),HIGH);
+_delay((unsigned long)((5)*(4000000UL/4000000.0)));
+Local_Status=gpio_pin_write_logic(&(lcd->lcd_en),LOW);
+return Local_Status;
+}
+static Std_ReturnType lcd_set_cusor_postion(const char_lcd_t* lcd_obj,uint8 row,uint8 column){
+Std_ReturnType Local_Status=(Std_ReturnType)0x00;
+column--;
+switch(row){
+case 1 : Local_Status = lcd_send_command(lcd_obj, (0x80 + column)); break;
+case 2 : Local_Status = lcd_send_command(lcd_obj, (0xc0 + column)); break;
+case 3 : Local_Status = lcd_send_command(lcd_obj, (0x94 + column)); break;
+case 4 : Local_Status = lcd_send_command(lcd_obj, (0xd4 + column)); break;
+default : ;
+}
+return Local_Status;
+}
 
-# 17 "ECU_Layer/LED_Driver/ecu_led_init.h"
-typedef enum {
-LED_OFF,
-LED_ON
-} led_status_t;
+# 52
+Std_ReturnType lcd_initalize(const char_lcd_t* lcd_obj){
+Std_ReturnType Local_Status=(Std_ReturnType)0x00;
+if(lcd_obj==(0)){
+Local_Status=(Std_ReturnType)0x00;
+}else{
+Local_Status=gpio_pin_intialize(&lcd_obj->lcd_rs);
+Local_Status=gpio_pin_intialize(&lcd_obj->lcd_en);
+for(int Pin_counter=0;Pin_counter<4;Pin_counter++){
+Local_Status=gpio_pin_intialize(&lcd_obj->lcd_data[Pin_counter]);
+}
+_delay((unsigned long)((20)*(4000000UL/4000.0)));
+Local_Status=lcd_send_command(lcd_obj,0x38);
+_delay((unsigned long)((5)*(4000000UL/4000.0)));
+Local_Status=lcd_send_command(lcd_obj,0x38);
+_delay((unsigned long)((150)*(4000000UL/4000000.0)));
 
-typedef struct {
-uint8 port_index : 4;
-uint8 pin_num : 3;
-uint8 led_status : 1;
-}led_t;
+Local_Status=lcd_send_command(lcd_obj,0x01);
+Local_Status=lcd_send_command(lcd_obj,0x02);
+Local_Status=lcd_send_command(lcd_obj,0x06);
+Local_Status=lcd_send_command(lcd_obj,0x0E);
 
-# 39
-Std_ReturnType led_initizlize(const led_t* led);
+Local_Status=lcd_send_command(&lcd_obj,0x28);
 
-# 47
-Std_ReturnType led_turn_on(const led_t*led);
+# 77
+Local_Status=lcd_send_command(&lcd_obj,0x80);
+}
+return Local_Status;
+}
 
-# 55
-Std_ReturnType led_turn_off(const led_t*led);
+# 89
+Std_ReturnType lcd_send_command(const char_lcd_t* lcd_obj,uint8 command){
+Std_ReturnType Local_Status=(Std_ReturnType)0x00;
+if(lcd_obj==(0)){
+Local_Status=(Std_ReturnType)0x00;
+}else{
+Local_Status=gpio_pin_write_logic(&(lcd_obj->lcd_rs),LOW);
 
-# 63
-Std_ReturnType led_toggle(const led_t* led);
+Local_Status=lcd_send_4_Bits(lcd_obj,command>>4);
+Local_Status=lcd_send_enable_sginal(lcd_obj);
+Local_Status=lcd_send_4_Bits(lcd_obj,command);
+Local_Status=lcd_send_enable_sginal(lcd_obj);
 
-# 72
-Std_ReturnType led_read_status(const led_t*led, led_status_t* ledStatus);
+# 106
+}
+return Local_Status;
+}
 
-# 19 "application.h"
-extern keypad_t keypad1;
-extern led_t led1;
-extern char_lcd_t lcd1;
-uint8 customChar[][8] = {{
-0x0E,
-0x0A,
-0x11,
-0x11,
-0x11,
-0x11,
-0x11,
-0x1F
-},{
-0x0E,
-0x0A,
-0x11,
-0x11,
-0x11,
-0x11,
-0x1F,
-0x1F
-},{
-0x0E,
-0x0A,
-0x11,
-0x11,
-0x11,
-0x1F,
-0x1F,
-0x1F
-},{
-0x0E,
-0x0A,
-0x11,
-0x11,
-0x1F,
-0x1F,
-0x1F,
-0x1F
-},{
-0x0E,
-0x0A,
-0x11,
-0x1F,
-0x1F,
-0x1F,
-0x1F,
-0x1F
-},{
-0x0E,
-0x0A,
-0x1F,
-0x1F,
-0x1F,
-0x1F,
-0x1F,
-0x1F
-},{
-0x0E,
-0x0E,
-0x1F,
-0x1F,
-0x1F,
-0x1F,
-0x1F,
-0x1F
-}};
+# 117
+Std_ReturnType lcd_send_char_data(const char_lcd_t* lcd_obj,uint8 data){
+Std_ReturnType Local_Status=(Std_ReturnType)0x00;
+if(lcd_obj==(0)){
+Local_Status=(Std_ReturnType)0x00;
+}else{
 
-void functionInitialize();
+Local_Status=gpio_pin_write_logic(&(lcd_obj->lcd_rs),HIGH);
+Local_Status=lcd_send_4_Bits(lcd_obj,data>>4);
+Local_Status=lcd_send_enable_sginal(lcd_obj);
+Local_Status=lcd_send_4_Bits(lcd_obj,data);
+Local_Status=lcd_send_enable_sginal(lcd_obj);
 
-# 9 "application.c"
-uint8 str[6];
-int main() {
-functionInitialize();
+# 134
+}
+return Local_Status;
+}
 
-# 16
-while (1) {
+# 147
+Std_ReturnType lcd_send_char_data_position(const char_lcd_t* lcd_obj,uint8 data,uint8 row,uint8 column){
+Std_ReturnType Local_Status=(Std_ReturnType)0x00;
+if(lcd_obj==(0)){
+Local_Status=(Std_ReturnType)0x00;
+}else{
+Local_Status=lcd_set_cusor_postion(lcd_obj,row,column);
+Local_Status=lcd_send_char_data(lcd_obj,data);
+}
+return Local_Status;
+}
+
+# 165
+Std_ReturnType lcd_send_string(const char_lcd_t* lcd_obj,uint8* str){
+Std_ReturnType Local_Status=(Std_ReturnType)0x00;
+if(lcd_obj==(0) || str==(0)){
+Local_Status=(Std_ReturnType)0x00;
+}else{
+while(*str){
+Local_Status=lcd_send_char_data(lcd_obj,*str);
+str++;
+}
+}
+return Local_Status;
+}
+
+# 187
+Std_ReturnType lcd_send_string_position(const char_lcd_t* lcd_obj,uint8* str,uint8 row,uint8 column){
+Std_ReturnType Local_Status=(Std_ReturnType)0x00;
+if(lcd_obj==(0) || str==(0)){
+Local_Status=(Std_ReturnType)0x00;
+}else{
+Local_Status=lcd_set_cusor_postion(lcd_obj,row,column);
+while(*str){
+Local_Status=lcd_send_char_data(lcd_obj,*str);
+str++;
+}
+}
+return Local_Status;
+}
+
+# 209
+Std_ReturnType lcd_send_custom_char(const char_lcd_t* lcd_obj,const uint8 chr[],uint8 mem_pos){
+Std_ReturnType Local_Status=(Std_ReturnType)0x00;
+if(lcd_obj==(0)){
+Local_Status=(Std_ReturnType)0x00;
+}else{
+Local_Status=lcd_send_command(lcd_obj,0x40+(mem_pos*8));
 for(int i=0;i<8;i++){
-lcd_send_custom_char_position(&lcd1,1,1,customChar[i],0);
-_delay((unsigned long)((200)*(4000000UL/4000.0)));
+Local_Status=lcd_send_char_data(lcd_obj,chr[i]);
+}
+Local_Status=lcd_send_char_data(lcd_obj,mem_pos);
+}
+return Local_Status;
 }
 
-# 49
+# 233
+Std_ReturnType lcd_send_custom_char_position(const char_lcd_t* lcd_obj,uint8 row,uint8 column,const uint8 chr[],uint8 mem_pos){
+Std_ReturnType Local_Status=(Std_ReturnType)0x00;
+if(lcd_obj==(0)){
+Local_Status=(Std_ReturnType)0x00;
+}else{
+Local_Status=lcd_send_command(lcd_obj,0x40+(mem_pos*8));
+for(int i=0;i<8;i++){
+Local_Status=lcd_send_char_data(lcd_obj,chr[i]);
 }
+Local_Status=lcd_send_char_data_position(lcd_obj,mem_pos,row,column);
+}
+return Local_Status;
 }
 
-void functionInitialize() {
-ecu_layer_initialize();
+# 254
+Std_ReturnType lcd_send_number(const char_lcd_t* lcd_obj,uint32 num){
+Std_ReturnType Local_Status=(Std_ReturnType)0x00;
+uint32 arr[11];
+if(lcd_obj==(0)){
+Local_Status=(Std_ReturnType)0x00;
+}else{
+Local_Status=lcd_convert_uint32_to_string(num,arr);
+Local_Status=lcd_send_string(lcd_obj,arr);
+}
+return Local_Status;
+}
+
+# 275
+Std_ReturnType lcd_send_number_position(const char_lcd_t* lcd_obj,uint8 row,uint8 column,uint32 num){
+Std_ReturnType Local_Status=(Std_ReturnType)0x00;
+uint32 arr[11];
+if(lcd_obj==(0)){
+Local_Status=(Std_ReturnType)0x00;
+}else{
+Local_Status=lcd_convert_uint32_to_string(num,arr);
+Local_Status=lcd_send_string_position(lcd_obj,arr,row,column);
+}
+return Local_Status;
+}
+
+# 294
+Std_ReturnType lcd_convert_uint8_to_string(uint8 value,uint8* str){
+Std_ReturnType Local_Status=(Std_ReturnType)0x00;
+if(str==(0)){
+Local_Status=(Std_ReturnType)0x00;
+}else{
+memset(str,'\0',4);
+sprintf(str,"%i",value);
+}
+return Local_Status;
+}
+
+# 312
+Std_ReturnType lcd_convert_uint16_to_string(uint16 value,uint8* str){
+Std_ReturnType Local_Status=(Std_ReturnType)0x00;
+if(str==(0)){
+Local_Status=(Std_ReturnType)0x00;
+}else{
+memset(str,'\0',6);
+sprintf(str,"%i",value);
+}
+return Local_Status;
+}
+
+# 330
+Std_ReturnType lcd_convert_uint32_to_string(uint32 value,uint8* str){
+Std_ReturnType Local_Status=(Std_ReturnType)0x00;
+if(str==(0)){
+Local_Status=(Std_ReturnType)0x00;
+}else{
+memset(str,'\0',11);
+sprintf(str,"%i",value);
+}
+return Local_Status;
 }

@@ -17,11 +17,18 @@
           <itemPath>ECU_Layer/Button_Driver/ecu_button_init.h</itemPath>
           <itemPath>ECU_Layer/Button_Driver/ecu_button_config.h</itemPath>
         </logicalFolder>
+        <logicalFolder name="CLCD_Driver" displayName="CLCD_Driver" projectFiles="true">
+          <itemPath>ECU_Layer/CLCD_Driver/ecu_clcd_init.h</itemPath>
+          <itemPath>ECU_Layer/CLCD_Driver/ecu_clcd_config.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="Keypad_Driver"
                        displayName="Keypad_Driver"
                        projectFiles="true">
           <itemPath>ECU_Layer/Keypad_Driver/ecu_keypad_init.h</itemPath>
           <itemPath>ECU_Layer/Keypad_Driver/ecu_keypad_config.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="LED_Driver" displayName="LED_Driver" projectFiles="true">
+          <itemPath>ECU_Layer/LED_Driver/ecu_led_init.h</itemPath>
         </logicalFolder>
         <logicalFolder name="Motor_Driver"
                        displayName="Motor_Driver"
@@ -33,7 +40,6 @@
           <itemPath>ECU_Layer/Relay/ecu_relay_config.h</itemPath>
           <itemPath>ECU_Layer/Relay/ecu_relay_init.h</itemPath>
         </logicalFolder>
-        <itemPath>ECU_Layer/ecu_led.h</itemPath>
         <itemPath>ECU_Layer/ecu_layer_int.h</itemPath>
       </logicalFolder>
       <logicalFolder name="MCAL_Layer" displayName="MCAL_Layer" projectFiles="true">
@@ -66,10 +72,16 @@
                        projectFiles="true">
           <itemPath>ECU_Layer/Button_Driver/hal_button_prog.c</itemPath>
         </logicalFolder>
+        <logicalFolder name="CLCD_Driver" displayName="CLCD_Driver" projectFiles="true">
+          <itemPath>ECU_Layer/CLCD_Driver/ecu_clcd_prog.c</itemPath>
+        </logicalFolder>
         <logicalFolder name="Keypad_Driver"
                        displayName="Keypad_Driver"
                        projectFiles="true">
           <itemPath>ECU_Layer/Keypad_Driver/ecu_keypad_prog.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="LED_Driver" displayName="LED_Driver" projectFiles="true">
+          <itemPath>ECU_Layer/LED_Driver/ecu_led_prog.c</itemPath>
         </logicalFolder>
         <logicalFolder name="Motor_Driver"
                        displayName="Motor_Driver"
@@ -79,7 +91,6 @@
         <logicalFolder name="Relay" displayName="Relay" projectFiles="true">
           <itemPath>ECU_Layer/Relay/ecu_realy_prog.c</itemPath>
         </logicalFolder>
-        <itemPath>ECU_Layer/ecu_led.c</itemPath>
         <itemPath>ECU_Layer/ecu_layer_prog.c</itemPath>
       </logicalFolder>
       <logicalFolder name="MCAL_Layer" displayName="MCAL_Layer" projectFiles="true">

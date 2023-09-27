@@ -35,15 +35,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 "32
 [s S272 `S271 1 `S271 1 ]
 [n S272 . pinRight pinLeft ]
-"61 ECU_Layer/Motor_Driver/../../MCAL_Layer/GPIO/hal_gpio.h
+"63 ECU_Layer/Motor_Driver/../../MCAL_Layer/GPIO/hal_gpio.h
 [s S270 :4 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S270 . port pin directin logic ]
-"75
+"77
 [v _gpio_pin_direction_intialize `(uc ~T0 @X0 0 ef1`*CS270 ]
 "39 ECU_Layer/Motor_Driver/ecu_motor_prog.c
 [c E3078 0 1 .. ]
 [n E3078 . LOW HIGH  ]
-"77 ECU_Layer/Motor_Driver/../../MCAL_Layer/GPIO/hal_gpio.h
+"79 ECU_Layer/Motor_Driver/../../MCAL_Layer/GPIO/hal_gpio.h
 [v _gpio_pin_write_logic `(uc ~T0 @X0 0 ef2`*CS270`E3078 ]
 [; ;pic18f4620.h: 49: extern volatile unsigned char PORTA @ 0xF80;
 "51 C:\Program Files\Microchip\xc8\v1.41\include\pic18f4620.h
@@ -2818,38 +2818,38 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;std_types.h: 28: typedef float float32;
 [; ;std_types.h: 29: typedef double float64;
 [; ;std_types.h: 31: typedef uint8 Std_ReturnType;
-[; ;hal_gpio.h: 35: typedef enum{
-[; ;hal_gpio.h: 36: LOW,
-[; ;hal_gpio.h: 37: HIGH
-[; ;hal_gpio.h: 38: }logic_t;
-[; ;hal_gpio.h: 40: typedef enum{
-[; ;hal_gpio.h: 41: OUTPUT,
-[; ;hal_gpio.h: 42: INPUT
-[; ;hal_gpio.h: 43: }direction_t;
-[; ;hal_gpio.h: 44: typedef enum{
-[; ;hal_gpio.h: 45: PIN0=0,
-[; ;hal_gpio.h: 46: PIN1,
-[; ;hal_gpio.h: 47: PIN2,
-[; ;hal_gpio.h: 48: PIN3,
-[; ;hal_gpio.h: 49: PIN4,
-[; ;hal_gpio.h: 50: PIN5,
-[; ;hal_gpio.h: 51: PIN6,
-[; ;hal_gpio.h: 52: PIN7
-[; ;hal_gpio.h: 53: }pin_index_t;
-[; ;hal_gpio.h: 54: typedef enum{
-[; ;hal_gpio.h: 55: PORTA_INDEX=0,
-[; ;hal_gpio.h: 56: PORTB_INDEX,
-[; ;hal_gpio.h: 57: PORTC_INDEX,
-[; ;hal_gpio.h: 58: PORTD_INDEX,
-[; ;hal_gpio.h: 59: PORTE_INDEX
-[; ;hal_gpio.h: 60: }port_index_t;
-[; ;hal_gpio.h: 61: typedef struct{
-[; ;hal_gpio.h: 62: uint8 port:4;
-[; ;hal_gpio.h: 63: uint8 pin:3;
-[; ;hal_gpio.h: 64: uint8 directin:1;
-[; ;hal_gpio.h: 65: uint8 logic:1;
-[; ;hal_gpio.h: 66: }pin_config_t;
-"68 ECU_Layer/Motor_Driver/../../MCAL_Layer/GPIO/hal_gpio.h
+[; ;hal_gpio.h: 37: typedef enum{
+[; ;hal_gpio.h: 38: LOW,
+[; ;hal_gpio.h: 39: HIGH
+[; ;hal_gpio.h: 40: }logic_t;
+[; ;hal_gpio.h: 42: typedef enum{
+[; ;hal_gpio.h: 43: OUTPUT,
+[; ;hal_gpio.h: 44: INPUT
+[; ;hal_gpio.h: 45: }direction_t;
+[; ;hal_gpio.h: 46: typedef enum{
+[; ;hal_gpio.h: 47: PIN0=0,
+[; ;hal_gpio.h: 48: PIN1,
+[; ;hal_gpio.h: 49: PIN2,
+[; ;hal_gpio.h: 50: PIN3,
+[; ;hal_gpio.h: 51: PIN4,
+[; ;hal_gpio.h: 52: PIN5,
+[; ;hal_gpio.h: 53: PIN6,
+[; ;hal_gpio.h: 54: PIN7
+[; ;hal_gpio.h: 55: }pin_index_t;
+[; ;hal_gpio.h: 56: typedef enum{
+[; ;hal_gpio.h: 57: PORTA_INDEX=0,
+[; ;hal_gpio.h: 58: PORTB_INDEX,
+[; ;hal_gpio.h: 59: PORTC_INDEX,
+[; ;hal_gpio.h: 60: PORTD_INDEX,
+[; ;hal_gpio.h: 61: PORTE_INDEX
+[; ;hal_gpio.h: 62: }port_index_t;
+[; ;hal_gpio.h: 63: typedef struct{
+[; ;hal_gpio.h: 64: uint8 port:4;
+[; ;hal_gpio.h: 65: uint8 pin:3;
+[; ;hal_gpio.h: 66: uint8 directin:1;
+[; ;hal_gpio.h: 67: uint8 logic:1;
+[; ;hal_gpio.h: 68: }pin_config_t;
+"70 ECU_Layer/Motor_Driver/../../MCAL_Layer/GPIO/hal_gpio.h
 [v _tris_register `*Vuc ~T0 @X0 -> 0 `x e ]
 [i _tris_register
 :U ..
@@ -2860,8 +2860,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 &U _TRISE
 ..
 ]
-[; ;hal_gpio.h: 68: volatile uint8* tris_register[]={&TRISA,&TRISB,&TRISC,&TRISD,&TRISE};
-"70
+[; ;hal_gpio.h: 70: volatile uint8* tris_register[]={&TRISA,&TRISB,&TRISC,&TRISD,&TRISE};
+"72
 [v _port_register `*Vuc ~T0 @X0 -> 0 `x e ]
 [i _port_register
 :U ..
@@ -2872,8 +2872,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 &U _PORTE
 ..
 ]
-[; ;hal_gpio.h: 70: volatile uint8* port_register[]={&PORTA,&PORTB,&PORTC,&PORTD,&PORTE};
-"72
+[; ;hal_gpio.h: 72: volatile uint8* port_register[]={&PORTA,&PORTB,&PORTC,&PORTD,&PORTE};
+"74
 [v _lat_register `*Vuc ~T0 @X0 -> 0 `x e ]
 [i _lat_register
 :U ..
@@ -2884,18 +2884,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 &U _LATE
 ..
 ]
-[; ;hal_gpio.h: 72: volatile uint8* lat_register[]={&LATA,&LATB,&LATC,&LATD,&LATE};
-[; ;hal_gpio.h: 75: Std_ReturnType gpio_pin_direction_intialize(const pin_config_t* _pin_config);
-[; ;hal_gpio.h: 76: Std_ReturnType gpio_pin_get_direction_status(const pin_config_t* _pin_config,direction_t* direction_status);
-[; ;hal_gpio.h: 77: Std_ReturnType gpio_pin_write_logic(const pin_config_t* _pin_config,logic_t logic);
-[; ;hal_gpio.h: 78: Std_ReturnType gpio_pin_read_logic(const pin_config_t* _pin_config,logic_t* logic);
-[; ;hal_gpio.h: 79: Std_ReturnType gpio_pin_toggle_logic(const pin_config_t* _pin_config);
-[; ;hal_gpio.h: 80: Std_ReturnType gpio_pin_intialize(const pin_config_t* _pin_config);
-[; ;hal_gpio.h: 83: Std_ReturnType gpio_port_direction_intialize(port_index_t port,uint8 direction);
-[; ;hal_gpio.h: 84: Std_ReturnType gpio_port_get_direction_status(port_index_t port,uint8* directionPortStatus);
-[; ;hal_gpio.h: 85: Std_ReturnType gpio_port_write_logic(port_index_t port,uint8 logic);
-[; ;hal_gpio.h: 86: Std_ReturnType gpio_port_read_logic(port_index_t port,uint8* logic);
-[; ;hal_gpio.h: 87: Std_ReturnType gpio_port_toggle_logic(port_index_t port);
+[; ;hal_gpio.h: 74: volatile uint8* lat_register[]={&LATA,&LATB,&LATC,&LATD,&LATE};
+[; ;hal_gpio.h: 77: Std_ReturnType gpio_pin_direction_intialize(const pin_config_t* _pin_config);
+[; ;hal_gpio.h: 78: Std_ReturnType gpio_pin_get_direction_status(const pin_config_t* _pin_config,direction_t* direction_status);
+[; ;hal_gpio.h: 79: Std_ReturnType gpio_pin_write_logic(const pin_config_t* _pin_config,logic_t logic);
+[; ;hal_gpio.h: 80: Std_ReturnType gpio_pin_read_logic(const pin_config_t* _pin_config,logic_t* logic);
+[; ;hal_gpio.h: 81: Std_ReturnType gpio_pin_toggle_logic(const pin_config_t* _pin_config);
+[; ;hal_gpio.h: 82: Std_ReturnType gpio_pin_intialize(const pin_config_t* _pin_config);
+[; ;hal_gpio.h: 85: Std_ReturnType gpio_port_direction_intialize(port_index_t port,uint8 direction);
+[; ;hal_gpio.h: 86: Std_ReturnType gpio_port_get_direction_status(port_index_t port,uint8* directionPortStatus);
+[; ;hal_gpio.h: 87: Std_ReturnType gpio_port_write_logic(port_index_t port,uint8 logic);
+[; ;hal_gpio.h: 88: Std_ReturnType gpio_port_read_logic(port_index_t port,uint8* logic);
+[; ;hal_gpio.h: 89: Std_ReturnType gpio_port_toggle_logic(port_index_t port);
 [; ;ecu_motor_init.h: 26: typedef struct{
 [; ;ecu_motor_init.h: 27: uint8 motor_port:4;
 [; ;ecu_motor_init.h: 28: uint8 motor_pin:3;

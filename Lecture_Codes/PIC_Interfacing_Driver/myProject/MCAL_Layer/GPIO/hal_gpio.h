@@ -23,6 +23,8 @@
 #define PORT_PIN_CONFIGRATION                CONFIG_ENABLE
 #define PORT_COFIGRATION                     CONFIG_ENABLE
 
+#define _XTAL_FREQ 4000000UL
+
 /* Function Like Macros Declarations Section*/
 #define HWRREG(_x)                   (*((uint8 *)(_x)))
 

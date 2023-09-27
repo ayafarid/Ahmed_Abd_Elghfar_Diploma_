@@ -1,5 +1,5 @@
 
-# 1 "application.c"
+# 1 "ECU_Layer/LED_Driver/ecu_led_prog.c"
 
 # 49 "C:\Program Files\Microchip\xc8\v1.41\include\pic18f4620.h"
 extern volatile unsigned char PORTA @ 0xF80;
@@ -3769,7 +3769,7 @@ extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
 
-# 19 "ECU_Layer/Keypad_Driver/../../MCAL_Layer/GPIO/../std_types.h"
+# 19 "ECU_Layer/LED_Driver/../../MCAL_Layer/GPIO/../std_types.h"
 typedef unsigned char boolean;
 typedef unsigned char uint8;
 typedef unsigned short uint16;
@@ -3784,7 +3784,7 @@ typedef double float64;
 
 typedef uint8 Std_ReturnType;
 
-# 37 "ECU_Layer/Keypad_Driver/../../MCAL_Layer/GPIO/hal_gpio.h"
+# 37 "ECU_Layer/LED_Driver/../../MCAL_Layer/GPIO/hal_gpio.h"
 typedef enum{
 LOW,
 HIGH
@@ -3839,67 +3839,6 @@ Std_ReturnType gpio_port_write_logic(port_index_t port,uint8 logic);
 Std_ReturnType gpio_port_read_logic(port_index_t port,uint8* logic);
 Std_ReturnType gpio_port_toggle_logic(port_index_t port);
 
-# 22 "ECU_Layer/Keypad_Driver/ecu_keypad_init.h"
-typedef struct{
-pin_config_t keypad_rows_pins[4];
-pin_config_t keypad_colums_pins[4];
-}keypad_t;
-
-# 35
-Std_ReturnType keypad_initialize(keypad_t* keypad_obj);
-
-# 43
-Std_ReturnType keypad_get_key(keypad_t* keypad_obj,uint8* value);
-
-# 53 "ECU_Layer/CLCD_Driver/ecu_clcd_init.h"
-typedef struct{
-pin_config_t lcd_rs;
-pin_config_t lcd_en;
-pin_config_t lcd_data[4];
-}char_lcd_t;
-
-# 67
-Std_ReturnType lcd_initalize(const char_lcd_t* lcd_obj);
-
-# 76
-Std_ReturnType lcd_send_command(const char_lcd_t* lcd_obj,uint8 command);
-
-# 85
-Std_ReturnType lcd_send_char_data(const char_lcd_t* lcd_obj,uint8 data);
-
-# 96
-Std_ReturnType lcd_send_char_data_position(const char_lcd_t* lcd_obj,uint8 data,uint8 row,uint8 column);
-
-# 105
-Std_ReturnType lcd_send_string(const char_lcd_t* lcd_obj,uint8* str);
-
-# 116
-Std_ReturnType lcd_send_string_position(const char_lcd_t* lcd_obj,uint8* str,uint8 row,uint8 column);
-
-# 126
-Std_ReturnType lcd_send_custom_char(const char_lcd_t* lcd_obj,const uint8 chr[],uint8 mem_pos);
-
-# 138
-Std_ReturnType lcd_send_custom_char_position(const char_lcd_t* lcd_obj,uint8 row,uint8 column,const uint8 chr[],uint8 mem_pos);
-
-# 147
-Std_ReturnType lcd_send_number(const char_lcd_t* lcd_obj,uint32 num);
-
-# 158
-Std_ReturnType lcd_send_number_position(const char_lcd_t* lcd_obj,uint8 row,uint8 column,uint32 num);
-
-# 167
-Std_ReturnType lcd_convert_uint8_to_string(uint8 value,uint8* str);
-
-# 176
-Std_ReturnType lcd_convert_uint16_to_string(uint16 value,uint8* str);
-
-# 185
-Std_ReturnType lcd_convert_uint32_to_string(uint32 value,uint8* str);
-
-# 14 "ECU_Layer/ecu_layer_int.h"
-Std_ReturnType ecu_layer_initialize();
-
 # 17 "ECU_Layer/LED_Driver/ecu_led_init.h"
 typedef enum {
 LED_OFF,
@@ -3927,93 +3866,62 @@ Std_ReturnType led_toggle(const led_t* led);
 # 72
 Std_ReturnType led_read_status(const led_t*led, led_status_t* ledStatus);
 
-# 19 "application.h"
-extern keypad_t keypad1;
-extern led_t led1;
-extern char_lcd_t lcd1;
-uint8 customChar[][8] = {{
-0x0E,
-0x0A,
-0x11,
-0x11,
-0x11,
-0x11,
-0x11,
-0x1F
-},{
-0x0E,
-0x0A,
-0x11,
-0x11,
-0x11,
-0x11,
-0x1F,
-0x1F
-},{
-0x0E,
-0x0A,
-0x11,
-0x11,
-0x11,
-0x1F,
-0x1F,
-0x1F
-},{
-0x0E,
-0x0A,
-0x11,
-0x11,
-0x1F,
-0x1F,
-0x1F,
-0x1F
-},{
-0x0E,
-0x0A,
-0x11,
-0x1F,
-0x1F,
-0x1F,
-0x1F,
-0x1F
-},{
-0x0E,
-0x0A,
-0x1F,
-0x1F,
-0x1F,
-0x1F,
-0x1F,
-0x1F
-},{
-0x0E,
-0x0E,
-0x1F,
-0x1F,
-0x1F,
-0x1F,
-0x1F,
-0x1F
-}};
+# 15 "ECU_Layer/LED_Driver/ecu_led_prog.c"
+Std_ReturnType led_initizlize(const led_t* led){
+Std_ReturnType Local_Status=(Std_ReturnType)0x00;
+if((0) == led){
+Local_Status=(Std_ReturnType)0x00;
+}else{
+(*tris_register[led->port_index] &= ~((uint8)1 << led->pin_num));
+Local_Status=(Std_ReturnType)0x01;
+}
+return Local_Status;
+}
 
-void functionInitialize();
-
-# 9 "application.c"
-uint8 str[6];
-int main() {
-functionInitialize();
-
-# 16
-while (1) {
-for(int i=0;i<8;i++){
-lcd_send_custom_char_position(&lcd1,1,1,customChar[i],0);
-_delay((unsigned long)((200)*(4000000UL/4000.0)));
+# 32
+Std_ReturnType led_turn_on(const led_t*led){
+Std_ReturnType LocalReturn=(Std_ReturnType)0x00;
+if(led==(0)){
+LocalReturn=(Std_ReturnType)0x00;
+}else{
+(*lat_register[led->port_index] |= ((uint8)1 << led->pin_num));
+LocalReturn=(Std_ReturnType)0x01;
+}
+return LocalReturn;
 }
 
 # 49
+Std_ReturnType led_turn_off(const led_t*led){
+Std_ReturnType Local_Status=(Std_ReturnType)0x00;
+if((0) == led){
+Local_Status=(Std_ReturnType)0x00;
+}else{
+(*port_register[led->port_index] &= ~((uint8)1 << led->pin_num));
+Local_Status=(Std_ReturnType)0x01;
 }
+return Local_Status;
 }
 
-void functionInitialize() {
-ecu_layer_initialize();
+# 66
+Std_ReturnType led_toggle(const led_t* led){
+Std_ReturnType Local_Status=(Std_ReturnType)0x00;
+if((0) == led){
+Local_Status=(Std_ReturnType)0x00;
+}else{
+(*lat_register[led->port_index] ^= ((uint8)1 << led->pin_num));
+Local_Status=(Std_ReturnType)0x01;
+}
+return Local_Status;
+}
+
+# 84
+Std_ReturnType led_read_status(const led_t*led, led_status_t* ledStatus){
+Std_ReturnType Local_Status=(Std_ReturnType)0x00;
+if((0) == led || (0)==ledStatus || led->port_index>5 || led->pin_num>8){
+Local_Status=(Std_ReturnType)0x00;
+}else{
+*ledStatus=(*lat_register[led->port_index] ^= ((uint8)1 << led->pin_num));
+Local_Status=(Std_ReturnType)0x01;
+}
+return Local_Status;
 }
