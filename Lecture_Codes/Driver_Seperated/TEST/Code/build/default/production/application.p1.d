@@ -8,6 +8,7 @@ MCAL_Layer/Interrupt_Driver/mcal_interrupt_gen_config.h  \
 ECU_Layer/Keypad_Driver/../../MCAL_Layer/GPIO/../device_config.h  \
 MCAL_Layer/Interrupt_Driver/mcal_interrupt_config.h  \
 ECU_Layer/Keypad_Driver/../../MCAL_Layer/GPIO/hal_gpio_config.h  \
+MCAL_Layer/mcal_layer_init.h  \
 ECU_Layer/ecu_layer_int.h  \
 MCAL_Layer/Interrupt_Driver/mcal_external_interrupt.h  \
 ECU_Layer/Keypad_Driver/../../MCAL_Layer/GPIO/../compiler.h  \

@@ -9,6 +9,7 @@
 
 /* ----------------- Includes -----------------*/
 #include "mcal_interrupt_config.h"
+#include "../GPIO/hal_gpio.h"
 
 /* ----------------- Macro Declarations -----------------*/
 

@@ -3850,16 +3850,70 @@ void INT0_ISR(void);
 void INT1_ISR(void);
 void INT2_ISR(void);
 
-# 16 "MCAL_Layer/Interrupt_Driver/mcal_iterrupt_mangaer.c"
-void __interrupt InterruptManager(void){
-if(INTCONbits.INT0IE==1 && INTCONbits.INT0IF==1){
-INT0_ISR();
-}else if(INTCON3bits.INT1IE==1 && INTCON3bits.INT1IF==1){
-INT1_ISR();
-}else if(INTCON3bits.INT2IE==1 && INTCON3bits.INT2IF==1){
-INT2_ISR();
-}else{
+void RB4_ISR(uint8 source);
+void RB5_ISR(uint8 source);
+void RB6_ISR(uint8 source);
+void RB7_ISR(uint8 source);
 
+# 8 "MCAL_Layer/Interrupt_Driver/mcal_iterrupt_mangaer.c"
+uint8 RB4_Flag=1;
+uint8 RB5_Flag=1;
+uint8 RB6_Flag=1;
+uint8 RB7_Flag=1;
+
+# 32
+void __interrupt InterruptManager(void) {
+if (INTCONbits.INT0IE == 1 && INTCONbits.INT0IF == 1) {
+INT0_ISR();
 }
+if (INTCON3bits.INT1IE == 1 && INTCON3bits.INT1IF == 1) {
+INT1_ISR();
+}
+if (INTCON3bits.INT2IE == 1 && INTCON3bits.INT2IF == 1) {
+INT2_ISR();
+}
+
+if (INTCONbits.RBIE==1 && INTCONbits.RBIF==1 && PORTBbits.RB4==HIGH && RB4_Flag==1){
+RB4_Flag=0;
+RB4_ISR(PORTBbits.RB4);
+}
+if (INTCONbits.RBIE==1 && INTCONbits.RBIF==1 && PORTBbits.RB4==LOW && RB4_Flag==0){
+RB4_Flag=1;
+RB4_ISR(PORTBbits.RB4);
+}
+
+
+
+if (INTCONbits.RBIE==1 && INTCONbits.RBIF==1 && PORTBbits.RB5==HIGH && RB5_Flag==1){
+RB5_Flag=0;
+RB5_ISR(PORTBbits.RB5);
+}
+if (INTCONbits.RBIE==1 && INTCONbits.RBIF==1 && PORTBbits.RB5==LOW && RB5_Flag==0){
+RB5_Flag=1;
+RB5_ISR(PORTBbits.RB5);
+}
+
+
+
+if (INTCONbits.RBIE==1 && INTCONbits.RBIF==1 && PORTBbits.RB6==HIGH && RB6_Flag==1){
+RB6_Flag=0;
+RB6_ISR(PORTBbits.RB6);
+}
+if (INTCONbits.RBIE==1 && INTCONbits.RBIF==1 && PORTBbits.RB6==LOW && RB6_Flag==0){
+RB6_Flag=1;
+RB6_ISR(PORTBbits.RB6);
+}
+
+
+
+if (INTCONbits.RBIE==1 && INTCONbits.RBIF==1 && PORTBbits.RB7==HIGH && RB7_Flag==1){
+RB7_Flag=0;
+RB7_ISR(PORTBbits.RB7);
+}
+if (INTCONbits.RBIE==1 && INTCONbits.RBIF==1 && PORTBbits.RB7==LOW && RB7_Flag==0){
+RB7_Flag=1;
+RB7_ISR(PORTBbits.RB7);
+}
+
 }
 

@@ -3111,29 +3111,73 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ecu_layer_prog.c: 66: LED_OFF
 [; ;ecu_layer_prog.c: 67: };
 "68
+[v _led4 `S272 ~T0 @X0 1 e ]
+[i _led4
+:U ..
+:U ..
+"69
+-> . `E3096 3 `uc
+"70
+-> . `E3086 3 `uc
+"72
+-> . `E3151 0 `uc
+..
+..
+]
+[; ;ecu_layer_prog.c: 68: led_t led4={
+[; ;ecu_layer_prog.c: 69: PORTD_INDEX,
+[; ;ecu_layer_prog.c: 70: PIN3,
+[; ;ecu_layer_prog.c: 71: LED_OFF
+[; ;ecu_layer_prog.c: 72: };
+"73
+[v _led5 `S272 ~T0 @X0 1 e ]
+[i _led5
+:U ..
+:U ..
+"74
+-> . `E3096 3 `uc
+"75
+-> . `E3086 4 `uc
+"77
+-> . `E3151 0 `uc
+..
+..
+]
+[; ;ecu_layer_prog.c: 73: led_t led5={
+[; ;ecu_layer_prog.c: 74: PORTD_INDEX,
+[; ;ecu_layer_prog.c: 75: PIN4,
+[; ;ecu_layer_prog.c: 76: LED_OFF
+[; ;ecu_layer_prog.c: 77: };
+"78
 [v _ecu_layer_initialize `(uc ~T0 @X0 1 ef ]
 {
-[; ;ecu_layer_prog.c: 68: Std_ReturnType ecu_layer_initialize(){
+[; ;ecu_layer_prog.c: 78: Std_ReturnType ecu_layer_initialize(){
 [e :U _ecu_layer_initialize ]
 [f ]
-"69
+"79
 [v _ret `uc ~T0 @X0 1 a ]
-[; ;ecu_layer_prog.c: 69: Std_ReturnType ret=(Std_ReturnType)0x00;
+[; ;ecu_layer_prog.c: 79: Std_ReturnType ret=(Std_ReturnType)0x00;
 [e = _ret -> -> 0 `i `uc ]
-[; ;ecu_layer_prog.c: 70: ret=led_initizlize(&led1);
-"70
+[; ;ecu_layer_prog.c: 80: ret=led_initizlize(&led1);
+"80
 [e = _ret ( _led_initizlize (1 -> &U _led1 `*CS272 ]
-[; ;ecu_layer_prog.c: 71: ret=led_initizlize(&led2);
-"71
+[; ;ecu_layer_prog.c: 81: ret=led_initizlize(&led2);
+"81
 [e = _ret ( _led_initizlize (1 -> &U _led2 `*CS272 ]
-[; ;ecu_layer_prog.c: 72: ret=led_initizlize(&led3);
-"72
+[; ;ecu_layer_prog.c: 82: ret=led_initizlize(&led3);
+"82
 [e = _ret ( _led_initizlize (1 -> &U _led3 `*CS272 ]
-[; ;ecu_layer_prog.c: 73: return ret;
-"73
+[; ;ecu_layer_prog.c: 83: ret=led_initizlize(&led4);
+"83
+[e = _ret ( _led_initizlize (1 -> &U _led4 `*CS272 ]
+[; ;ecu_layer_prog.c: 84: ret=led_initizlize(&led5);
+"84
+[e = _ret ( _led_initizlize (1 -> &U _led5 `*CS272 ]
+[; ;ecu_layer_prog.c: 85: return ret;
+"85
 [e ) _ret ]
 [e $UE 273  ]
-[; ;ecu_layer_prog.c: 74: }
-"74
+[; ;ecu_layer_prog.c: 86: }
+"86
 [e :UE 273 ]
 }

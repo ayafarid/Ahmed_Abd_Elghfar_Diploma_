@@ -3845,7 +3845,7 @@ INTERRUPT_LOW_PRIORITY = 0,
 INTERRUPT_HIGH_PRIORITY
 }interrupt_priority_cfg;
 
-# 58 "MCAL_Layer/Interrupt_Driver/mcal_external_interrupt.h"
+# 59 "MCAL_Layer/Interrupt_Driver/mcal_external_interrupt.h"
 typedef void (*InterruptHandler)(void);
 
 typedef enum{
@@ -3874,22 +3874,32 @@ pin_config_t mcu_pin;
 interrupt_priority_cfg priority;
 }interrupt_RBx_t;
 
-# 94
+# 95
 Std_ReturnType Interrupt_INTx_Init(const interrupt_INTx_t *int_obj);
 
-# 103
+# 104
 Std_ReturnType Interrupt_INTx_DeInit(const interrupt_INTx_t *int_obj);
 
-# 112
+# 113
 Std_ReturnType Interrupt_RBx_Init(const interrupt_RBx_t *int_obj);
 
-# 121
+# 122
 Std_ReturnType Interrupt_RBx_DeInit(const interrupt_RBx_t *int_obj);
 
 # 11 "MCAL_Layer/Interrupt_Driver/mcal_external_interrupt.c"
 static InterruptHandler INT0_InterruptHandler = (0);
 static InterruptHandler INT1_InterruptHandler = (0);
 static InterruptHandler INT2_InterruptHandler = (0);
+
+static InterruptHandler RB4_InterruptHandler_HIGH = (0);
+static InterruptHandler RB5_InterruptHandler_HIGH = (0);
+static InterruptHandler RB6_InterruptHandler_HIGH = (0);
+static InterruptHandler RB7_InterruptHandler_HIGH = (0);
+
+static InterruptHandler RB4_InterruptHandler_LOW = (0);
+static InterruptHandler RB5_InterruptHandler_LOW = (0);
+static InterruptHandler RB6_InterruptHandler_LOW = (0);
+static InterruptHandler RB7_InterruptHandler_LOW = (0);
 
 static Std_ReturnType Interrupt_INTx_Enable(const interrupt_INTx_t *int_obj);
 static Std_ReturnType Interrupt_INTx_Disable(const interrupt_INTx_t *int_obj);
@@ -3908,13 +3918,19 @@ static Std_ReturnType Interrupt_RBx_Disable(const interrupt_RBx_t *int_obj);
 static Std_ReturnType Interrupt_RBx_Priority_Init(const interrupt_RBx_t *int_obj);
 static Std_ReturnType Interrupt_RBx_Pin_Init(const interrupt_RBx_t *int_obj);
 
-# 39
-Std_ReturnType Interrupt_INTx_Init(const interrupt_INTx_t *int_obj){
+static Std_ReturnType RB4_SetInterruptHandler(void (*InterruptHandler_1)(void),void (*InterruptHandler_2)(void));
+static Std_ReturnType RB5_SetInterruptHandler(void (*InterruptHandler_1)(void),void (*InterruptHandler_2)(void));
+static Std_ReturnType RB6_SetInterruptHandler(void (*InterruptHandler_1)(void),void (*InterruptHandler_2)(void));
+static Std_ReturnType RB7_SetInterruptHandler(void (*InterruptHandler_1)(void),void (*InterruptHandler_2)(void));
+
+static Std_ReturnType RBx_SetInterruptHandler(const interrupt_RBx_t *int_obj);
+
+# 56
+Std_ReturnType Interrupt_INTx_Init(const interrupt_INTx_t *int_obj) {
 Std_ReturnType ret = (Std_ReturnType)0x00;
-if((0) == int_obj){
+if ((0) == int_obj) {
 ret = (Std_ReturnType)0x00;
-}
-else{
+} else {
 
 ret = Interrupt_INTx_Disable(int_obj);
 
@@ -3931,79 +3947,64 @@ ret |= Interrupt_INTx_Enable(int_obj);
 return ret;
 }
 
-# 64
-void INT0_ISR(void){
+# 80
+void INT0_ISR(void) {
 
 (INTCONbits.INT0IF = 0);
 
 
-if(INT0_InterruptHandler){ INT0_InterruptHandler(); }
-else{ }
+if (INT0_InterruptHandler) {
+INT0_InterruptHandler();
+} else {
+
+}
 }
 
-# 76
-void INT1_ISR(void){
+# 95
+void INT1_ISR(void) {
 
 (INTCON3bits.INT1IF = 0);
 
 
-if(INT1_InterruptHandler){ INT1_InterruptHandler(); }
-else{ }
+if (INT1_InterruptHandler) {
+INT1_InterruptHandler();
+} else {
+
+}
 }
 
-void INT2_ISR(void){
+void INT2_ISR(void) {
 
 (INTCON3bits.INT2IF = 0);
 
 
-if(INT2_InterruptHandler){ INT2_InterruptHandler(); }
-else{ }
+if (INT2_InterruptHandler) {
+INT2_InterruptHandler();
+} else {
+
+}
 }
 
-# 101
-Std_ReturnType Interrupt_INTx_DeInit(const interrupt_INTx_t *int_obj){
+# 126
+Std_ReturnType Interrupt_INTx_DeInit(const interrupt_INTx_t *int_obj) {
 Std_ReturnType ret = (Std_ReturnType)0x00;
-if((0) == int_obj){
+if ((0) == int_obj) {
 ret = (Std_ReturnType)0x00;
-}
-else{
+} else {
 ret = Interrupt_INTx_Disable(int_obj);
 }
 return ret;
 }
 
-# 119
-Std_ReturnType Interrupt_RBx_Init(const interrupt_RBx_t *int_obj){
+# 143
+static Std_ReturnType Interrupt_INTx_Enable(const interrupt_INTx_t *int_obj) {
 Std_ReturnType ret = (Std_ReturnType)0x00;
-if((0) == int_obj){
+if ((0) == int_obj) {
 ret = (Std_ReturnType)0x00;
-}
-else{
-ret = (Std_ReturnType)0x01;
-}
-return ret;
-}
+} else {
+switch (int_obj->source) {
+case INTERRUPT_EXTERNAL_INT0:
 
-# 137
-Std_ReturnType Interrupt_RBx_DeInit(const interrupt_RBx_t *int_obj){
-Std_ReturnType ret = (Std_ReturnType)0x00;
-if((0) == int_obj){
-ret = (Std_ReturnType)0x00;
-}
-else{
-}
-return ret;
-}
-
-# 154
-static Std_ReturnType Interrupt_INTx_Enable(const interrupt_INTx_t *int_obj){
-Std_ReturnType ret = (Std_ReturnType)0x00;
-if((0) == int_obj){
-ret = (Std_ReturnType)0x00;
-}
-else{
-switch(int_obj->source){
-case INTERRUPT_EXTERNAL_INT0 :
 
 
 
@@ -4013,134 +4014,141 @@ case INTERRUPT_EXTERNAL_INT0 :
 (INTCONbits.INT0IE = 1);
 ret = (Std_ReturnType)0x01;
 break;
-case INTERRUPT_EXTERNAL_INT1 :
+case INTERRUPT_EXTERNAL_INT1:
 
-# 182
+# 173
 (INTCONbits.GIE = 1);
 (INTCONbits.PEIE = 1);
 
 (INTCON3bits.INT1IE = 1);
 ret = (Std_ReturnType)0x01;
 break;
-case INTERRUPT_EXTERNAL_INT2 :
+case INTERRUPT_EXTERNAL_INT2:
 
-# 199
+# 192
 (INTCONbits.GIE = 1);
 (INTCONbits.PEIE = 1);
 
 (INTCON3bits.INT2IE = 1);
 ret = (Std_ReturnType)0x01;
 break;
-default : ret = (Std_ReturnType)0x00;
+default: ret = (Std_ReturnType)0x00;
 }
 }
 return ret;
 }
 
-# 218
-static Std_ReturnType Interrupt_INTx_Disable(const interrupt_INTx_t *int_obj){
+# 211
+static Std_ReturnType Interrupt_INTx_Disable(const interrupt_INTx_t *int_obj) {
 Std_ReturnType ret = (Std_ReturnType)0x00;
-if((0) == int_obj){
+if ((0) == int_obj) {
 ret = (Std_ReturnType)0x00;
-}
-else{
-switch(int_obj->source){
-case INTERRUPT_EXTERNAL_INT0 :
+} else {
+switch (int_obj->source) {
+case INTERRUPT_EXTERNAL_INT0:
 (INTCONbits.INT0IE = 0);
 ret = (Std_ReturnType)0x01;
 break;
-case INTERRUPT_EXTERNAL_INT1 :
+case INTERRUPT_EXTERNAL_INT1:
 (INTCON3bits.INT1IE = 0);
 ret = (Std_ReturnType)0x01;
 break;
-case INTERRUPT_EXTERNAL_INT2 :
+case INTERRUPT_EXTERNAL_INT2:
 (INTCON3bits.INT2IE = 0);
 ret = (Std_ReturnType)0x01;
 break;
-default : ret = (Std_ReturnType)0x00;
+default: ret = (Std_ReturnType)0x00;
 }
 }
 return ret;
 }
 
 # 284
-static Std_ReturnType Interrupt_INTx_Edge_Init(const interrupt_INTx_t *int_obj){
+static Std_ReturnType Interrupt_INTx_Edge_Init(const interrupt_INTx_t *int_obj) {
 Std_ReturnType ret = (Std_ReturnType)0x00;
-if((0) == int_obj){
+if ((0) == int_obj) {
 ret = (Std_ReturnType)0x00;
+} else {
+switch (int_obj->source) {
+case INTERRUPT_EXTERNAL_INT0:
+if (INTERRUPT_FALLING_EDGE == int_obj->edge) {
+(INTCON2bits.INTEDG0 = 0);
+} else if (INTERRUPT_RISING_EDGE == int_obj->edge) {
+(INTCON2bits.INTEDG0 = 1);
+} else {
+
 }
-else{
-switch(int_obj->source){
-case INTERRUPT_EXTERNAL_INT0 :
-if(INTERRUPT_FALLING_EDGE == int_obj->edge){ (INTCON2bits.INTEDG0 = 0); }
-else if(INTERRUPT_RISING_EDGE == int_obj->edge){ (INTCON2bits.INTEDG0 = 1); }
-else{ }
 ret = (Std_ReturnType)0x01;
 break;
-case INTERRUPT_EXTERNAL_INT1 :
-if(INTERRUPT_FALLING_EDGE == int_obj->edge){ (INTCON2bits.INTEDG1 = 0); }
-else if(INTERRUPT_RISING_EDGE == int_obj->edge){ (INTCON2bits.INTEDG1 = 1); }
-else{ }
+case INTERRUPT_EXTERNAL_INT1:
+if (INTERRUPT_FALLING_EDGE == int_obj->edge) {
+(INTCON2bits.INTEDG1 = 0);
+} else if (INTERRUPT_RISING_EDGE == int_obj->edge) {
+(INTCON2bits.INTEDG1 = 1);
+} else {
+
+}
 ret = (Std_ReturnType)0x01;
 break;
-case INTERRUPT_EXTERNAL_INT2 :
-if(INTERRUPT_FALLING_EDGE == int_obj->edge){ (INTCON2bits.INTEDG2 = 0); }
-else if(INTERRUPT_RISING_EDGE == int_obj->edge){ (INTCON2bits.INTEDG2 = 1); }
-else{ }
+case INTERRUPT_EXTERNAL_INT2:
+if (INTERRUPT_FALLING_EDGE == int_obj->edge) {
+(INTCON2bits.INTEDG2 = 0);
+} else if (INTERRUPT_RISING_EDGE == int_obj->edge) {
+(INTCON2bits.INTEDG2 = 1);
+} else {
+
+}
 ret = (Std_ReturnType)0x01;
 break;
-default : ret = (Std_ReturnType)0x00;
+default: ret = (Std_ReturnType)0x00;
 }
 }
 return ret;
 }
 
-# 322
-static Std_ReturnType Interrupt_INTx_Pin_Init(const interrupt_INTx_t *int_obj){
+# 333
+static Std_ReturnType Interrupt_INTx_Pin_Init(const interrupt_INTx_t *int_obj) {
 Std_ReturnType ret = (Std_ReturnType)0x00;
-if((0) == int_obj){
+if ((0) == int_obj) {
 ret = (Std_ReturnType)0x00;
-}
-else{
+} else {
 
 ret = gpio_pin_direction_intialize(&(int_obj->mcu_pin));
 }
 return ret;
 }
 
-# 341
-static Std_ReturnType Interrupt_INTx_Clear_Flag(const interrupt_INTx_t *int_obj){
+# 351
+static Std_ReturnType Interrupt_INTx_Clear_Flag(const interrupt_INTx_t *int_obj) {
 Std_ReturnType ret = (Std_ReturnType)0x00;
-if((0) == int_obj){
+if ((0) == int_obj) {
 ret = (Std_ReturnType)0x00;
-}
-else{
-switch(int_obj->source){
-case INTERRUPT_EXTERNAL_INT0 :
+} else {
+switch (int_obj->source) {
+case INTERRUPT_EXTERNAL_INT0:
 (INTCONbits.INT0IF = 0);
 ret = (Std_ReturnType)0x01;
 break;
-case INTERRUPT_EXTERNAL_INT1 :
+case INTERRUPT_EXTERNAL_INT1:
 (INTCON3bits.INT1IF = 0);
 ret = (Std_ReturnType)0x01;
 break;
-case INTERRUPT_EXTERNAL_INT2 :
+case INTERRUPT_EXTERNAL_INT2:
 (INTCON3bits.INT2IF = 0);
 ret = (Std_ReturnType)0x01;
 break;
-default : ret = (Std_ReturnType)0x00;
+default: ret = (Std_ReturnType)0x00;
 }
 }
 return ret;
 }
 
-# 373
-static Std_ReturnType INT0_SetInterruptHandler(void (*InterruptHandler)(void)){
+# 382
+static Std_ReturnType INT0_SetInterruptHandler(void (*InterruptHandler)(void)) {
 Std_ReturnType ret = (Std_ReturnType)0x00;
-if((0) == InterruptHandler){
+if ((0) == InterruptHandler) {
 ret = (Std_ReturnType)0x00;
-}
-else{
+} else {
 
 INT0_InterruptHandler = InterruptHandler;
 ret = (Std_ReturnType)0x01;
@@ -4148,13 +4156,12 @@ ret = (Std_ReturnType)0x01;
 return ret;
 }
 
-# 393
-static Std_ReturnType INT1_SetInterruptHandler(void (*InterruptHandler)(void)){
+# 401
+static Std_ReturnType INT1_SetInterruptHandler(void (*InterruptHandler)(void)) {
 Std_ReturnType ret = (Std_ReturnType)0x00;
-if((0) == InterruptHandler){
+if ((0) == InterruptHandler) {
 ret = (Std_ReturnType)0x00;
-}
-else{
+} else {
 
 INT1_InterruptHandler = InterruptHandler;
 ret = (Std_ReturnType)0x01;
@@ -4162,13 +4169,12 @@ ret = (Std_ReturnType)0x01;
 return ret;
 }
 
-# 413
-static Std_ReturnType INT2_SetInterruptHandler(void (*InterruptHandler)(void)){
+# 420
+static Std_ReturnType INT2_SetInterruptHandler(void (*InterruptHandler)(void)) {
 Std_ReturnType ret = (Std_ReturnType)0x00;
-if((0) == InterruptHandler){
+if ((0) == InterruptHandler) {
 ret = (Std_ReturnType)0x00;
-}
-else{
+} else {
 
 INT2_InterruptHandler = InterruptHandler;
 ret = (Std_ReturnType)0x01;
@@ -4176,28 +4182,229 @@ ret = (Std_ReturnType)0x01;
 return ret;
 }
 
-# 433
-static Std_ReturnType Interrupt_INTx_SetInterruptHandler(const interrupt_INTx_t *int_obj){
+# 439
+static Std_ReturnType Interrupt_INTx_SetInterruptHandler(const interrupt_INTx_t *int_obj) {
 Std_ReturnType ret = (Std_ReturnType)0x00;
-if((0) == int_obj){
+if ((0) == int_obj) {
 ret = (Std_ReturnType)0x00;
-}
-else{
-switch(int_obj->source){
-case INTERRUPT_EXTERNAL_INT0 :
+} else {
+switch (int_obj->source) {
+case INTERRUPT_EXTERNAL_INT0:
 
 ret = INT0_SetInterruptHandler(int_obj->EXT_InterruptHandler);
 break;
-case INTERRUPT_EXTERNAL_INT1 :
+case INTERRUPT_EXTERNAL_INT1:
 
 ret = INT1_SetInterruptHandler(int_obj->EXT_InterruptHandler);
 break;
-case INTERRUPT_EXTERNAL_INT2 :
+case INTERRUPT_EXTERNAL_INT2:
 
 ret = INT2_SetInterruptHandler(int_obj->EXT_InterruptHandler);
 break;
-default : ret = (Std_ReturnType)0x00;
+default: ret = (Std_ReturnType)0x00;
 }
 }
 return ret;
+}
+
+# 470
+static Std_ReturnType Interrupt_RBx_Pin_Init(const interrupt_RBx_t *int_obj) {
+Std_ReturnType Local_State = (Std_ReturnType)0x00;
+if (int_obj == (0)) {
+Local_State = (Std_ReturnType)0x00;
+} else {
+Local_State = gpio_pin_direction_intialize(&(int_obj->mcu_pin));
+}
+return Local_State;
+}
+
+Std_ReturnType Interrupt_RBx_Init(const interrupt_RBx_t *int_obj) {
+Std_ReturnType ret = (Std_ReturnType)0x00;
+if ((0) == int_obj) {
+ret = (Std_ReturnType)0x00;
+} else {
+(INTCONbits.RBIE = 0);
+(INTCONbits.RBIF = 0);
+
+Interrupt_RBx_Pin_Init(int_obj);
+RBx_SetInterruptHandler(int_obj);
+Interrupt_RBx_Priority_Init(int_obj);
+Interrupt_RBx_Enable(int_obj);
+ret = (Std_ReturnType)0x01;
+}
+return ret;
+}
+
+# 504
+Std_ReturnType Interrupt_RBx_DeInit(const interrupt_RBx_t *int_obj) {
+Std_ReturnType ret = (Std_ReturnType)0x00;
+if ((0) == int_obj) {
+ret = (Std_ReturnType)0x00;
+} else {
+(INTCONbits.RBIE = 0);
+ret = (Std_ReturnType)0x01;
+}
+return ret;
+}
+
+static Std_ReturnType Interrupt_RBx_Enable(const interrupt_RBx_t *int_obj) {
+Std_ReturnType ret = (Std_ReturnType)0x00;
+if (int_obj == (0)) {
+ret = (Std_ReturnType)0x00;
+} else {
+(INTCONbits.RBIE = 1);
+ret = (Std_ReturnType)0x01;
+}
+return ret;
+}
+
+static Std_ReturnType Interrupt_RBx_Disable(const interrupt_RBx_t *int_obj) {
+Std_ReturnType ret = (Std_ReturnType)0x00;
+if (int_obj == (0)) {
+ret = (Std_ReturnType)0x00;
+} else {
+(INTCONbits.RBIE = 0);
+ret = (Std_ReturnType)0x01;
+}
+return ret;
+}
+
+static Std_ReturnType Interrupt_RBx_Priority_Init(const interrupt_RBx_t *int_obj) {
+Std_ReturnType ret = (Std_ReturnType)0x00;
+if (int_obj == (0)) {
+ret = (Std_ReturnType)0x00;
+} else {
+
+# 554
+(INTCONbits.GIE = 1);
+(INTCONbits.PEIE = 1);
+
+}
+return ret;
+}
+
+static Std_ReturnType RBx_SetInterruptHandler(const interrupt_RBx_t *int_obj) {
+Std_ReturnType ret = (Std_ReturnType)0x00;
+if ((0) == int_obj) {
+ret = (Std_ReturnType)0x00;
+} else {
+switch ((int_obj->mcu_pin).pin) {
+case PIN4:
+RB4_SetInterruptHandler(int_obj->EXT_InterruptHandler_HIGH,int_obj->EXT_InterruptHandler_LOW);
+ret = (Std_ReturnType)0x01;
+break;
+case PIN5:
+RB5_SetInterruptHandler(int_obj->EXT_InterruptHandler_HIGH,int_obj->EXT_InterruptHandler_LOW);
+ret = (Std_ReturnType)0x01;
+break;
+case PIN6:
+RB6_SetInterruptHandler(int_obj->EXT_InterruptHandler_HIGH,int_obj->EXT_InterruptHandler_LOW);
+ret = (Std_ReturnType)0x01;
+break;
+case PIN7:
+RB7_SetInterruptHandler(int_obj->EXT_InterruptHandler_HIGH,int_obj->EXT_InterruptHandler_LOW);
+ret = (Std_ReturnType)0x01;
+break;
+default:
+ret = (Std_ReturnType)0x00;
+break;
+}
+}
+return ret;
+}
+
+static Std_ReturnType RB4_SetInterruptHandler(void (*InterruptHandler_1)(void),void (*InterruptHandler_2)(void)) {
+Std_ReturnType ret = (Std_ReturnType)0x00;
+if ((0) == InterruptHandler_1 || InterruptHandler_2==(0)){
+ret = (Std_ReturnType)0x00;
+} else {
+RB4_InterruptHandler_HIGH = InterruptHandler_1;
+RB4_InterruptHandler_LOW = InterruptHandler_2;
+ret = (Std_ReturnType)0x01;
+}
+return ret;
+}
+
+static Std_ReturnType RB5_SetInterruptHandler(void (*InterruptHandler_1)(void),void (*InterruptHandler_2)(void)) {
+Std_ReturnType ret = (Std_ReturnType)0x00;
+if ((0) == InterruptHandler_1 || InterruptHandler_2==(0)) {
+ret = (Std_ReturnType)0x00;
+} else {
+RB5_InterruptHandler_HIGH = InterruptHandler_1;
+RB5_InterruptHandler_LOW = InterruptHandler_2;
+ret = (Std_ReturnType)0x01;
+}
+return ret;
+}
+
+static Std_ReturnType RB6_SetInterruptHandler(void (*InterruptHandler_1)(void),void (*InterruptHandler_2)(void)) {
+Std_ReturnType ret = (Std_ReturnType)0x00;
+if ((0) == InterruptHandler_1 || InterruptHandler_2==(0)) {
+ret = (Std_ReturnType)0x00;
+} else {
+RB6_InterruptHandler_HIGH = InterruptHandler_1;
+RB6_InterruptHandler_LOW = InterruptHandler_2;
+ret = (Std_ReturnType)0x01;
+}
+return ret;
+}
+
+static Std_ReturnType RB7_SetInterruptHandler(void (*InterruptHandler_1)(void),void (*InterruptHandler_2)(void)) {
+Std_ReturnType ret = (Std_ReturnType)0x00;
+if ((0) == InterruptHandler_1 || InterruptHandler_2==(0)) {
+ret = (Std_ReturnType)0x00;
+} else {
+RB7_InterruptHandler_HIGH = InterruptHandler_1;
+RB7_InterruptHandler_LOW = InterruptHandler_2;
+ret = (Std_ReturnType)0x01;
+}
+return ret;
+}
+
+# 642
+void RB4_ISR(uint8 source){
+(INTCONbits.RBIF = 0);
+
+if(RB4_InterruptHandler_HIGH && source==HIGH){
+RB4_InterruptHandler_HIGH();
+}
+if(RB4_InterruptHandler_LOW && source==LOW){
+RB4_InterruptHandler_LOW();
+}
+}
+
+# 655
+void RB5_ISR(uint8 source){
+(INTCONbits.RBIF = 0);
+
+if(RB5_InterruptHandler_HIGH && source==HIGH){
+RB5_InterruptHandler_HIGH();
+}
+if(RB5_InterruptHandler_LOW && source==LOW){
+RB5_InterruptHandler_LOW();
+}
+}
+
+# 668
+void RB6_ISR(uint8 source){
+(INTCONbits.RBIF = 0);
+
+if(RB6_InterruptHandler_HIGH && source==HIGH){
+RB6_InterruptHandler_HIGH();
+}
+if(RB6_InterruptHandler_LOW && source==LOW){
+RB6_InterruptHandler_LOW();
+}
+}
+
+# 681
+void RB7_ISR(uint8 source){
+(INTCONbits.RBIF = 0);
+
+if(RB7_InterruptHandler_HIGH && source==HIGH){
+RB7_InterruptHandler_HIGH();
+}
+if(RB7_InterruptHandler_LOW && source==LOW){
+RB7_InterruptHandler_LOW();
+}
 }
