@@ -82,5 +82,10 @@ void __interrupt InterruptManager(void) {
         RB7_ISR(PORTBbits.RB7);
     }
     /*End*/
+    if((INTERRUPT_ENABLE == PIE1bits.ADIE) && (INTERRUPT_OCCUR == PIR1bits.ADIF)){
+        ADC_ISR();
+    }
+    else{ /* Nothing */ }
+    
 }
 #endif

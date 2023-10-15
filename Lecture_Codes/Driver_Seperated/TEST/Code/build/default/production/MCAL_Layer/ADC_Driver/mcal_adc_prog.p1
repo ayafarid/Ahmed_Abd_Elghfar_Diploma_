@@ -29,30 +29,114 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _LATD `Vuc ~T0 @X0 0 e@3980 ]
 "1316
 [v _LATE `Vuc ~T0 @X0 0 e@3981 ]
-[v F3258 `(v ~T0 @X0 0 tf ]
-"12 application.c
-[c E3237 0 1 2 3 4 5 6 7 .. ]
-[n E3237 . ADC_0_TAD ADC_2_TAD ADC_4_TAD ADC_6_TAD ADC_8_TAD ADC_12_TAD ADC_16_TAD ADC_20_TAD  ]
-[c E3247 0 1 2 3 4 5 6 .. ]
-[n E3247 . ADC_CONVERTION_CLOCK_FOSC_DIV_2 ADC_CONVERTION_CLOCK_FOSC_DIV_8 ADC_CONVERTION_CLOCK_FOSC_DIV_32 ADC_CONVERTION_CLOCK_FOSC_DIV_FRC ADC_CONVERTION_CLOCK_FOSC_DIV_4 ADC_CONVERTION_CLOCK_FOSC_DIV_16 ADC_CONVERTION_CLOCK_FOSC_DIV_64  ]
-[c E3222 0 1 2 3 4 5 6 7 8 9 10 11 12 .. ]
-[n E3222 . ADC_CHANEL_AN0 ADC_CHANEL_AN1 ADC_CHANEL_AN2 ADC_CHANEL_AN3 ADC_CHANEL_AN4 ADC_CHANEL_AN5 ADC_CHANEL_AN6 ADC_CHANEL_AN7 ADC_CHANEL_AN8 ADC_CHANEL_AN9 ADC_CHANEL_AN10 ADC_CHANEL_AN11 ADC_CHANEL_AN12  ]
+[v F3146 `(v ~T0 @X0 0 tf ]
+[v F3184 `(v ~T0 @X0 0 tf ]
+"20 MCAL_Layer/ADC_Driver/mcal_adc_prog.c
+[c E3163 0 1 2 3 4 5 6 7 .. ]
+[n E3163 . ADC_0_TAD ADC_2_TAD ADC_4_TAD ADC_6_TAD ADC_8_TAD ADC_12_TAD ADC_16_TAD ADC_20_TAD  ]
+[c E3173 0 1 2 3 4 5 6 .. ]
+[n E3173 . ADC_CONVERTION_CLOCK_FOSC_DIV_2 ADC_CONVERTION_CLOCK_FOSC_DIV_8 ADC_CONVERTION_CLOCK_FOSC_DIV_32 ADC_CONVERTION_CLOCK_FOSC_DIV_FRC ADC_CONVERTION_CLOCK_FOSC_DIV_4 ADC_CONVERTION_CLOCK_FOSC_DIV_16 ADC_CONVERTION_CLOCK_FOSC_DIV_64  ]
+[c E3148 0 1 2 3 4 5 6 7 8 9 10 11 12 .. ]
+[n E3148 . ADC_CHANEL_AN0 ADC_CHANEL_AN1 ADC_CHANEL_AN2 ADC_CHANEL_AN3 ADC_CHANEL_AN4 ADC_CHANEL_AN5 ADC_CHANEL_AN6 ADC_CHANEL_AN7 ADC_CHANEL_AN8 ADC_CHANEL_AN9 ADC_CHANEL_AN10 ADC_CHANEL_AN11 ADC_CHANEL_AN12  ]
 "111 MCAL_Layer/ADC_Driver/mcal_adc_init.h
-[s S275 `*F3258 1 `E3237 1 `E3247 1 `E3222 1 :1 `uc 1 :1 `uc 1 :6 `uc 1 ]
-[n S275 . ADC_InterruptHandeler acquasition_time conversion_clock channel_selected voltage_reference result_format . ]
-"29 application.h
-[v _ADC_DefaultInterruptHandeler `(v ~T0 @X0 0 ef ]
-"131 MCAL_Layer/ADC_Driver/mcal_adc_init.h
-[v _ADC_GetConversionResult `(uc ~T0 @X0 0 ef2`*CS275`*us ]
-[p mainexit ]
-"28 application.h
-[v _functionInitialize `(v ~T0 @X0 0 ef ]
-"133 MCAL_Layer/ADC_Driver/mcal_adc_init.h
-[v _ADC_StartConversion_Interrupt `(uc ~T0 @X0 0 ef2`*CS275`E3222 ]
-"13 ECU_Layer/ecu_layer_int.h
-[v _ecu_layer_initialize `(uc ~T0 @X0 0 ef ]
-"126 MCAL_Layer/ADC_Driver/mcal_adc_init.h
-[v _ADC_Init `(uc ~T0 @X0 0 ef1`*CS275 ]
+[s S271 `*F3184 1 `E3163 1 `E3173 1 `E3148 1 :1 `uc 1 :1 `uc 1 :6 `uc 1 ]
+[n S271 . ADC_InterruptHandeler acquasition_time conversion_clock channel_selected voltage_reference result_format . ]
+"4480 C:\Program Files\Microchip\xc8\v1.41\include\pic18f4620.h
+[s S174 :1 `uc 1 :1 `uc 1 ]
+[n S174 . . GO_NOT_DONE ]
+"4484
+[s S175 :1 `uc 1 :1 `uc 1 :4 `uc 1 ]
+[n S175 . ADON GO_nDONE CHS ]
+"4489
+[s S176 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S176 . . GO CHS0 CHS1 CHS2 CHS3 ]
+"4497
+[s S177 :1 `uc 1 :1 `uc 1 ]
+[n S177 . . DONE ]
+"4501
+[s S178 :1 `uc 1 :1 `uc 1 ]
+[n S178 . . NOT_DONE ]
+"4505
+[s S179 :1 `uc 1 :1 `uc 1 ]
+[n S179 . . nDONE ]
+"4509
+[s S180 :1 `uc 1 :1 `uc 1 ]
+[n S180 . . GO_DONE ]
+"4513
+[s S181 :1 `uc 1 :1 `uc 1 ]
+[n S181 . . GODONE ]
+"4479
+[u S173 `S174 1 `S175 1 `S176 1 `S177 1 `S178 1 `S179 1 `S180 1 `S181 1 ]
+[n S173 . . . . . . . . . ]
+"4518
+[v _ADCON0bits `VS173 ~T0 @X0 0 e@4034 ]
+"4326
+[s S167 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S167 . ADCS ACQT . ADFM ]
+"4332
+[s S168 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S168 . ADCS0 ADCS1 ADCS2 ACQT0 ACQT1 ACQT2 ]
+"4325
+[u S166 `S167 1 `S168 1 ]
+[n S166 . . . ]
+"4341
+[v _ADCON2bits `VS166 ~T0 @X0 0 e@4032 ]
+"12 MCAL_Layer/ADC_Driver/mcal_adc_prog.c
+[v _ADC_input_channel_port_configure `(uc ~T0 @X0 0 sf1`E3148 ]
+"6272 C:\Program Files\Microchip\xc8\v1.41\include\pic18f4620.h
+[s S258 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S258 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
+"6282
+[s S259 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S259 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
+"6292
+[s S260 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S260 . . GIEL GIEH ]
+"6271
+[u S257 `S258 1 `S259 1 `S260 1 ]
+[n S257 . . . . ]
+"6298
+[v _INTCONbits `VS257 ~T0 @X0 0 e@4082 ]
+"2484
+[s S86 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S86 . TMR1IE TMR2IE CCP1IE SSPIE TXIE RCIE ADIE PSPIE ]
+"2494
+[s S87 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S87 . . TX1IE RC1IE ]
+"2483
+[u S85 `S86 1 `S87 1 ]
+[n S85 . . . ]
+"2500
+[v _PIE1bits `VS85 ~T0 @X0 0 e@3997 ]
+"2560
+[s S89 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S89 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF PSPIF ]
+"2570
+[s S90 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S90 . . TX1IF RC1IF ]
+"2559
+[u S88 `S89 1 `S90 1 ]
+[n S88 . . . ]
+"2576
+[v _PIR1bits `VS88 ~T0 @X0 0 e@3998 ]
+"4396
+[s S170 :4 `uc 1 :2 `uc 1 ]
+[n S170 . PCFG VCFG ]
+"4400
+[s S171 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S171 . PCFG0 PCFG1 PCFG2 PCFG3 VCFG0 VCFG1 ]
+"4408
+[s S172 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S172 . . CHSN3 VCFG01 VCFG11 ]
+"4395
+[u S169 `S170 1 `S171 1 `S172 1 ]
+[n S169 . . . . ]
+"4415
+[v _ADCON1bits `VS169 ~T0 @X0 0 e@4033 ]
+"4604
+[v _ADRESH `Vuc ~T0 @X0 0 e@4036 ]
+"4598
+[v _ADRESL `Vuc ~T0 @X0 0 e@4035 ]
 [; ;pic18f4620.h: 49: extern volatile unsigned char PORTA @ 0xF80;
 "51 C:\Program Files\Microchip\xc8\v1.41\include\pic18f4620.h
 [; ;pic18f4620.h: 51: asm("PORTA equ 0F80h");
@@ -2857,7 +2941,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;hal_gpio.h: 64: uint8 directin:1;
 [; ;hal_gpio.h: 65: uint8 logic:1;
 [; ;hal_gpio.h: 66: }pin_config_t;
-"68 ECU_Layer/Keypad_Driver/../../MCAL_Layer/GPIO/hal_gpio.h
+"68 MCAL_Layer/ADC_Driver/../GPIO/hal_gpio.h
 [v _tris_register `*Vuc ~T0 @X0 -> 0 `x e ]
 [i _tris_register
 :U ..
@@ -2904,60 +2988,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;hal_gpio.h: 85: Std_ReturnType gpio_port_write_logic(port_index_t port,uint8 logic);
 [; ;hal_gpio.h: 86: Std_ReturnType gpio_port_read_logic(port_index_t port,uint8* logic);
 [; ;hal_gpio.h: 87: Std_ReturnType gpio_port_toggle_logic(port_index_t port);
-[; ;ecu_keypad_init.h: 22: typedef struct{
-[; ;ecu_keypad_init.h: 23: pin_config_t keypad_rows_pins[4];
-[; ;ecu_keypad_init.h: 24: pin_config_t keypad_colums_pins[4];
-[; ;ecu_keypad_init.h: 25: }keypad_t;
-[; ;ecu_keypad_init.h: 35: Std_ReturnType keypad_initialize(keypad_t* keypad_obj);
-[; ;ecu_keypad_init.h: 43: Std_ReturnType keypad_get_key(keypad_t* keypad_obj,uint8* value);
-[; ;ecu_layer_int.h: 13: Std_ReturnType ecu_layer_initialize();
-[; ;ecu_led_init.h: 17: typedef enum {
-[; ;ecu_led_init.h: 18: LED_OFF,
-[; ;ecu_led_init.h: 19: LED_ON
-[; ;ecu_led_init.h: 20: } led_status_t;
-[; ;ecu_led_init.h: 22: typedef struct {
-[; ;ecu_led_init.h: 23: uint8 port_index : 4;
-[; ;ecu_led_init.h: 24: uint8 pin_num : 3;
-[; ;ecu_led_init.h: 25: uint8 led_status : 1;
-[; ;ecu_led_init.h: 26: }led_t;
-[; ;ecu_led_init.h: 39: Std_ReturnType led_initizlize(const led_t* led);
-[; ;ecu_led_init.h: 47: Std_ReturnType led_turn_on(const led_t*led);
-[; ;ecu_led_init.h: 55: Std_ReturnType led_turn_off(const led_t*led);
-[; ;ecu_led_init.h: 63: Std_ReturnType led_toggle(const led_t* led);
-[; ;ecu_led_init.h: 72: Std_ReturnType led_read_status(const led_t*led, led_status_t* ledStatus);
 [; ;mcal_interrupt_config.h: 45: typedef enum{
 [; ;mcal_interrupt_config.h: 46: INTERRUPT_LOW_PRIORITY = 0,
 [; ;mcal_interrupt_config.h: 47: INTERRUPT_HIGH_PRIORITY
 [; ;mcal_interrupt_config.h: 48: }interrupt_priority_cfg;
-[; ;mcal_eeprom_init.h: 45: Std_ReturnType EEPROM_Write_DataByByte(uint16 byteAddress,uint8 data);
-[; ;mcal_eeprom_init.h: 52: Std_ReturnType EEPROM_Read_DataByByte(uint16 byteAddress,uint8* data);
-[; ;mcal_external_interrupt.h: 59: typedef void (*InterruptHandler)(void);
-[; ;mcal_external_interrupt.h: 61: typedef enum{
-[; ;mcal_external_interrupt.h: 62: INTERRUPT_FALLING_EDGE = 0,
-[; ;mcal_external_interrupt.h: 63: INTERRUPT_RISING_EDGE
-[; ;mcal_external_interrupt.h: 64: }interrupt_INTx_edge;
-[; ;mcal_external_interrupt.h: 66: typedef enum{
-[; ;mcal_external_interrupt.h: 67: INTERRUPT_EXTERNAL_INT0 = 0,
-[; ;mcal_external_interrupt.h: 68: INTERRUPT_EXTERNAL_INT1,
-[; ;mcal_external_interrupt.h: 69: INTERRUPT_EXTERNAL_INT2
-[; ;mcal_external_interrupt.h: 70: }interrupt_INTx_src;
-[; ;mcal_external_interrupt.h: 72: typedef struct{
-[; ;mcal_external_interrupt.h: 73: void (* EXT_InterruptHandler)(void);
-[; ;mcal_external_interrupt.h: 74: pin_config_t mcu_pin;
-[; ;mcal_external_interrupt.h: 75: interrupt_INTx_edge edge;
-[; ;mcal_external_interrupt.h: 76: interrupt_INTx_src source;
-[; ;mcal_external_interrupt.h: 77: interrupt_priority_cfg priority;
-[; ;mcal_external_interrupt.h: 78: }interrupt_INTx_t;
-[; ;mcal_external_interrupt.h: 80: typedef struct{
-[; ;mcal_external_interrupt.h: 81: void (* EXT_InterruptHandler_HIGH)(void);
-[; ;mcal_external_interrupt.h: 82: void (* EXT_InterruptHandler_LOW)(void);
-[; ;mcal_external_interrupt.h: 83: pin_config_t mcu_pin;
-[; ;mcal_external_interrupt.h: 84: interrupt_priority_cfg priority;
-[; ;mcal_external_interrupt.h: 85: }interrupt_RBx_t;
-[; ;mcal_external_interrupt.h: 95: Std_ReturnType Interrupt_INTx_Init(const interrupt_INTx_t *int_obj);
-[; ;mcal_external_interrupt.h: 104: Std_ReturnType Interrupt_INTx_DeInit(const interrupt_INTx_t *int_obj);
-[; ;mcal_external_interrupt.h: 113: Std_ReturnType Interrupt_RBx_Init(const interrupt_RBx_t *int_obj);
-[; ;mcal_external_interrupt.h: 122: Std_ReturnType Interrupt_RBx_DeInit(const interrupt_RBx_t *int_obj);
 [; ;mcal_adc_init.h: 72: typedef void (*InterruptHandler)(void);
 [; ;mcal_adc_init.h: 74: typedef enum{
 [; ;mcal_adc_init.h: 75: ADC_CHANEL_AN0,
@@ -3010,206 +3044,713 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;mcal_adc_init.h: 130: Std_ReturnType ADC_IsConversionCompleted(const ADC_config_t* adc_obj,uint8* conversion_status);
 [; ;mcal_adc_init.h: 131: Std_ReturnType ADC_GetConversionResult(const ADC_config_t* adc_obj,adc_result_t* convesion_result);
 [; ;mcal_adc_init.h: 133: Std_ReturnType ADC_StartConversion_Interrupt(const ADC_config_t* adc_obj,ADC_Chanels_t channel);
-[; ;application.h: 21: extern keypad_t keypad1;
-[; ;application.h: 22: extern led_t led1;
-[; ;application.h: 23: extern led_t led2;
-[; ;application.h: 24: extern led_t led3;
-[; ;application.h: 25: extern led_t led4;
-[; ;application.h: 26: extern led_t led5;
-[; ;application.h: 28: void functionInitialize();
-[; ;application.h: 29: void ADC_DefaultInterruptHandeler(void);
-[; ;application.h: 30: void program1();
-[; ;application.h: 31: void progarm2();
-"9 application.c
-[v _adc_flag `Vuc ~T0 @X0 1 e ]
-[i _adc_flag
+"8 MCAL_Layer/ADC_Driver/mcal_adc_prog.c
+[v _flag `Vuc ~T0 @X0 1 e ]
+[i _flag
 -> -> 0 `i `uc
 ]
-[; ;application.c: 9: volatile uint8 adc_flag=0;
+[; ;mcal_adc_prog.c: 8: volatile uint8 flag=0;
 "10
-[v _adc_res_1 `us ~T0 @X0 1 e ]
-[i _adc_res_1
--> -> 0 `i `us
+[v _ADC_InterruptHandeler `*F3146 ~T0 @X0 1 s ]
+[i _ADC_InterruptHandeler
+-> -> 0 `i `*F3146
 ]
-[v _adc_res_2 `us ~T0 @X0 1 e ]
-[v _adc_res_3 `us ~T0 @X0 1 e ]
-[v _adc_res_4 `us ~T0 @X0 1 e ]
-[; ;application.c: 10: uint16 adc_res_1=0,adc_res_2,adc_res_3,adc_res_4;
-[; ;application.c: 11: void ADC_DefaultInterruptHandeler(void);
-"12
-[v _adc_1 `S275 ~T0 @X0 1 e ]
-[i _adc_1
-:U ..
-:U ..
-"13
-&U _ADC_DefaultInterruptHandeler
-"14
-. `E3237 5
-"15
-. `E3247 5
-"16
-. `E3222 0
-"17
--> -> 1 `i `uc
-"19
--> -> 1 `ui `uc
-..
-..
-]
-[; ;application.c: 12: ADC_config_t adc_1={
-[; ;application.c: 13: ADC_DefaultInterruptHandeler,
-[; ;application.c: 14: ADC_12_TAD,
-[; ;application.c: 15: ADC_CONVERTION_CLOCK_FOSC_DIV_16,
-[; ;application.c: 16: ADC_CHANEL_AN0,
-[; ;application.c: 17: 1,
-[; ;application.c: 18: 0x01U
-[; ;application.c: 19: };
+[; ;mcal_adc_prog.c: 10: static InterruptHandler ADC_InterruptHandeler=(0);
+[; ;mcal_adc_prog.c: 12: static Std_ReturnType ADC_input_channel_port_configure(ADC_Chanels_t channel);
 "20
-[v _ADC_DefaultInterruptHandeler `(v ~T0 @X0 1 ef ]
+[v _ADC_Init `(uc ~T0 @X0 1 ef1`*CS271 ]
 {
-[; ;application.c: 20: void ADC_DefaultInterruptHandeler(void){
-[e :U _ADC_DefaultInterruptHandeler ]
+[; ;mcal_adc_prog.c: 20: Std_ReturnType ADC_Init(const ADC_config_t* adc_obj){
+[e :U _ADC_Init ]
+[v _adc_obj `*CS271 ~T0 @X0 1 r1 ]
 [f ]
-[; ;application.c: 21: ADC_GetConversionResult(&adc_1,&adc_res_1);
 "21
-[e ( _ADC_GetConversionResult (2 , -> &U _adc_1 `*CS275 &U _adc_res_1 ]
-[; ;application.c: 22: }
+[v _Local_Status `uc ~T0 @X0 1 a ]
+[; ;mcal_adc_prog.c: 21: Std_ReturnType Local_Status=(Std_ReturnType)0x00;
+[e = _Local_Status -> -> 0 `i `uc ]
+[; ;mcal_adc_prog.c: 22: if(adc_obj==(0)){
 "22
-[e :UE 276 ]
-}
+[e $ ! == _adc_obj -> -> 0 `i `*CS271 273  ]
+{
+[; ;mcal_adc_prog.c: 23: Local_Status=(Std_ReturnType)0x00;
 "23
-[v _adc_2 `S275 ~T0 @X0 1 e ]
-[i _adc_2
-:U ..
-:U ..
+[e = _Local_Status -> -> 0 `i `uc ]
 "24
--> -> 0 `i `*F3258
+}
+[; ;mcal_adc_prog.c: 24: }else{
+[e $U 274  ]
+[e :U 273 ]
+{
+[; ;mcal_adc_prog.c: 25: ADC_InterruptHandeler=adc_obj->ADC_InterruptHandeler;
 "25
-. `E3237 5
-"26
-. `E3247 5
+[e = _ADC_InterruptHandeler -> . *U _adc_obj 0 `*F3146 ]
+[; ;mcal_adc_prog.c: 27: (ADCON0bits.ADON=0);
 "27
-. `E3222 1
-"28
--> -> 1 `i `uc
-"30
--> -> 1 `ui `uc
-..
-..
-]
-[; ;application.c: 23: ADC_config_t adc_2={
-[; ;application.c: 24: (0),
-[; ;application.c: 25: ADC_12_TAD,
-[; ;application.c: 26: ADC_CONVERTION_CLOCK_FOSC_DIV_16,
-[; ;application.c: 27: ADC_CHANEL_AN1,
-[; ;application.c: 28: 1,
-[; ;application.c: 29: 0x01U
-[; ;application.c: 30: };
+[e = . . _ADCON0bits 1 0 -> -> 0 `i `uc ]
+[; ;mcal_adc_prog.c: 29: ADCON2bits.ACQT=adc_obj->acquasition_time;
+"29
+[e = . . _ADCON2bits 0 1 -> . *U _adc_obj 1 `uc ]
+[; ;mcal_adc_prog.c: 31: ADCON2bits.ADCS=adc_obj->conversion_clock;
 "31
-[v _adc_3 `S275 ~T0 @X0 1 e ]
-[i _adc_3
-:U ..
-:U ..
-"32
--> -> 0 `i `*F3258
+[e = . . _ADCON2bits 0 0 -> . *U _adc_obj 2 `uc ]
+[; ;mcal_adc_prog.c: 33: ADCON0bits.CHS=adc_obj->channel_selected;
 "33
-. `E3237 5
+[e = . . _ADCON0bits 1 2 -> . *U _adc_obj 3 `uc ]
+[; ;mcal_adc_prog.c: 34: ADC_input_channel_port_configure(adc_obj->channel_selected);
 "34
-. `E3247 5
-"35
-. `E3222 2
-"36
--> -> 1 `i `uc
+[e ( _ADC_input_channel_port_configure (1 . *U _adc_obj 3 ]
+[; ;mcal_adc_prog.c: 37: (INTCONbits.GIE = 1);
+"37
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;mcal_adc_prog.c: 38: (INTCONbits.PEIE = 1);
 "38
--> -> 1 `ui `uc
-..
-..
-]
-[; ;application.c: 31: ADC_config_t adc_3={
-[; ;application.c: 32: (0),
-[; ;application.c: 33: ADC_12_TAD,
-[; ;application.c: 34: ADC_CONVERTION_CLOCK_FOSC_DIV_16,
-[; ;application.c: 35: ADC_CHANEL_AN2,
-[; ;application.c: 36: 1,
-[; ;application.c: 37: 0x01U
-[; ;application.c: 38: };
+[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
+[; ;mcal_adc_prog.c: 39: (PIE1bits.ADIE=1);
 "39
-[v _adc_4 `S275 ~T0 @X0 1 e ]
-[i _adc_4
-:U ..
-:U ..
+[e = . . _PIE1bits 0 6 -> -> 1 `i `uc ]
+[; ;mcal_adc_prog.c: 40: (PIR1bits.ADIF=0);
 "40
--> -> 0 `i `*F3258
-"41
-. `E3237 5
-"42
-. `E3247 5
-"43
-. `E3222 3
-"44
--> -> 1 `i `uc
-"46
--> -> 1 `ui `uc
-..
-..
-]
-[; ;application.c: 39: ADC_config_t adc_4={
-[; ;application.c: 40: (0),
-[; ;application.c: 41: ADC_12_TAD,
-[; ;application.c: 42: ADC_CONVERTION_CLOCK_FOSC_DIV_16,
-[; ;application.c: 43: ADC_CHANEL_AN3,
-[; ;application.c: 44: 1,
-[; ;application.c: 45: 0x01U
-[; ;application.c: 46: };
-"47
-[v _main `(i ~T0 @X0 1 ef ]
-{
-[; ;application.c: 47: int main() {
-[e :U _main ]
-[f ]
-[; ;application.c: 48: functionInitialize();
-"48
-[e ( _functionInitialize ..  ]
-[; ;application.c: 49: ADC_StartConversion_Interrupt(&adc_1,ADC_CHANEL_AN0);
-"49
-[e ( _ADC_StartConversion_Interrupt (2 , -> &U _adc_1 `*CS275 . `E3222 0 ]
-[; ;application.c: 50: while (1) {
-"50
-[e :U 279 ]
-{
-"51
-}
-[e :U 278 ]
-"50
-[e $U 279  ]
-[e :U 280 ]
-[; ;application.c: 51: }
-[; ;application.c: 52: }
-"52
-[e :UE 277 ]
-}
-"54
-[v _functionInitialize `(v ~T0 @X0 1 ef ]
-{
-[; ;application.c: 54: void functionInitialize() {
-[e :U _functionInitialize ]
-[f ]
-[; ;application.c: 55: ecu_layer_initialize();
-"55
-[e ( _ecu_layer_initialize ..  ]
-[; ;application.c: 56: ADC_Init(&adc_1);
-"56
-[e ( _ADC_Init (1 -> &U _adc_1 `*CS275 ]
-[; ;application.c: 57: ADC_Init(&adc_2);
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+[; ;mcal_adc_prog.c: 57: if(adc_obj->result_format==0x01U){
 "57
-[e ( _ADC_Init (1 -> &U _adc_2 `*CS275 ]
-[; ;application.c: 58: ADC_Init(&adc_3);
+[e $ ! == -> . *U _adc_obj 5 `ui -> 1 `ui 275  ]
+{
+[; ;mcal_adc_prog.c: 58: (ADCON2bits.ADFM=1);
 "58
-[e ( _ADC_Init (1 -> &U _adc_3 `*CS275 ]
-[; ;application.c: 59: ADC_Init(&adc_4);
+[e = . . _ADCON2bits 0 3 -> -> 1 `i `uc ]
 "59
-[e ( _ADC_Init (1 -> &U _adc_4 `*CS275 ]
-[; ;application.c: 60: }
+}
+[; ;mcal_adc_prog.c: 59: }else if(adc_obj->result_format==0x00U){
+[e $U 276  ]
+[e :U 275 ]
+[e $ ! == -> . *U _adc_obj 5 `ui -> 0 `ui 277  ]
+{
+[; ;mcal_adc_prog.c: 60: (ADCON2bits.ADFM=0);
 "60
-[e :UE 281 ]
+[e = . . _ADCON2bits 0 3 -> -> 0 `i `uc ]
+"61
+}
+[e :U 277 ]
+"63
+[e :U 276 ]
+[; ;mcal_adc_prog.c: 61: }
+[; ;mcal_adc_prog.c: 63: if((adc_obj->voltage_reference) == 0){
+[e $ ! == -> . *U _adc_obj 4 `i -> 0 `i 278  ]
+{
+[; ;mcal_adc_prog.c: 64: do{ADCON1bits.VCFG1=1; ADCON1bits.VCFG0=1; }while(0);;
+"64
+[e :U 281 ]
+{
+[e = . . _ADCON1bits 1 5 -> -> 1 `i `uc ]
+[e = . . _ADCON1bits 1 4 -> -> 1 `i `uc ]
+}
+[e :U 280 ]
+"65
+}
+[; ;mcal_adc_prog.c: 65: }else if(( adc_obj->voltage_reference) == 1){
+[e $U 282  ]
+[e :U 278 ]
+[e $ ! == -> . *U _adc_obj 4 `i -> 1 `i 283  ]
+{
+[; ;mcal_adc_prog.c: 66: do{ADCON1bits.VCFG1=0; ADCON1bits.VCFG0=0; }while(0);;
+"66
+[e :U 286 ]
+{
+[e = . . _ADCON1bits 1 5 -> -> 0 `i `uc ]
+[e = . . _ADCON1bits 1 4 -> -> 0 `i `uc ]
+}
+[e :U 285 ]
+"67
+}
+[e :U 283 ]
+"69
+[e :U 282 ]
+[; ;mcal_adc_prog.c: 67: }
+[; ;mcal_adc_prog.c: 69: (ADCON0bits.ADON=1);
+[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
+[; ;mcal_adc_prog.c: 70: Local_Status=(Std_ReturnType)0x01;
+"70
+[e = _Local_Status -> -> 1 `i `uc ]
+"71
+}
+[e :U 274 ]
+[; ;mcal_adc_prog.c: 71: }
+[; ;mcal_adc_prog.c: 72: return Local_Status;
+"72
+[e ) _Local_Status ]
+[e $UE 272  ]
+[; ;mcal_adc_prog.c: 73: }
+"73
+[e :UE 272 ]
+}
+"81
+[v _ADC_DeInit `(uc ~T0 @X0 1 ef1`*CS271 ]
+{
+[; ;mcal_adc_prog.c: 81: Std_ReturnType ADC_DeInit(const ADC_config_t* adc_obj){
+[e :U _ADC_DeInit ]
+[v _adc_obj `*CS271 ~T0 @X0 1 r1 ]
+[f ]
+"82
+[v _Local_Status `uc ~T0 @X0 1 a ]
+[; ;mcal_adc_prog.c: 82: Std_ReturnType Local_Status=(Std_ReturnType)0x00;
+[e = _Local_Status -> -> 0 `i `uc ]
+[; ;mcal_adc_prog.c: 83: if(adc_obj==(0)){
+"83
+[e $ ! == _adc_obj -> -> 0 `i `*CS271 288  ]
+{
+[; ;mcal_adc_prog.c: 84: Local_Status=(Std_ReturnType)0x00;
+"84
+[e = _Local_Status -> -> 0 `i `uc ]
+"85
+}
+[; ;mcal_adc_prog.c: 85: }else{
+[e $U 289  ]
+[e :U 288 ]
+{
+[; ;mcal_adc_prog.c: 87: (ADCON0bits.ADON=0);
+"87
+[e = . . _ADCON0bits 1 0 -> -> 0 `i `uc ]
+[; ;mcal_adc_prog.c: 90: (PIE1bits.ADIE=0);
+"90
+[e = . . _PIE1bits 0 6 -> -> 0 `i `uc ]
+[; ;mcal_adc_prog.c: 91: (INTCONbits.GIE = 0);
+"91
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+[; ;mcal_adc_prog.c: 92: (INTCONbits.PEIE = 0);
+"92
+[e = . . _INTCONbits 1 6 -> -> 0 `i `uc ]
+[; ;mcal_adc_prog.c: 97: Local_Status=(Std_ReturnType)0x01;
+"97
+[e = _Local_Status -> -> 1 `i `uc ]
+"98
+}
+[e :U 289 ]
+[; ;mcal_adc_prog.c: 98: }
+[; ;mcal_adc_prog.c: 99: return Local_Status;
+"99
+[e ) _Local_Status ]
+[e $UE 287  ]
+[; ;mcal_adc_prog.c: 100: }
+"100
+[e :UE 287 ]
+}
+"108
+[v _ADC_StartConversion `(uc ~T0 @X0 1 ef1`*CS271 ]
+{
+[; ;mcal_adc_prog.c: 108: Std_ReturnType ADC_StartConversion(const ADC_config_t* adc_obj){
+[e :U _ADC_StartConversion ]
+[v _adc_obj `*CS271 ~T0 @X0 1 r1 ]
+[f ]
+"109
+[v _Local_Status `uc ~T0 @X0 1 a ]
+[; ;mcal_adc_prog.c: 109: Std_ReturnType Local_Status=(Std_ReturnType)0x00;
+[e = _Local_Status -> -> 0 `i `uc ]
+[; ;mcal_adc_prog.c: 110: if(adc_obj==(0)){
+"110
+[e $ ! == _adc_obj -> -> 0 `i `*CS271 291  ]
+{
+[; ;mcal_adc_prog.c: 111: Local_Status=(Std_ReturnType)0x00;
+"111
+[e = _Local_Status -> -> 0 `i `uc ]
+"112
+}
+[; ;mcal_adc_prog.c: 112: }else{
+[e $U 292  ]
+[e :U 291 ]
+{
+[; ;mcal_adc_prog.c: 114: (ADCON0bits.GO_DONE=1);
+"114
+[e = . . _ADCON0bits 6 1 -> -> 1 `i `uc ]
+[; ;mcal_adc_prog.c: 115: Local_Status=(Std_ReturnType)0x01;
+"115
+[e = _Local_Status -> -> 1 `i `uc ]
+"116
+}
+[e :U 292 ]
+[; ;mcal_adc_prog.c: 116: }
+[; ;mcal_adc_prog.c: 117: return Local_Status;
+"117
+[e ) _Local_Status ]
+[e $UE 290  ]
+[; ;mcal_adc_prog.c: 118: }
+"118
+[e :UE 290 ]
+}
+"127
+[v _ADC_SelectChannel `(uc ~T0 @X0 1 ef2`*CS271`E3148 ]
+{
+[; ;mcal_adc_prog.c: 127: Std_ReturnType ADC_SelectChannel(const ADC_config_t* adc_obj,ADC_Chanels_t channel){
+[e :U _ADC_SelectChannel ]
+[v _adc_obj `*CS271 ~T0 @X0 1 r1 ]
+[v _channel `E3148 ~T0 @X0 1 r2 ]
+[f ]
+"128
+[v _Local_Status `uc ~T0 @X0 1 a ]
+[; ;mcal_adc_prog.c: 128: Std_ReturnType Local_Status=(Std_ReturnType)0x00;
+[e = _Local_Status -> -> 0 `i `uc ]
+[; ;mcal_adc_prog.c: 129: if(adc_obj==(0)){
+"129
+[e $ ! == _adc_obj -> -> 0 `i `*CS271 294  ]
+{
+[; ;mcal_adc_prog.c: 130: Local_Status=(Std_ReturnType)0x00;
+"130
+[e = _Local_Status -> -> 0 `i `uc ]
+"131
+}
+[; ;mcal_adc_prog.c: 131: }else{
+[e $U 295  ]
+[e :U 294 ]
+{
+[; ;mcal_adc_prog.c: 132: ADCON0bits.CHS=channel;
+"132
+[e = . . _ADCON0bits 1 2 -> _channel `uc ]
+[; ;mcal_adc_prog.c: 133: ADC_input_channel_port_configure(channel);
+"133
+[e ( _ADC_input_channel_port_configure (1 _channel ]
+[; ;mcal_adc_prog.c: 134: Local_Status=(Std_ReturnType)0x01;
+"134
+[e = _Local_Status -> -> 1 `i `uc ]
+"135
+}
+[e :U 295 ]
+[; ;mcal_adc_prog.c: 135: }
+[; ;mcal_adc_prog.c: 136: return Local_Status;
+"136
+[e ) _Local_Status ]
+[e $UE 293  ]
+[; ;mcal_adc_prog.c: 137: }
+"137
+[e :UE 293 ]
+}
+"146
+[v _ADC_IsConversionCompleted `(uc ~T0 @X0 1 ef2`*CS271`*uc ]
+{
+[; ;mcal_adc_prog.c: 146: Std_ReturnType ADC_IsConversionCompleted(const ADC_config_t* adc_obj,uint8* conversion_status){
+[e :U _ADC_IsConversionCompleted ]
+[v _adc_obj `*CS271 ~T0 @X0 1 r1 ]
+[v _conversion_status `*uc ~T0 @X0 1 r2 ]
+[f ]
+"147
+[v _Local_Status `uc ~T0 @X0 1 a ]
+[; ;mcal_adc_prog.c: 147: Std_ReturnType Local_Status=(Std_ReturnType)0x00;
+[e = _Local_Status -> -> 0 `i `uc ]
+[; ;mcal_adc_prog.c: 148: if(adc_obj==(0) || conversion_status==(0)){
+"148
+[e $ ! || == _adc_obj -> -> 0 `i `*CS271 == _conversion_status -> -> 0 `i `*uc 297  ]
+{
+[; ;mcal_adc_prog.c: 149: Local_Status=(Std_ReturnType)0x00;
+"149
+[e = _Local_Status -> -> 0 `i `uc ]
+"150
+}
+[; ;mcal_adc_prog.c: 150: }else{
+[e $U 298  ]
+[e :U 297 ]
+{
+[; ;mcal_adc_prog.c: 151: if((ADCON0bits.GO_DONE)==0x00U){
+"151
+[e $ ! == -> . . _ADCON0bits 6 1 `ui -> 0 `ui 299  ]
+{
+[; ;mcal_adc_prog.c: 152: *conversion_status=0x01U;
+"152
+[e = *U _conversion_status -> -> 1 `ui `uc ]
+[; ;mcal_adc_prog.c: 153: Local_Status=(Std_ReturnType)0x01;
+"153
+[e = _Local_Status -> -> 1 `i `uc ]
+"154
+}
+[; ;mcal_adc_prog.c: 154: }else if((ADCON0bits.GO_DONE)==0x01U){
+[e $U 300  ]
+[e :U 299 ]
+[e $ ! == -> . . _ADCON0bits 6 1 `ui -> 1 `ui 301  ]
+{
+[; ;mcal_adc_prog.c: 155: *conversion_status=0x00U;
+"155
+[e = *U _conversion_status -> -> 0 `ui `uc ]
+[; ;mcal_adc_prog.c: 156: Local_Status=(Std_ReturnType)0x01;
+"156
+[e = _Local_Status -> -> 1 `i `uc ]
+"157
+}
+[; ;mcal_adc_prog.c: 157: }else{
+[e $U 302  ]
+[e :U 301 ]
+{
+[; ;mcal_adc_prog.c: 158: Local_Status=(Std_ReturnType)0x00;
+"158
+[e = _Local_Status -> -> 0 `i `uc ]
+"159
+}
+[e :U 302 ]
+[e :U 300 ]
+"160
+}
+[e :U 298 ]
+[; ;mcal_adc_prog.c: 159: }
+[; ;mcal_adc_prog.c: 160: }
+[; ;mcal_adc_prog.c: 161: return Local_Status;
+"161
+[e ) _Local_Status ]
+[e $UE 296  ]
+[; ;mcal_adc_prog.c: 162: }
+"162
+[e :UE 296 ]
+}
+"171
+[v _ADC_GetConversionResult `(uc ~T0 @X0 1 ef2`*CS271`*us ]
+{
+[; ;mcal_adc_prog.c: 171: Std_ReturnType ADC_GetConversionResult(const ADC_config_t* adc_obj,adc_result_t* convesion_result){
+[e :U _ADC_GetConversionResult ]
+[v _adc_obj `*CS271 ~T0 @X0 1 r1 ]
+[v _convesion_result `*us ~T0 @X0 1 r2 ]
+[f ]
+"172
+[v _Local_Status `uc ~T0 @X0 1 a ]
+[; ;mcal_adc_prog.c: 172: Std_ReturnType Local_Status=(Std_ReturnType)0x00;
+[e = _Local_Status -> -> 0 `i `uc ]
+[; ;mcal_adc_prog.c: 173: if(adc_obj==(0) || convesion_result==(0)){
+"173
+[e $ ! || == _adc_obj -> -> 0 `i `*CS271 == _convesion_result -> -> 0 `i `*us 304  ]
+{
+[; ;mcal_adc_prog.c: 174: Local_Status=(Std_ReturnType)0x00;
+"174
+[e = _Local_Status -> -> 0 `i `uc ]
+"175
+}
+[; ;mcal_adc_prog.c: 175: }else{
+[e $U 305  ]
+[e :U 304 ]
+{
+[; ;mcal_adc_prog.c: 176: if(0x01U == adc_obj->result_format){
+"176
+[e $ ! == -> 1 `ui -> . *U _adc_obj 5 `ui 306  ]
+{
+[; ;mcal_adc_prog.c: 177: *convesion_result = (adc_result_t)((ADRESH << 8) + ADRESL);
+"177
+[e = *U _convesion_result -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `us ]
+"178
+}
+[; ;mcal_adc_prog.c: 178: }
+[e $U 307  ]
+"179
+[e :U 306 ]
+[; ;mcal_adc_prog.c: 179: else if(0x00U == adc_obj->result_format){
+[e $ ! == -> 0 `ui -> . *U _adc_obj 5 `ui 308  ]
+{
+[; ;mcal_adc_prog.c: 180: *convesion_result = (adc_result_t)(((ADRESH << 8) + ADRESL) >> 6);
+"180
+[e = *U _convesion_result -> >> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i -> 6 `i `us ]
+"181
+}
+[; ;mcal_adc_prog.c: 181: }
+[e $U 309  ]
+"182
+[e :U 308 ]
+[; ;mcal_adc_prog.c: 182: else{
+{
+[; ;mcal_adc_prog.c: 183: *convesion_result = (adc_result_t)((ADRESH << 8) + ADRESL);
+"183
+[e = *U _convesion_result -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `us ]
+"184
+}
+[e :U 309 ]
+[e :U 307 ]
+[; ;mcal_adc_prog.c: 184: }
+[; ;mcal_adc_prog.c: 185: Local_Status=(Std_ReturnType)0x01;
+"185
+[e = _Local_Status -> -> 1 `i `uc ]
+"186
+}
+[e :U 305 ]
+[; ;mcal_adc_prog.c: 186: }
+[; ;mcal_adc_prog.c: 187: return Local_Status;
+"187
+[e ) _Local_Status ]
+[e $UE 303  ]
+[; ;mcal_adc_prog.c: 188: }
+"188
+[e :UE 303 ]
+}
+"215
+[v _ADC_StartConversion_Interrupt `(uc ~T0 @X0 1 ef2`*CS271`E3148 ]
+{
+[; ;mcal_adc_prog.c: 215: Std_ReturnType ADC_StartConversion_Interrupt(const ADC_config_t* adc_obj,ADC_Chanels_t channel){
+[e :U _ADC_StartConversion_Interrupt ]
+[v _adc_obj `*CS271 ~T0 @X0 1 r1 ]
+[v _channel `E3148 ~T0 @X0 1 r2 ]
+[f ]
+"216
+[v _Local_Status `uc ~T0 @X0 1 a ]
+[; ;mcal_adc_prog.c: 216: Std_ReturnType Local_Status=(Std_ReturnType)0x00;
+[e = _Local_Status -> -> 0 `i `uc ]
+[; ;mcal_adc_prog.c: 217: if(adc_obj==(0)){
+"217
+[e $ ! == _adc_obj -> -> 0 `i `*CS271 311  ]
+{
+[; ;mcal_adc_prog.c: 218: Local_Status=(Std_ReturnType)0x00;
+"218
+[e = _Local_Status -> -> 0 `i `uc ]
+"219
+}
+[; ;mcal_adc_prog.c: 219: }else{
+[e $U 312  ]
+[e :U 311 ]
+{
+[; ;mcal_adc_prog.c: 220: (PIR1bits.ADIF=0);
+"220
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+[; ;mcal_adc_prog.c: 222: Local_Status |= ADC_SelectChannel(adc_obj,channel);
+"222
+[e =| _Local_Status ( _ADC_SelectChannel (2 , _adc_obj _channel ]
+[; ;mcal_adc_prog.c: 224: Local_Status |= ADC_StartConversion(adc_obj);
+"224
+[e =| _Local_Status ( _ADC_StartConversion (1 _adc_obj ]
+"225
+}
+[e :U 312 ]
+[; ;mcal_adc_prog.c: 225: }
+[; ;mcal_adc_prog.c: 226: return Local_Status;
+"226
+[e ) _Local_Status ]
+[e $UE 310  ]
+[; ;mcal_adc_prog.c: 227: }
+"227
+[e :UE 310 ]
+}
+"229
+[v _ADC_input_channel_port_configure `(uc ~T0 @X0 1 sf1`E3148 ]
+{
+[; ;mcal_adc_prog.c: 229: static Std_ReturnType ADC_input_channel_port_configure(ADC_Chanels_t channel){
+[e :U _ADC_input_channel_port_configure ]
+[v _channel `E3148 ~T0 @X0 1 r1 ]
+[f ]
+[; ;mcal_adc_prog.c: 230: switch(channel){
+"230
+[e $U 315  ]
+{
+[; ;mcal_adc_prog.c: 231: case ADC_CHANEL_AN0:
+"231
+[e :U 316 ]
+[; ;mcal_adc_prog.c: 232: (TRISA |= ((uint8)1 << 0x0));
+"232
+[e =| _TRISA -> << -> -> -> 1 `i `uc `i -> 0 `i `uc ]
+[; ;mcal_adc_prog.c: 233: return (Std_ReturnType)0x01;
+"233
+[e ) -> -> 1 `i `uc ]
+[e $UE 313  ]
+[; ;mcal_adc_prog.c: 234: break;
+"234
+[e $U 314  ]
+[; ;mcal_adc_prog.c: 235: case ADC_CHANEL_AN1:
+"235
+[e :U 317 ]
+[; ;mcal_adc_prog.c: 236: (TRISA |= ((uint8)1 << 0x1));
+"236
+[e =| _TRISA -> << -> -> -> 1 `i `uc `i -> 1 `i `uc ]
+[; ;mcal_adc_prog.c: 237: return (Std_ReturnType)0x01;
+"237
+[e ) -> -> 1 `i `uc ]
+[e $UE 313  ]
+[; ;mcal_adc_prog.c: 238: break;
+"238
+[e $U 314  ]
+[; ;mcal_adc_prog.c: 239: case ADC_CHANEL_AN2:
+"239
+[e :U 318 ]
+[; ;mcal_adc_prog.c: 240: (TRISA |= ((uint8)1 << 0x2));
+"240
+[e =| _TRISA -> << -> -> -> 1 `i `uc `i -> 2 `i `uc ]
+[; ;mcal_adc_prog.c: 241: return (Std_ReturnType)0x01;
+"241
+[e ) -> -> 1 `i `uc ]
+[e $UE 313  ]
+[; ;mcal_adc_prog.c: 242: break;
+"242
+[e $U 314  ]
+[; ;mcal_adc_prog.c: 243: case ADC_CHANEL_AN3:
+"243
+[e :U 319 ]
+[; ;mcal_adc_prog.c: 244: (TRISA |= ((uint8)1 << 0x3));
+"244
+[e =| _TRISA -> << -> -> -> 1 `i `uc `i -> 3 `i `uc ]
+[; ;mcal_adc_prog.c: 245: return (Std_ReturnType)0x01;
+"245
+[e ) -> -> 1 `i `uc ]
+[e $UE 313  ]
+[; ;mcal_adc_prog.c: 246: break;
+"246
+[e $U 314  ]
+[; ;mcal_adc_prog.c: 247: case ADC_CHANEL_AN4:
+"247
+[e :U 320 ]
+[; ;mcal_adc_prog.c: 248: (TRISA |= ((uint8)1 << 0x5));
+"248
+[e =| _TRISA -> << -> -> -> 1 `i `uc `i -> 5 `i `uc ]
+[; ;mcal_adc_prog.c: 249: return (Std_ReturnType)0x01;
+"249
+[e ) -> -> 1 `i `uc ]
+[e $UE 313  ]
+[; ;mcal_adc_prog.c: 250: break;
+"250
+[e $U 314  ]
+[; ;mcal_adc_prog.c: 251: case ADC_CHANEL_AN5:
+"251
+[e :U 321 ]
+[; ;mcal_adc_prog.c: 252: (TRISE |= ((uint8)1 << 0x0));
+"252
+[e =| _TRISE -> << -> -> -> 1 `i `uc `i -> 0 `i `uc ]
+[; ;mcal_adc_prog.c: 253: return (Std_ReturnType)0x01;
+"253
+[e ) -> -> 1 `i `uc ]
+[e $UE 313  ]
+[; ;mcal_adc_prog.c: 254: break;
+"254
+[e $U 314  ]
+[; ;mcal_adc_prog.c: 255: case ADC_CHANEL_AN6:
+"255
+[e :U 322 ]
+[; ;mcal_adc_prog.c: 256: (TRISE |= ((uint8)1 << 0x1));
+"256
+[e =| _TRISE -> << -> -> -> 1 `i `uc `i -> 1 `i `uc ]
+[; ;mcal_adc_prog.c: 257: return (Std_ReturnType)0x01;
+"257
+[e ) -> -> 1 `i `uc ]
+[e $UE 313  ]
+[; ;mcal_adc_prog.c: 258: break;
+"258
+[e $U 314  ]
+[; ;mcal_adc_prog.c: 259: case ADC_CHANEL_AN7:
+"259
+[e :U 323 ]
+[; ;mcal_adc_prog.c: 260: (TRISE |= ((uint8)1 << 0x2));
+"260
+[e =| _TRISE -> << -> -> -> 1 `i `uc `i -> 2 `i `uc ]
+[; ;mcal_adc_prog.c: 261: return (Std_ReturnType)0x01;
+"261
+[e ) -> -> 1 `i `uc ]
+[e $UE 313  ]
+[; ;mcal_adc_prog.c: 262: break;
+"262
+[e $U 314  ]
+[; ;mcal_adc_prog.c: 263: case ADC_CHANEL_AN8:
+"263
+[e :U 324 ]
+[; ;mcal_adc_prog.c: 264: (TRISB |= ((uint8)1 << 0x2));
+"264
+[e =| _TRISB -> << -> -> -> 1 `i `uc `i -> 2 `i `uc ]
+[; ;mcal_adc_prog.c: 265: return (Std_ReturnType)0x01;
+"265
+[e ) -> -> 1 `i `uc ]
+[e $UE 313  ]
+[; ;mcal_adc_prog.c: 266: break;
+"266
+[e $U 314  ]
+[; ;mcal_adc_prog.c: 267: case ADC_CHANEL_AN9:
+"267
+[e :U 325 ]
+[; ;mcal_adc_prog.c: 268: (TRISB |= ((uint8)1 << 0x3));
+"268
+[e =| _TRISB -> << -> -> -> 1 `i `uc `i -> 3 `i `uc ]
+[; ;mcal_adc_prog.c: 269: return (Std_ReturnType)0x01;
+"269
+[e ) -> -> 1 `i `uc ]
+[e $UE 313  ]
+[; ;mcal_adc_prog.c: 270: break;
+"270
+[e $U 314  ]
+[; ;mcal_adc_prog.c: 271: case ADC_CHANEL_AN10:
+"271
+[e :U 326 ]
+[; ;mcal_adc_prog.c: 272: (TRISB |= ((uint8)1 << 0x1));
+"272
+[e =| _TRISB -> << -> -> -> 1 `i `uc `i -> 1 `i `uc ]
+[; ;mcal_adc_prog.c: 273: return (Std_ReturnType)0x01;
+"273
+[e ) -> -> 1 `i `uc ]
+[e $UE 313  ]
+[; ;mcal_adc_prog.c: 274: break;
+"274
+[e $U 314  ]
+[; ;mcal_adc_prog.c: 275: case ADC_CHANEL_AN11:
+"275
+[e :U 327 ]
+[; ;mcal_adc_prog.c: 276: (TRISB |= ((uint8)1 << 0x4));
+"276
+[e =| _TRISB -> << -> -> -> 1 `i `uc `i -> 4 `i `uc ]
+[; ;mcal_adc_prog.c: 277: return (Std_ReturnType)0x01;
+"277
+[e ) -> -> 1 `i `uc ]
+[e $UE 313  ]
+[; ;mcal_adc_prog.c: 278: break;
+"278
+[e $U 314  ]
+[; ;mcal_adc_prog.c: 279: case ADC_CHANEL_AN12:
+"279
+[e :U 328 ]
+[; ;mcal_adc_prog.c: 280: (TRISB |= ((uint8)1 << 0x0));
+"280
+[e =| _TRISB -> << -> -> -> 1 `i `uc `i -> 0 `i `uc ]
+[; ;mcal_adc_prog.c: 281: return (Std_ReturnType)0x01;
+"281
+[e ) -> -> 1 `i `uc ]
+[e $UE 313  ]
+[; ;mcal_adc_prog.c: 282: break;
+"282
+[e $U 314  ]
+[; ;mcal_adc_prog.c: 283: default:
+"283
+[e :U 329 ]
+[; ;mcal_adc_prog.c: 284: return (Std_ReturnType)0x00;
+"284
+[e ) -> -> 0 `i `uc ]
+[e $UE 313  ]
+"285
+}
+[; ;mcal_adc_prog.c: 285: }
+[e $U 314  ]
+"230
+[e :U 315 ]
+[e [\ _channel , $ . `E3148 0 316
+ , $ . `E3148 1 317
+ , $ . `E3148 2 318
+ , $ . `E3148 3 319
+ , $ . `E3148 4 320
+ , $ . `E3148 5 321
+ , $ . `E3148 6 322
+ , $ . `E3148 7 323
+ , $ . `E3148 8 324
+ , $ . `E3148 9 325
+ , $ . `E3148 10 326
+ , $ . `E3148 11 327
+ , $ . `E3148 12 328
+ 329 ]
+"285
+[e :U 314 ]
+[; ;mcal_adc_prog.c: 286: }
+"286
+[e :UE 313 ]
+}
+"287
+[v _ADC_ISR `(v ~T0 @X0 1 ef ]
+{
+[; ;mcal_adc_prog.c: 287: void ADC_ISR(void){
+[e :U _ADC_ISR ]
+[f ]
+[; ;mcal_adc_prog.c: 288: (PIR1bits.ADIF=0);
+"288
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+[; ;mcal_adc_prog.c: 289: if(ADC_InterruptHandeler){
+"289
+[e $ ! != _ADC_InterruptHandeler -> -> 0 `i `*F3146 331  ]
+{
+[; ;mcal_adc_prog.c: 290: ADC_InterruptHandeler();
+"290
+[e ( *U _ADC_InterruptHandeler ..  ]
+"291
+}
+[e :U 331 ]
+[; ;mcal_adc_prog.c: 291: }
+[; ;mcal_adc_prog.c: 292: }
+"292
+[e :UE 330 ]
 }

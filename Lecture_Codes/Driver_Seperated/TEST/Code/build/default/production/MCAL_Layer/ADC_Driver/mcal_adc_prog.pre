@@ -1,5 +1,5 @@
 
-# 1 "application.c"
+# 1 "MCAL_Layer/ADC_Driver/mcal_adc_prog.c"
 
 # 49 "C:\Program Files\Microchip\xc8\v1.41\include\pic18f4620.h"
 extern volatile unsigned char PORTA @ 0xF80;
@@ -3769,7 +3769,7 @@ extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
 
-# 19 "ECU_Layer/Keypad_Driver/../../MCAL_Layer/GPIO/../std_types.h"
+# 19 "MCAL_Layer/ADC_Driver/../GPIO/../std_types.h"
 typedef unsigned char boolean;
 typedef unsigned char uint8;
 typedef unsigned short uint16;
@@ -3784,7 +3784,7 @@ typedef double float64;
 
 typedef uint8 Std_ReturnType;
 
-# 35 "ECU_Layer/Keypad_Driver/../../MCAL_Layer/GPIO/hal_gpio.h"
+# 35 "MCAL_Layer/ADC_Driver/../GPIO/hal_gpio.h"
 typedef enum{
 LOW,
 HIGH
@@ -3839,100 +3839,11 @@ Std_ReturnType gpio_port_write_logic(port_index_t port,uint8 logic);
 Std_ReturnType gpio_port_read_logic(port_index_t port,uint8* logic);
 Std_ReturnType gpio_port_toggle_logic(port_index_t port);
 
-# 22 "ECU_Layer/Keypad_Driver/ecu_keypad_init.h"
-typedef struct{
-pin_config_t keypad_rows_pins[4];
-pin_config_t keypad_colums_pins[4];
-}keypad_t;
-
-# 35
-Std_ReturnType keypad_initialize(keypad_t* keypad_obj);
-
-# 43
-Std_ReturnType keypad_get_key(keypad_t* keypad_obj,uint8* value);
-
-# 13 "ECU_Layer/ecu_layer_int.h"
-Std_ReturnType ecu_layer_initialize();
-
-# 17 "ECU_Layer/LED_Driver/ecu_led_init.h"
-typedef enum {
-LED_OFF,
-LED_ON
-} led_status_t;
-
-typedef struct {
-uint8 port_index : 4;
-uint8 pin_num : 3;
-uint8 led_status : 1;
-}led_t;
-
-# 39
-Std_ReturnType led_initizlize(const led_t* led);
-
-# 47
-Std_ReturnType led_turn_on(const led_t*led);
-
-# 55
-Std_ReturnType led_turn_off(const led_t*led);
-
-# 63
-Std_ReturnType led_toggle(const led_t* led);
-
-# 72
-Std_ReturnType led_read_status(const led_t*led, led_status_t* ledStatus);
-
-# 45 "MCAL_Layer/EEPROM_Driver/../Interrupt_Driver/mcal_interrupt_config.h"
+# 45 "MCAL_Layer/ADC_Driver/../Interrupt_Driver/mcal_interrupt_config.h"
 typedef enum{
 INTERRUPT_LOW_PRIORITY = 0,
 INTERRUPT_HIGH_PRIORITY
 }interrupt_priority_cfg;
-
-# 45 "MCAL_Layer/EEPROM_Driver/mcal_eeprom_init.h"
-Std_ReturnType EEPROM_Write_DataByByte(uint16 byteAddress,uint8 data);
-
-# 52
-Std_ReturnType EEPROM_Read_DataByByte(uint16 byteAddress,uint8* data);
-
-# 59 "MCAL_Layer/Interrupt_Driver/mcal_external_interrupt.h"
-typedef void (*InterruptHandler)(void);
-
-typedef enum{
-INTERRUPT_FALLING_EDGE = 0,
-INTERRUPT_RISING_EDGE
-}interrupt_INTx_edge;
-
-typedef enum{
-INTERRUPT_EXTERNAL_INT0 = 0,
-INTERRUPT_EXTERNAL_INT1,
-INTERRUPT_EXTERNAL_INT2
-}interrupt_INTx_src;
-
-typedef struct{
-void (* EXT_InterruptHandler)(void);
-pin_config_t mcu_pin;
-interrupt_INTx_edge edge;
-interrupt_INTx_src source;
-interrupt_priority_cfg priority;
-}interrupt_INTx_t;
-
-typedef struct{
-void (* EXT_InterruptHandler_HIGH)(void);
-void (* EXT_InterruptHandler_LOW)(void);
-pin_config_t mcu_pin;
-interrupt_priority_cfg priority;
-}interrupt_RBx_t;
-
-# 95
-Std_ReturnType Interrupt_INTx_Init(const interrupt_INTx_t *int_obj);
-
-# 104
-Std_ReturnType Interrupt_INTx_DeInit(const interrupt_INTx_t *int_obj);
-
-# 113
-Std_ReturnType Interrupt_RBx_Init(const interrupt_RBx_t *int_obj);
-
-# 122
-Std_ReturnType Interrupt_RBx_DeInit(const interrupt_RBx_t *int_obj);
 
 # 72 "MCAL_Layer/ADC_Driver/mcal_adc_init.h"
 typedef void (*InterruptHandler)(void);
@@ -3997,69 +3908,217 @@ Std_ReturnType ADC_GetConversionResult(const ADC_config_t* adc_obj,adc_result_t*
 
 Std_ReturnType ADC_StartConversion_Interrupt(const ADC_config_t* adc_obj,ADC_Chanels_t channel);
 
-# 21 "application.h"
-extern keypad_t keypad1;
-extern led_t led1;
-extern led_t led2;
-extern led_t led3;
-extern led_t led4;
-extern led_t led5;
+# 8 "MCAL_Layer/ADC_Driver/mcal_adc_prog.c"
+volatile uint8 flag=0;
 
-void functionInitialize();
-void ADC_DefaultInterruptHandeler(void);
-void program1();
-void progarm2();
+static InterruptHandler ADC_InterruptHandeler=(0);
 
-# 9 "application.c"
-volatile uint8 adc_flag=0;
-uint16 adc_res_1=0,adc_res_2,adc_res_3,adc_res_4;
-void ADC_DefaultInterruptHandeler(void);
-ADC_config_t adc_1={
-ADC_DefaultInterruptHandeler,
-ADC_12_TAD,
-ADC_CONVERTION_CLOCK_FOSC_DIV_16,
-ADC_CHANEL_AN0,
-1,
-0x01U
-};
-void ADC_DefaultInterruptHandeler(void){
-ADC_GetConversionResult(&adc_1,&adc_res_1);
-}
-ADC_config_t adc_2={
-(0),
-ADC_12_TAD,
-ADC_CONVERTION_CLOCK_FOSC_DIV_16,
-ADC_CHANEL_AN1,
-1,
-0x01U
-};
-ADC_config_t adc_3={
-(0),
-ADC_12_TAD,
-ADC_CONVERTION_CLOCK_FOSC_DIV_16,
-ADC_CHANEL_AN2,
-1,
-0x01U
-};
-ADC_config_t adc_4={
-(0),
-ADC_12_TAD,
-ADC_CONVERTION_CLOCK_FOSC_DIV_16,
-ADC_CHANEL_AN3,
-1,
-0x01U
-};
-int main() {
-functionInitialize();
-ADC_StartConversion_Interrupt(&adc_1,ADC_CHANEL_AN0);
-while (1) {
-}
+static Std_ReturnType ADC_input_channel_port_configure(ADC_Chanels_t channel);
+
+# 20
+Std_ReturnType ADC_Init(const ADC_config_t* adc_obj){
+Std_ReturnType Local_Status=(Std_ReturnType)0x00;
+if(adc_obj==(0)){
+Local_Status=(Std_ReturnType)0x00;
+}else{
+ADC_InterruptHandeler=adc_obj->ADC_InterruptHandeler;
+
+(ADCON0bits.ADON=0);
+
+ADCON2bits.ACQT=adc_obj->acquasition_time;
+
+ADCON2bits.ADCS=adc_obj->conversion_clock;
+
+ADCON0bits.CHS=adc_obj->channel_selected;
+ADC_input_channel_port_configure(adc_obj->channel_selected);
+
+
+(INTCONbits.GIE = 1);
+(INTCONbits.PEIE = 1);
+(PIE1bits.ADIE=1);
+(PIR1bits.ADIF=0);
+
+# 57
+if(adc_obj->result_format==0x01U){
+(ADCON2bits.ADFM=1);
+}else if(adc_obj->result_format==0x00U){
+(ADCON2bits.ADFM=0);
 }
 
-void functionInitialize() {
-ecu_layer_initialize();
-ADC_Init(&adc_1);
-ADC_Init(&adc_2);
-ADC_Init(&adc_3);
-ADC_Init(&adc_4);
+if((adc_obj->voltage_reference) == 0){
+do{ADCON1bits.VCFG1=1; ADCON1bits.VCFG0=1; }while(0);;
+}else if(( adc_obj->voltage_reference) == 1){
+do{ADCON1bits.VCFG1=0; ADCON1bits.VCFG0=0; }while(0);;
 }
+
+(ADCON0bits.ADON=1);
+Local_Status=(Std_ReturnType)0x01;
+}
+return Local_Status;
+}
+
+# 81
+Std_ReturnType ADC_DeInit(const ADC_config_t* adc_obj){
+Std_ReturnType Local_Status=(Std_ReturnType)0x00;
+if(adc_obj==(0)){
+Local_Status=(Std_ReturnType)0x00;
+}else{
+
+(ADCON0bits.ADON=0);
+
+
+(PIE1bits.ADIE=0);
+(INTCONbits.GIE = 0);
+(INTCONbits.PEIE = 0);
+
+# 97
+Local_Status=(Std_ReturnType)0x01;
+}
+return Local_Status;
+}
+
+# 108
+Std_ReturnType ADC_StartConversion(const ADC_config_t* adc_obj){
+Std_ReturnType Local_Status=(Std_ReturnType)0x00;
+if(adc_obj==(0)){
+Local_Status=(Std_ReturnType)0x00;
+}else{
+
+(ADCON0bits.GO_DONE=1);
+Local_Status=(Std_ReturnType)0x01;
+}
+return Local_Status;
+}
+
+# 127
+Std_ReturnType ADC_SelectChannel(const ADC_config_t* adc_obj,ADC_Chanels_t channel){
+Std_ReturnType Local_Status=(Std_ReturnType)0x00;
+if(adc_obj==(0)){
+Local_Status=(Std_ReturnType)0x00;
+}else{
+ADCON0bits.CHS=channel;
+ADC_input_channel_port_configure(channel);
+Local_Status=(Std_ReturnType)0x01;
+}
+return Local_Status;
+}
+
+# 146
+Std_ReturnType ADC_IsConversionCompleted(const ADC_config_t* adc_obj,uint8* conversion_status){
+Std_ReturnType Local_Status=(Std_ReturnType)0x00;
+if(adc_obj==(0) || conversion_status==(0)){
+Local_Status=(Std_ReturnType)0x00;
+}else{
+if((ADCON0bits.GO_DONE)==0x00U){
+*conversion_status=0x01U;
+Local_Status=(Std_ReturnType)0x01;
+}else if((ADCON0bits.GO_DONE)==0x01U){
+*conversion_status=0x00U;
+Local_Status=(Std_ReturnType)0x01;
+}else{
+Local_Status=(Std_ReturnType)0x00;
+}
+}
+return Local_Status;
+}
+
+# 171
+Std_ReturnType ADC_GetConversionResult(const ADC_config_t* adc_obj,adc_result_t* convesion_result){
+Std_ReturnType Local_Status=(Std_ReturnType)0x00;
+if(adc_obj==(0) || convesion_result==(0)){
+Local_Status=(Std_ReturnType)0x00;
+}else{
+if(0x01U == adc_obj->result_format){
+*convesion_result = (adc_result_t)((ADRESH << 8) + ADRESL);
+}
+else if(0x00U == adc_obj->result_format){
+*convesion_result = (adc_result_t)(((ADRESH << 8) + ADRESL) >> 6);
+}
+else{
+*convesion_result = (adc_result_t)((ADRESH << 8) + ADRESL);
+}
+Local_Status=(Std_ReturnType)0x01;
+}
+return Local_Status;
+}
+
+# 215
+Std_ReturnType ADC_StartConversion_Interrupt(const ADC_config_t* adc_obj,ADC_Chanels_t channel){
+Std_ReturnType Local_Status=(Std_ReturnType)0x00;
+if(adc_obj==(0)){
+Local_Status=(Std_ReturnType)0x00;
+}else{
+(PIR1bits.ADIF=0);
+
+Local_Status |= ADC_SelectChannel(adc_obj,channel);
+
+Local_Status |= ADC_StartConversion(adc_obj);
+}
+return Local_Status;
+}
+
+static Std_ReturnType ADC_input_channel_port_configure(ADC_Chanels_t channel){
+switch(channel){
+case ADC_CHANEL_AN0:
+(TRISA |= ((uint8)1 << 0x0));
+return (Std_ReturnType)0x01;
+break;
+case ADC_CHANEL_AN1:
+(TRISA |= ((uint8)1 << 0x1));
+return (Std_ReturnType)0x01;
+break;
+case ADC_CHANEL_AN2:
+(TRISA |= ((uint8)1 << 0x2));
+return (Std_ReturnType)0x01;
+break;
+case ADC_CHANEL_AN3:
+(TRISA |= ((uint8)1 << 0x3));
+return (Std_ReturnType)0x01;
+break;
+case ADC_CHANEL_AN4:
+(TRISA |= ((uint8)1 << 0x5));
+return (Std_ReturnType)0x01;
+break;
+case ADC_CHANEL_AN5:
+(TRISE |= ((uint8)1 << 0x0));
+return (Std_ReturnType)0x01;
+break;
+case ADC_CHANEL_AN6:
+(TRISE |= ((uint8)1 << 0x1));
+return (Std_ReturnType)0x01;
+break;
+case ADC_CHANEL_AN7:
+(TRISE |= ((uint8)1 << 0x2));
+return (Std_ReturnType)0x01;
+break;
+case ADC_CHANEL_AN8:
+(TRISB |= ((uint8)1 << 0x2));
+return (Std_ReturnType)0x01;
+break;
+case ADC_CHANEL_AN9:
+(TRISB |= ((uint8)1 << 0x3));
+return (Std_ReturnType)0x01;
+break;
+case ADC_CHANEL_AN10:
+(TRISB |= ((uint8)1 << 0x1));
+return (Std_ReturnType)0x01;
+break;
+case ADC_CHANEL_AN11:
+(TRISB |= ((uint8)1 << 0x4));
+return (Std_ReturnType)0x01;
+break;
+case ADC_CHANEL_AN12:
+(TRISB |= ((uint8)1 << 0x0));
+return (Std_ReturnType)0x01;
+break;
+default:
+return (Std_ReturnType)0x00;
+}
+}
+void ADC_ISR(void){
+(PIR1bits.ADIF=0);
+if(ADC_InterruptHandeler){
+ADC_InterruptHandeler();
+}
+}
+

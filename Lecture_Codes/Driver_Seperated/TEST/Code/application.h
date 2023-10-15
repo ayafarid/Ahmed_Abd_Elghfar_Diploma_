@@ -13,6 +13,7 @@
 #include "ECU_Layer/LED_Driver/ecu_led_init.h"
 #include "MCAL_Layer/EEPROM_Driver/mcal_eeprom_init.h"
 #include "MCAL_Layer/Interrupt_Driver/mcal_external_interrupt.h"
+#include "MCAL_Layer/ADC_Driver/mcal_adc_init.h"
 /* Macros Declarations Section */
 #define _XTAL_FREQ 4000000UL
 
@@ -25,6 +26,7 @@ extern led_t led4;
 extern led_t led5;
 /* Function Declarations Section */
 void functionInitialize();
+void ADC_DefaultInterruptHandeler(void);
 void program1();
 void progarm2();
 #endif	/* APPLICATION_H */

@@ -3855,6 +3855,8 @@ void RB5_ISR(uint8 source);
 void RB6_ISR(uint8 source);
 void RB7_ISR(uint8 source);
 
+void ADC_ISR(void);
+
 # 8 "MCAL_Layer/Interrupt_Driver/mcal_iterrupt_mangaer.c"
 uint8 RB4_Flag=1;
 uint8 RB5_Flag=1;
@@ -3914,6 +3916,11 @@ if (INTCONbits.RBIE==1 && INTCONbits.RBIF==1 && PORTBbits.RB7==LOW && RB7_Flag==
 RB7_Flag=1;
 RB7_ISR(PORTBbits.RB7);
 }
+
+if((1 == PIE1bits.ADIE) && (1 == PIR1bits.ADIF)){
+ADC_ISR();
+}
+else{ }
 
 }
 

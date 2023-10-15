@@ -6,65 +6,55 @@
  */
 
 #include "application.h"
-volatile uint8 program_selectd=0;
-void INT0_APP_ISR(){
-    program_selectd++;
-    if(program_selectd==3){
-        program_selectd=1;
-    }
-    EEPROM_Write_DataByByte(0x3ff,program_selectd);
+volatile uint8 adc_flag=0;
+uint16 adc_res_1=0,adc_res_2,adc_res_3,adc_res_4;
+void ADC_DefaultInterruptHandeler(void);
+ADC_config_t adc_1={
+  ADC_DefaultInterruptHandeler,
+  ADC_12_TAD,
+  ADC_CONVERTION_CLOCK_FOSC_DIV_16,
+  ADC_CHANEL_AN0,
+  DISABLE,
+  RIGHT_FORMAT
+};
+void ADC_DefaultInterruptHandeler(void){
+    ADC_GetConversionResult(&adc_1,&adc_res_1);
 }
-interrupt_INTx_t INT0_obj={
-    INT0_APP_ISR,
-    PORTB_INDEX,
-    PIN0,
-    INPUT,
-    LOW,
-    INTERRUPT_RISING_EDGE,
-    INTERRUPT_EXTERNAL_INT0,
-    INTERRUPT_HIGH_PRIORITY
+ADC_config_t adc_2={
+  NULL,
+  ADC_12_TAD,
+  ADC_CONVERTION_CLOCK_FOSC_DIV_16,
+  ADC_CHANEL_AN1,
+  DISABLE,
+  RIGHT_FORMAT
+};
+ADC_config_t adc_3={
+  NULL,
+  ADC_12_TAD,
+  ADC_CONVERTION_CLOCK_FOSC_DIV_16,
+  ADC_CHANEL_AN2,
+  DISABLE,
+  RIGHT_FORMAT
+};
+ADC_config_t adc_4={
+  NULL,
+  ADC_12_TAD,
+  ADC_CONVERTION_CLOCK_FOSC_DIV_16,
+  ADC_CHANEL_AN3,
+  DISABLE,
+  RIGHT_FORMAT
 };
 int main() {
     functionInitialize();
-    /*EEPROM and interrupt*/
-    EEPROM_Read_DataByByte(0x3ff,&program_selectd);
+    ADC_StartConversion_Interrupt(&adc_1,ADC_CHANEL_AN0);
     while (1) {
-        if(1==program_selectd){
-            program1();
-        }else if(2==program_selectd){
-            progarm2();
-        }
     }
-    /*Using variable*/
-    /*
-    EEPROM_Write_DataByByte(0x3ff,0);
-    while (1) {
-        EEPROM_Write_DataByByte(0x3ff,eeprom_val1++);
-        __delay_ms(1000);
-        EEPROM_Read_DataByByte(0x3ff,&eeprom_val2);
-        if(15>=eeprom_val2){
-            led_turn_on(&led1);
-            __delay_ms(100);
-        }else{
-            led_turn_off(&led1);
-            __delay_ms(100);
-        }
-    }*/
 }
 
 void functionInitialize() {
     ecu_layer_initialize();
-    Interrupt_INTx_Init(&INT0_obj);
-}
-void program1(){
-    led_turn_on(&led1);
-    __delay_ms(250);
-    led_turn_off(&led1);
-    __delay_ms(250);
-}
-void progarm2(){
-    led_turn_on(&led2);
-    __delay_ms(250);
-    led_turn_off(&led2);
-    __delay_ms(250);
+    ADC_Init(&adc_1);
+    ADC_Init(&adc_2);
+    ADC_Init(&adc_3);
+    ADC_Init(&adc_4);
 }

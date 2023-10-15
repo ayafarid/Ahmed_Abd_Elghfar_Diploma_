@@ -88,6 +88,30 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RB6_ISR `(v ~T0 @X0 0 ef1`uc ]
 "28
 [v _RB7_ISR `(v ~T0 @X0 0 ef1`uc ]
+"2484 C:\Program Files\Microchip\xc8\v1.41\include\pic18f4620.h
+[s S86 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S86 . TMR1IE TMR2IE CCP1IE SSPIE TXIE RCIE ADIE PSPIE ]
+"2494
+[s S87 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S87 . . TX1IE RC1IE ]
+"2483
+[u S85 `S86 1 `S87 1 ]
+[n S85 . . . ]
+"2500
+[v _PIE1bits `VS85 ~T0 @X0 0 e@3997 ]
+"2560
+[s S89 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S89 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF PSPIF ]
+"2570
+[s S90 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S90 . . TX1IF RC1IF ]
+"2559
+[u S88 `S89 1 `S90 1 ]
+[n S88 . . . ]
+"2576
+[v _PIR1bits `VS88 ~T0 @X0 0 e@3998 ]
+"30 MCAL_Layer/Interrupt_Driver/mcal_interrupt_manager.h
+[v _ADC_ISR `(v ~T0 @X0 0 ef ]
 [; ;pic18f4620.h: 49: extern volatile unsigned char PORTA @ 0xF80;
 "51 C:\Program Files\Microchip\xc8\v1.41\include\pic18f4620.h
 [; ;pic18f4620.h: 51: asm("PORTA equ 0F80h");
@@ -2950,6 +2974,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;mcal_interrupt_manager.h: 26: void RB5_ISR(uint8 source);
 [; ;mcal_interrupt_manager.h: 27: void RB6_ISR(uint8 source);
 [; ;mcal_interrupt_manager.h: 28: void RB7_ISR(uint8 source);
+[; ;mcal_interrupt_manager.h: 30: void ADC_ISR(void);
 "8 MCAL_Layer/Interrupt_Driver/mcal_iterrupt_mangaer.c
 [v _RB4_Flag `uc ~T0 @X0 1 e ]
 [i _RB4_Flag
@@ -2974,9 +2999,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 1 `i `uc
 ]
 [; ;mcal_iterrupt_mangaer.c: 11: uint8 RB7_Flag=1;
-[v F3165 `(v ~T0 @X0 1 tf ]
+[v F3167 `(v ~T0 @X0 1 tf ]
 "32
-[v _InterruptManager `IF3165 ~T0 @X0 1 e ]
+[v _InterruptManager `IF3167 ~T0 @X0 1 e ]
 {
 [; ;mcal_iterrupt_mangaer.c: 32: void __interrupt InterruptManager(void) {
 [e :U _InterruptManager ]
@@ -3126,7 +3151,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 282 ]
 [; ;mcal_iterrupt_mangaer.c: 83: }
-[; ;mcal_iterrupt_mangaer.c: 85: }
+[; ;mcal_iterrupt_mangaer.c: 85: if((1 == PIE1bits.ADIE) && (1 == PIR1bits.ADIF)){
 "85
+[e $ ! && == -> 1 `i -> . . _PIE1bits 0 6 `i == -> 1 `i -> . . _PIR1bits 0 6 `i 283  ]
+{
+[; ;mcal_iterrupt_mangaer.c: 86: ADC_ISR();
+"86
+[e ( _ADC_ISR ..  ]
+"87
+}
+[; ;mcal_iterrupt_mangaer.c: 87: }
+[e $U 284  ]
+"88
+[e :U 283 ]
+[; ;mcal_iterrupt_mangaer.c: 88: else{ }
+{
+}
+[e :U 284 ]
+[; ;mcal_iterrupt_mangaer.c: 90: }
+"90
 [e :UE 271 ]
 }

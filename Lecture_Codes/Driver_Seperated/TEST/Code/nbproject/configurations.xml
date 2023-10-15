@@ -39,6 +39,10 @@
         <itemPath>ECU_Layer/ecu_layer_int.h</itemPath>
       </logicalFolder>
       <logicalFolder name="MCAL_Layer" displayName="MCAL_Layer" projectFiles="true">
+        <logicalFolder name="ADC_Driver" displayName="ADC_Driver" projectFiles="true">
+          <itemPath>MCAL_Layer/ADC_Driver/mcal_adc_init.h</itemPath>
+          <itemPath>MCAL_Layer/ADC_Driver/mcal_adc_config.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="EEPROM_Driver"
                        displayName="EEPROM_Driver"
                        projectFiles="true">
@@ -101,6 +105,9 @@
         <itemPath>ECU_Layer/ecu_layer_prog.c</itemPath>
       </logicalFolder>
       <logicalFolder name="MCAL_Layer" displayName="MCAL_Layer" projectFiles="true">
+        <logicalFolder name="ADC_Driver" displayName="ADC_Driver" projectFiles="true">
+          <itemPath>MCAL_Layer/ADC_Driver/mcal_adc_prog.c</itemPath>
+        </logicalFolder>
         <logicalFolder name="EEPROM_Driver"
                        displayName="EEPROM_Driver"
                        projectFiles="true">

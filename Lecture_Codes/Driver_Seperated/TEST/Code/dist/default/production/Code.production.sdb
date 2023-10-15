@@ -129,59 +129,82 @@ HIGH 1
 LOW 0
 HIGH 1
 ]
-"17 C:\Users\Aya farid\Desktop\Ahmed_Abdelghfar_diploma\Ahmed_Abd_Elghfar_Diploma_\Lecture_Codes\Driver_Seperated\TEST\Code\application.c
-[e E3184 . `uc
-INTERRUPT_FALLING_EDGE 0
-INTERRUPT_RISING_EDGE 1
+"12 C:\Users\Aya farid\Desktop\Ahmed_Abdelghfar_diploma\Ahmed_Abd_Elghfar_Diploma_\Lecture_Codes\Driver_Seperated\TEST\Code\application.c
+[e E3237 . `uc
+ADC_0_TAD 0
+ADC_2_TAD 1
+ADC_4_TAD 2
+ADC_6_TAD 3
+ADC_8_TAD 4
+ADC_12_TAD 5
+ADC_16_TAD 6
+ADC_20_TAD 7
 ]
-[e E3188 . `uc
-INTERRUPT_EXTERNAL_INT0 0
-INTERRUPT_EXTERNAL_INT1 1
-INTERRUPT_EXTERNAL_INT2 2
+[e E3247 . `uc
+ADC_CONVERTION_CLOCK_FOSC_DIV_2 0
+ADC_CONVERTION_CLOCK_FOSC_DIV_8 1
+ADC_CONVERTION_CLOCK_FOSC_DIV_32 2
+ADC_CONVERTION_CLOCK_FOSC_DIV_FRC 3
+ADC_CONVERTION_CLOCK_FOSC_DIV_4 4
+ADC_CONVERTION_CLOCK_FOSC_DIV_16 5
+ADC_CONVERTION_CLOCK_FOSC_DIV_64 6
 ]
-[e E3171 . `uc
-INTERRUPT_LOW_PRIORITY 0
-INTERRUPT_HIGH_PRIORITY 1
+[e E3222 . `uc
+ADC_CHANEL_AN0 0
+ADC_CHANEL_AN1 1
+ADC_CHANEL_AN2 2
+ADC_CHANEL_AN3 3
+ADC_CHANEL_AN4 4
+ADC_CHANEL_AN5 5
+ADC_CHANEL_AN6 6
+ADC_CHANEL_AN7 7
+ADC_CHANEL_AN8 8
+ADC_CHANEL_AN9 9
+ADC_CHANEL_AN10 10
+ADC_CHANEL_AN11 11
+ADC_CHANEL_AN12 12
 ]
-"19
-[e E3096 . `uc
-PORTA_INDEX 0
-PORTB_INDEX 1
-PORTC_INDEX 2
-PORTD_INDEX 3
-PORTE_INDEX 4
+"20 C:\Users\Aya farid\Desktop\Ahmed_Abdelghfar_diploma\Ahmed_Abd_Elghfar_Diploma_\Lecture_Codes\Driver_Seperated\TEST\Code\MCAL_Layer/ADC_Driver/mcal_adc_prog.c
+[e E3163 . `uc
+ADC_0_TAD 0
+ADC_2_TAD 1
+ADC_4_TAD 2
+ADC_6_TAD 3
+ADC_8_TAD 4
+ADC_12_TAD 5
+ADC_16_TAD 6
+ADC_20_TAD 7
 ]
-"20
-[e E3086 . `uc
-PIN0 0
-PIN1 1
-PIN2 2
-PIN3 3
-PIN4 4
-PIN5 5
-PIN6 6
-PIN7 7
+[e E3173 . `uc
+ADC_CONVERTION_CLOCK_FOSC_DIV_2 0
+ADC_CONVERTION_CLOCK_FOSC_DIV_8 1
+ADC_CONVERTION_CLOCK_FOSC_DIV_32 2
+ADC_CONVERTION_CLOCK_FOSC_DIV_FRC 3
+ADC_CONVERTION_CLOCK_FOSC_DIV_4 4
+ADC_CONVERTION_CLOCK_FOSC_DIV_16 5
+ADC_CONVERTION_CLOCK_FOSC_DIV_64 6
 ]
-"21
-[e E3082 . `uc
-OUTPUT 0
-INPUT 1
+[e E3148 . `uc
+ADC_CHANEL_AN0 0
+ADC_CHANEL_AN1 1
+ADC_CHANEL_AN2 2
+ADC_CHANEL_AN3 3
+ADC_CHANEL_AN4 4
+ADC_CHANEL_AN5 5
+ADC_CHANEL_AN6 6
+ADC_CHANEL_AN7 7
+ADC_CHANEL_AN8 8
+ADC_CHANEL_AN9 9
+ADC_CHANEL_AN10 10
+ADC_CHANEL_AN11 11
+ADC_CHANEL_AN12 12
 ]
-"22
-[e E3078 . `uc
-LOW 0
-HIGH 1
-]
-"10
-[v _INT0_APP_ISR INT0_APP_ISR `(v  1 e 1 0 ]
-"27
+"20 C:\Users\Aya farid\Desktop\Ahmed_Abdelghfar_diploma\Ahmed_Abd_Elghfar_Diploma_\Lecture_Codes\Driver_Seperated\TEST\Code\application.c
+[v _ADC_DefaultInterruptHandeler ADC_DefaultInterruptHandeler `(v  1 e 1 0 ]
+"47
 [v _main main `(i  1 e 2 0 ]
-"55
+"54
 [v _functionInitialize functionInitialize `(v  1 e 1 0 ]
-"59
-[v _program1 program1 `(v  1 e 1 0 ]
-"65
-[v _progarm2 progarm2 `(v  1 e 1 0 ]
 "62 C:\Program Files\Microchip\xc8\v1.41\sources\common\float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
 "86 C:\Program Files\Microchip\xc8\v1.41\sources\common\ftadd.c
@@ -206,14 +229,20 @@ HIGH 1
 [v _ecu_layer_initialize ecu_layer_initialize `(uc  1 e 1 0 ]
 "15 C:\Users\Aya farid\Desktop\Ahmed_Abdelghfar_diploma\Ahmed_Abd_Elghfar_Diploma_\Lecture_Codes\Driver_Seperated\TEST\Code\ECU_Layer/LED_Driver/ecu_led_prog.c
 [v _led_initizlize led_initizlize `(uc  1 e 1 0 ]
-"32
-[v _led_turn_on led_turn_on `(uc  1 e 1 0 ]
-"49
-[v _led_turn_off led_turn_off `(uc  1 e 1 0 ]
-"14 C:\Users\Aya farid\Desktop\Ahmed_Abdelghfar_diploma\Ahmed_Abd_Elghfar_Diploma_\Lecture_Codes\Driver_Seperated\TEST\Code\MCAL_Layer/EEPROM_Driver/mcal_eeprom_prog.c
-[v _EEPROM_Write_DataByByte EEPROM_Write_DataByByte `(uc  1 e 1 0 ]
-"52
-[v _EEPROM_Read_DataByByte EEPROM_Read_DataByByte `(uc  1 e 1 0 ]
+"20 C:\Users\Aya farid\Desktop\Ahmed_Abdelghfar_diploma\Ahmed_Abd_Elghfar_Diploma_\Lecture_Codes\Driver_Seperated\TEST\Code\MCAL_Layer/ADC_Driver/mcal_adc_prog.c
+[v _ADC_Init ADC_Init `(uc  1 e 1 0 ]
+"108
+[v _ADC_StartConversion ADC_StartConversion `(uc  1 e 1 0 ]
+"127
+[v _ADC_SelectChannel ADC_SelectChannel `(uc  1 e 1 0 ]
+"171
+[v _ADC_GetConversionResult ADC_GetConversionResult `(uc  1 e 1 0 ]
+"215
+[v _ADC_StartConversion_Interrupt ADC_StartConversion_Interrupt `(uc  1 e 1 0 ]
+"229
+[v _ADC_input_channel_port_configure ADC_input_channel_port_configure `(uc  1 s 1 ADC_input_channel_port_configure ]
+"287
+[v _ADC_ISR ADC_ISR `(v  1 e 1 0 ]
 "16 C:\Users\Aya farid\Desktop\Ahmed_Abdelghfar_diploma\Ahmed_Abd_Elghfar_Diploma_\Lecture_Codes\Driver_Seperated\TEST\Code\MCAL_Layer/GPIO/hal_gpio.c
 [v _gpio_pin_direction_intialize gpio_pin_direction_intialize `(uc  1 e 1 0 ]
 "60
@@ -224,9 +253,7 @@ HIGH 1
 [v _gpio_pin_intialize gpio_pin_intialize `(uc  1 e 1 0 ]
 "121
 [v _gpio_pin_toggle_logic gpio_pin_toggle_logic `(uc  1 e 1 0 ]
-"56 C:\Users\Aya farid\Desktop\Ahmed_Abdelghfar_diploma\Ahmed_Abd_Elghfar_Diploma_\Lecture_Codes\Driver_Seperated\TEST\Code\MCAL_Layer/Interrupt_Driver/mcal_external_interrupt.c
-[v _Interrupt_INTx_Init Interrupt_INTx_Init `(uc  1 e 1 0 ]
-"80
+"80 C:\Users\Aya farid\Desktop\Ahmed_Abdelghfar_diploma\Ahmed_Abd_Elghfar_Diploma_\Lecture_Codes\Driver_Seperated\TEST\Code\MCAL_Layer/Interrupt_Driver/mcal_external_interrupt.c
 [v _INT0_ISR INT0_ISR `(v  1 e 1 0 ]
 "95
 [v _INT1_ISR INT1_ISR `(v  1 e 1 0 ]
@@ -277,20 +304,26 @@ HIGH 1
 "32 C:\Users\Aya farid\Desktop\Ahmed_Abdelghfar_diploma\Ahmed_Abd_Elghfar_Diploma_\Lecture_Codes\Driver_Seperated\TEST\Code\MCAL_Layer/Interrupt_Driver/mcal_iterrupt_mangaer.c
 [v _InterruptManager InterruptManager `II(v  1 e 1 0 ]
 "9 C:\Users\Aya farid\Desktop\Ahmed_Abdelghfar_diploma\Ahmed_Abd_Elghfar_Diploma_\Lecture_Codes\Driver_Seperated\TEST\Code\application.c
-[v _program_selectd program_selectd `VEuc  1 e 1 0 ]
-[s S36 . 2 `uc 1 port 1 0 :4:0 
-`uc 1 pin 1 0 :3:4 
-`uc 1 directin 1 0 :1:7 
-`uc 1 logic 1 1 :1:0 
+[v _adc_flag adc_flag `VEuc  1 e 1 0 ]
+"10
+[v _adc_res_1 adc_res_1 `us  1 e 2 0 ]
+[s S1549 . 6 `*.37(v 1 ADC_InterruptHandeler 2 0 `E3237 1 acquasition_time 1 2 `E3247 1 conversion_clock 1 3 `E3222 1 channel_selected 1 4 `uc 1 voltage_reference 1 5 :1:0 
+`uc 1 result_format 1 5 :1:1 
+`uc 1 . 1 5 :6:2 
 ]
-"17
-[s S703 . 7 `*.37(v 1 EXT_InterruptHandler 2 0 `S36 1 mcu_pin 2 2 `E3148 1 edge 1 4 `E3152 1 source 1 5 `E3141 1 priority 1 6 ]
-[v _INT0_obj INT0_obj `S703  1 e 7 0 ]
+"12
+[v _adc_1 adc_1 `S1549  1 e 6 0 ]
+"23
+[v _adc_2 adc_2 `S1549  1 e 6 0 ]
+"31
+[v _adc_3 adc_3 `S1549  1 e 6 0 ]
+"39
+[v _adc_4 adc_4 `S1549  1 e 6 0 ]
 "49 C:\Program Files\Microchip\xc8\v1.41\include\pic18f4620.h
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
 "185
 [v _PORTB PORTB `VEuc  1 e 1 @3969 ]
-[s S1227 . 1 `uc 1 RB0 1 0 :1:0 
+[s S1325 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -300,7 +333,7 @@ HIGH 1
 `uc 1 RB7 1 0 :1:7 
 ]
 "226
-[s S1236 . 1 `uc 1 INT0 1 0 :1:0 
+[s S1334 . 1 `uc 1 INT0 1 0 :1:0 
 `uc 1 INT1 1 0 :1:1 
 `uc 1 INT2 1 0 :1:2 
 `uc 1 CCP2 1 0 :1:3 
@@ -309,7 +342,7 @@ HIGH 1
 `uc 1 KBI2 1 0 :1:6 
 `uc 1 KBI3 1 0 :1:7 
 ]
-[s S1245 . 1 `uc 1 AN12 1 0 :1:0 
+[s S1343 . 1 `uc 1 AN12 1 0 :1:0 
 `uc 1 AN10 1 0 :1:1 
 `uc 1 AN8 1 0 :1:2 
 `uc 1 AN9 1 0 :1:3 
@@ -318,11 +351,11 @@ HIGH 1
 `uc 1 PGC 1 0 :1:6 
 `uc 1 PGD 1 0 :1:7 
 ]
-[s S1254 . 1 `uc 1 . 1 0 :3:0 
+[s S1352 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CCP2_PA2 1 0 :1:3 
 ]
-[u S1257 . 1 `S1227 1 . 1 0 `S1236 1 . 1 0 `S1245 1 . 1 0 `S1254 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES1257  1 e 1 @3969 ]
+[u S1355 . 1 `S1325 1 . 1 0 `S1334 1 . 1 0 `S1343 1 . 1 0 `S1352 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES1355  1 e 1 @3969 ]
 "355
 [v _PORTC PORTC `VEuc  1 e 1 @3970 ]
 "529
@@ -349,7 +382,39 @@ HIGH 1
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
 "2251
 [v _TRISE TRISE `VEuc  1 e 1 @3990 ]
-[s S1459 . 1 `uc 1 RD 1 0 :1:0 
+[s S1398 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 CCP1IE 1 0 :1:2 
+`uc 1 SSPIE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+`uc 1 ADIE 1 0 :1:6 
+`uc 1 PSPIE 1 0 :1:7 
+]
+"2500
+[s S1407 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TX1IE 1 0 :1:4 
+`uc 1 RC1IE 1 0 :1:5 
+]
+[u S1411 . 1 `S1398 1 . 1 0 `S1407 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES1411  1 e 1 @3997 ]
+[s S1428 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSPIF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+`uc 1 PSPIF 1 0 :1:7 
+]
+"2576
+[s S1437 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TX1IF 1 0 :1:4 
+`uc 1 RC1IF 1 0 :1:5 
+]
+[u S1441 . 1 `S1428 1 . 1 0 `S1437 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES1441  1 e 1 @3998 ]
+[s S572 . 1 `uc 1 RD 1 0 :1:0 
 `uc 1 WR 1 0 :1:1 
 `uc 1 WREN 1 0 :1:2 
 `uc 1 WRERR 1 0 :1:3 
@@ -359,11 +424,11 @@ HIGH 1
 `uc 1 EEPGD 1 0 :1:7 
 ]
 "2922
-[s S1468 . 1 `uc 1 . 1 0 :6:0 
+[s S581 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 EEFS 1 0 :1:6 
 ]
-[u S1471 . 1 `S1459 1 . 1 0 `S1468 1 . 1 0 ]
-[v _EECON1bits EECON1bits `VES1471  1 e 1 @4006 ]
+[u S584 . 1 `S572 1 . 1 0 `S581 1 . 1 0 ]
+[v _EECON1bits EECON1bits `VES584  1 e 1 @4006 ]
 "2966
 [v _EECON2 EECON2 `VEuc  1 e 1 @4007 ]
 "2972
@@ -372,7 +437,76 @@ HIGH 1
 [v _EEADR EEADR `VEuc  1 e 1 @4009 ]
 "2984
 [v _EEADRH EEADRH `VEuc  1 e 1 @4010 ]
-[s S788 . 1 `uc 1 INT1IF 1 0 :1:0 
+[s S1751 . 1 `uc 1 ADCS 1 0 :3:0 
+`uc 1 ACQT 1 0 :3:3 
+`uc 1 . 1 0 :1:6 
+`uc 1 ADFM 1 0 :1:7 
+]
+"4341
+[s S1756 . 1 `uc 1 ADCS0 1 0 :1:0 
+`uc 1 ADCS1 1 0 :1:1 
+`uc 1 ADCS2 1 0 :1:2 
+`uc 1 ACQT0 1 0 :1:3 
+`uc 1 ACQT1 1 0 :1:4 
+`uc 1 ACQT2 1 0 :1:5 
+]
+[u S1763 . 1 `S1751 1 . 1 0 `S1756 1 . 1 0 ]
+[v _ADCON2bits ADCON2bits `VES1763  1 e 1 @4032 ]
+[s S1845 . 1 `uc 1 PCFG 1 0 :4:0 
+`uc 1 VCFG 1 0 :2:4 
+]
+"4415
+[s S1848 . 1 `uc 1 PCFG0 1 0 :1:0 
+`uc 1 PCFG1 1 0 :1:1 
+`uc 1 PCFG2 1 0 :1:2 
+`uc 1 PCFG3 1 0 :1:3 
+`uc 1 VCFG0 1 0 :1:4 
+`uc 1 VCFG1 1 0 :1:5 
+]
+[s S1855 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CHSN3 1 0 :1:3 
+`uc 1 VCFG01 1 0 :1:4 
+`uc 1 VCFG11 1 0 :1:5 
+]
+[u S1860 . 1 `S1845 1 . 1 0 `S1848 1 . 1 0 `S1855 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES1860  1 e 1 @4033 ]
+[s S1683 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_NOT_DONE 1 0 :1:1 
+]
+"4518
+[s S1686 . 1 `uc 1 ADON 1 0 :1:0 
+`uc 1 GO_nDONE 1 0 :1:1 
+`uc 1 CHS 1 0 :4:2 
+]
+[s S1690 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO 1 0 :1:1 
+`uc 1 CHS0 1 0 :1:2 
+`uc 1 CHS1 1 0 :1:3 
+`uc 1 CHS2 1 0 :1:4 
+`uc 1 CHS3 1 0 :1:5 
+]
+[s S1697 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 DONE 1 0 :1:1 
+]
+[s S1700 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_DONE 1 0 :1:1 
+]
+[s S1703 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 nDONE 1 0 :1:1 
+]
+[s S1706 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_DONE 1 0 :1:1 
+]
+[s S1709 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GODONE 1 0 :1:1 
+]
+[u S1712 . 1 `S1683 1 . 1 0 `S1686 1 . 1 0 `S1690 1 . 1 0 `S1697 1 . 1 0 `S1700 1 . 1 0 `S1703 1 . 1 0 `S1706 1 . 1 0 `S1709 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES1712  1 e 1 @4034 ]
+"4598
+[v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
+"4604
+[v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
+[s S894 . 1 `uc 1 INT1IF 1 0 :1:0 
 `uc 1 INT2IF 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 INT1IE 1 0 :1:3 
@@ -382,7 +516,7 @@ HIGH 1
 `uc 1 INT2IP 1 0 :1:7 
 ]
 "6133
-[s S797 . 1 `uc 1 INT1F 1 0 :1:0 
+[s S903 . 1 `uc 1 INT1F 1 0 :1:0 
 `uc 1 INT2F 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 INT1E 1 0 :1:3 
@@ -391,13 +525,13 @@ HIGH 1
 `uc 1 INT1P 1 0 :1:6 
 `uc 1 INT2P 1 0 :1:7 
 ]
-[u S806 . 1 `S788 1 . 1 0 `S797 1 . 1 0 ]
-[v _INTCON3bits INTCON3bits `VES806  1 e 1 @4080 ]
-[s S828 . 1 `uc 1 . 1 0 :7:0 
+[u S912 . 1 `S894 1 . 1 0 `S903 1 . 1 0 ]
+[v _INTCON3bits INTCON3bits `VES912  1 e 1 @4080 ]
+[s S934 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 NOT_RBPU 1 0 :1:7 
 ]
 "6222
-[s S831 . 1 `uc 1 RBIP 1 0 :1:0 
+[s S937 . 1 `uc 1 RBIP 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 TMR0IP 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -406,12 +540,12 @@ HIGH 1
 `uc 1 INTEDG0 1 0 :1:6 
 `uc 1 nRBPU 1 0 :1:7 
 ]
-[s S840 . 1 `uc 1 . 1 0 :7:0 
+[s S946 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 RBPU 1 0 :1:7 
 ]
-[u S843 . 1 `S828 1 . 1 0 `S831 1 . 1 0 `S840 1 . 1 0 ]
-[v _INTCON2bits INTCON2bits `VES843  1 e 1 @4081 ]
-[s S739 . 1 `uc 1 RBIF 1 0 :1:0 
+[u S949 . 1 `S934 1 . 1 0 `S937 1 . 1 0 `S946 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES949  1 e 1 @4081 ]
+[s S600 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -421,7 +555,7 @@ HIGH 1
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "6298
-[s S748 . 1 `uc 1 . 1 0 :1:0 
+[s S609 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -430,12 +564,12 @@ HIGH 1
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S757 . 1 `uc 1 . 1 0 :6:0 
+[s S618 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S761 . 1 `S739 1 . 1 0 `S748 1 . 1 0 `S757 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES761  1 e 1 @4082 ]
+[u S622 . 1 `S600 1 . 1 0 `S609 1 . 1 0 `S618 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES622  1 e 1 @4082 ]
 [s S272 . 1 `uc 1 port_index 1 0 :4:0 
 `uc 1 pin_num 1 0 :3:4 
 `uc 1 led_status 1 0 :1:7 
@@ -456,6 +590,10 @@ HIGH 1
 [v _port_register port_register `[5]*.39VEuc  1 e 10 0 ]
 "72
 [v _lat_register lat_register `[5]*.39VEuc  1 e 10 0 ]
+"8 C:\Users\Aya farid\Desktop\Ahmed_Abdelghfar_diploma\Ahmed_Abd_Elghfar_Diploma_\Lecture_Codes\Driver_Seperated\TEST\Code\MCAL_Layer/ADC_Driver/mcal_adc_prog.c
+[v _flag flag `VEuc  1 e 1 0 ]
+"10
+[v _ADC_InterruptHandeler ADC_InterruptHandeler `*.37(v  1 s 2 ADC_InterruptHandeler ]
 "11 C:\Users\Aya farid\Desktop\Ahmed_Abdelghfar_diploma\Ahmed_Abd_Elghfar_Diploma_\Lecture_Codes\Driver_Seperated\TEST\Code\MCAL_Layer/Interrupt_Driver/mcal_external_interrupt.c
 [v _INT0_InterruptHandler INT0_InterruptHandler `*.37(v  1 s 2 INT0_InterruptHandler ]
 "12
@@ -486,232 +624,102 @@ HIGH 1
 [v _RB6_Flag RB6_Flag `uc  1 e 1 0 ]
 "11
 [v _RB7_Flag RB7_Flag `uc  1 e 1 0 ]
-"27 C:\Users\Aya farid\Desktop\Ahmed_Abdelghfar_diploma\Ahmed_Abd_Elghfar_Diploma_\Lecture_Codes\Driver_Seperated\TEST\Code\application.c
+"47 C:\Users\Aya farid\Desktop\Ahmed_Abdelghfar_diploma\Ahmed_Abd_Elghfar_Diploma_\Lecture_Codes\Driver_Seperated\TEST\Code\application.c
 [v _main main `(i  1 e 2 0 ]
 {
-"53
+"52
 } 0
-"59
-[v _program1 program1 `(v  1 e 1 0 ]
-{
-"64
-} 0
-"65
-[v _progarm2 progarm2 `(v  1 e 1 0 ]
-{
-"70
-} 0
-"32 C:\Users\Aya farid\Desktop\Ahmed_Abdelghfar_diploma\Ahmed_Abd_Elghfar_Diploma_\Lecture_Codes\Driver_Seperated\TEST\Code\ECU_Layer/LED_Driver/ecu_led_prog.c
-[v _led_turn_on led_turn_on `(uc  1 e 1 0 ]
-{
-"33
-[v led_turn_on@LocalReturn LocalReturn `uc  1 a 1 21 ]
-[s S272 . 1 `uc 1 port_index 1 0 :4:0 
-`uc 1 pin_num 1 0 :3:4 
-`uc 1 led_status 1 0 :1:7 
-]
-"32
-[v led_turn_on@led led `*.39CS272  1 p 2 19 ]
-"41
-} 0
-"49
-[v _led_turn_off led_turn_off `(uc  1 e 1 0 ]
-{
-"50
-[v led_turn_off@Local_Status Local_Status `uc  1 a 1 21 ]
-[s S272 . 1 `uc 1 port_index 1 0 :4:0 
-`uc 1 pin_num 1 0 :3:4 
-`uc 1 led_status 1 0 :1:7 
-]
-"49
-[v led_turn_off@led led `*.39CS272  1 p 2 19 ]
-"58
-} 0
-"55 C:\Users\Aya farid\Desktop\Ahmed_Abdelghfar_diploma\Ahmed_Abd_Elghfar_Diploma_\Lecture_Codes\Driver_Seperated\TEST\Code\application.c
+"54
 [v _functionInitialize functionInitialize `(v  1 e 1 0 ]
 {
-"58
+"60
 } 0
 "78 C:\Users\Aya farid\Desktop\Ahmed_Abdelghfar_diploma\Ahmed_Abd_Elghfar_Diploma_\Lecture_Codes\Driver_Seperated\TEST\Code\ECU_Layer/ecu_layer_prog.c
 [v _ecu_layer_initialize ecu_layer_initialize `(uc  1 e 1 0 ]
 {
 "79
-[v ecu_layer_initialize@ret ret `uc  1 a 1 6 ]
+[v ecu_layer_initialize@ret ret `uc  1 a 1 9 ]
 "86
 } 0
 "15 C:\Users\Aya farid\Desktop\Ahmed_Abdelghfar_diploma\Ahmed_Abd_Elghfar_Diploma_\Lecture_Codes\Driver_Seperated\TEST\Code\ECU_Layer/LED_Driver/ecu_led_prog.c
 [v _led_initizlize led_initizlize `(uc  1 e 1 0 ]
 {
 "16
-[v led_initizlize@Local_Status Local_Status `uc  1 a 1 21 ]
+[v led_initizlize@Local_Status Local_Status `uc  1 a 1 8 ]
 [s S272 . 1 `uc 1 port_index 1 0 :4:0 
 `uc 1 pin_num 1 0 :3:4 
 `uc 1 led_status 1 0 :1:7 
 ]
 "15
-[v led_initizlize@led led `*.39CS272  1 p 2 19 ]
+[v led_initizlize@led led `*.39CS272  1 p 2 0 ]
 "24
 } 0
-"56 C:\Users\Aya farid\Desktop\Ahmed_Abdelghfar_diploma\Ahmed_Abd_Elghfar_Diploma_\Lecture_Codes\Driver_Seperated\TEST\Code\MCAL_Layer/Interrupt_Driver/mcal_external_interrupt.c
-[v _Interrupt_INTx_Init Interrupt_INTx_Init `(uc  1 e 1 0 ]
+"20 C:\Users\Aya farid\Desktop\Ahmed_Abdelghfar_diploma\Ahmed_Abd_Elghfar_Diploma_\Lecture_Codes\Driver_Seperated\TEST\Code\MCAL_Layer/ADC_Driver/mcal_adc_prog.c
+[v _ADC_Init ADC_Init `(uc  1 e 1 0 ]
 {
-"57
-[v Interrupt_INTx_Init@ret ret `uc  1 a 1 11 ]
-[s S36 . 2 `uc 1 port 1 0 :4:0 
-`uc 1 pin 1 0 :3:4 
-`uc 1 directin 1 0 :1:7 
-`uc 1 logic 1 1 :1:0 
+"21
+[v ADC_Init@Local_Status Local_Status `uc  1 a 1 4 ]
+[s S1549 . 6 `*.37(v 1 ADC_InterruptHandeler 2 0 `E3237 1 acquasition_time 1 2 `E3247 1 conversion_clock 1 3 `E3222 1 channel_selected 1 4 `uc 1 voltage_reference 1 5 :1:0 
+`uc 1 result_format 1 5 :1:1 
+`uc 1 . 1 5 :6:2 
 ]
-"56
-[s S703 . 7 `*.37(v 1 EXT_InterruptHandler 2 0 `S36 1 mcu_pin 2 2 `E3148 1 edge 1 4 `E3152 1 source 1 5 `E3141 1 priority 1 6 ]
-[v Interrupt_INTx_Init@int_obj int_obj `*.39CS703  1 p 2 9 ]
-"75
+"20
+[v ADC_Init@adc_obj adc_obj `*.39CS1549  1 p 2 1 ]
+"73
 } 0
-"439
-[v _Interrupt_INTx_SetInterruptHandler Interrupt_INTx_SetInterruptHandler `(uc  1 s 1 Interrupt_INTx_SetInterruptHandler ]
+"215
+[v _ADC_StartConversion_Interrupt ADC_StartConversion_Interrupt `(uc  1 e 1 0 ]
 {
-"440
-[v Interrupt_INTx_SetInterruptHandler@ret ret `uc  1 a 1 2 ]
-[s S36 . 2 `uc 1 port 1 0 :4:0 
-`uc 1 pin 1 0 :3:4 
-`uc 1 directin 1 0 :1:7 
-`uc 1 logic 1 1 :1:0 
+"216
+[v ADC_StartConversion_Interrupt@Local_Status Local_Status `uc  1 a 1 9 ]
+[s S1549 . 6 `*.37(v 1 ADC_InterruptHandeler 2 0 `E3237 1 acquasition_time 1 2 `E3247 1 conversion_clock 1 3 `E3222 1 channel_selected 1 4 `uc 1 voltage_reference 1 5 :1:0 
+`uc 1 result_format 1 5 :1:1 
+`uc 1 . 1 5 :6:2 
 ]
-"439
-[s S703 . 7 `*.37(v 1 EXT_InterruptHandler 2 0 `S36 1 mcu_pin 2 2 `E3148 1 edge 1 4 `E3152 1 source 1 5 `E3141 1 priority 1 6 ]
-[v Interrupt_INTx_SetInterruptHandler@int_obj int_obj `*.39CS703  1 p 2 0 ]
-"461
+"215
+[v ADC_StartConversion_Interrupt@adc_obj adc_obj `*.39CS1549  1 p 2 6 ]
+[v ADC_StartConversion_Interrupt@channel channel `E3148  1 p 1 8 ]
+"227
 } 0
-"420
-[v _INT2_SetInterruptHandler INT2_SetInterruptHandler `(uc  1 s 1 INT2_SetInterruptHandler ]
+"108
+[v _ADC_StartConversion ADC_StartConversion `(uc  1 e 1 0 ]
 {
-"421
-[v INT2_SetInterruptHandler@ret ret `uc  1 a 1 21 ]
-"420
-[v INT2_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 19 ]
-"430
-} 0
-"401
-[v _INT1_SetInterruptHandler INT1_SetInterruptHandler `(uc  1 s 1 INT1_SetInterruptHandler ]
-{
-"402
-[v INT1_SetInterruptHandler@ret ret `uc  1 a 1 21 ]
-"401
-[v INT1_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 19 ]
-"411
-} 0
-"382
-[v _INT0_SetInterruptHandler INT0_SetInterruptHandler `(uc  1 s 1 INT0_SetInterruptHandler ]
-{
-"383
-[v INT0_SetInterruptHandler@ret ret `uc  1 a 1 21 ]
-"382
-[v INT0_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 19 ]
-"392
-} 0
-"333
-[v _Interrupt_INTx_Pin_Init Interrupt_INTx_Pin_Init `(uc  1 s 1 Interrupt_INTx_Pin_Init ]
-{
-"334
-[v Interrupt_INTx_Pin_Init@ret ret `uc  1 a 1 8 ]
-[s S36 . 2 `uc 1 port 1 0 :4:0 
-`uc 1 pin 1 0 :3:4 
-`uc 1 directin 1 0 :1:7 
-`uc 1 logic 1 1 :1:0 
+"109
+[v ADC_StartConversion@Local_Status Local_Status `uc  1 a 1 2 ]
+[s S1549 . 6 `*.37(v 1 ADC_InterruptHandeler 2 0 `E3237 1 acquasition_time 1 2 `E3247 1 conversion_clock 1 3 `E3222 1 channel_selected 1 4 `uc 1 voltage_reference 1 5 :1:0 
+`uc 1 result_format 1 5 :1:1 
+`uc 1 . 1 5 :6:2 
 ]
-"333
-[s S703 . 7 `*.37(v 1 EXT_InterruptHandler 2 0 `S36 1 mcu_pin 2 2 `E3148 1 edge 1 4 `E3152 1 source 1 5 `E3141 1 priority 1 6 ]
-[v Interrupt_INTx_Pin_Init@int_obj int_obj `*.39CS703  1 p 2 6 ]
-"342
+"108
+[v ADC_StartConversion@adc_obj adc_obj `*.39CS1549  1 p 2 0 ]
+"118
 } 0
-"16 C:\Users\Aya farid\Desktop\Ahmed_Abdelghfar_diploma\Ahmed_Abd_Elghfar_Diploma_\Lecture_Codes\Driver_Seperated\TEST\Code\MCAL_Layer/GPIO/hal_gpio.c
-[v _gpio_pin_direction_intialize gpio_pin_direction_intialize `(uc  1 e 1 0 ]
+"127
+[v _ADC_SelectChannel ADC_SelectChannel `(uc  1 e 1 0 ]
 {
-"17
-[v gpio_pin_direction_intialize@LocalReturn LocalReturn `uc  1 a 1 21 ]
-[s S36 . 2 `uc 1 port 1 0 :4:0 
-`uc 1 pin 1 0 :3:4 
-`uc 1 directin 1 0 :1:7 
-`uc 1 logic 1 1 :1:0 
+"128
+[v ADC_SelectChannel@Local_Status Local_Status `uc  1 a 1 5 ]
+[s S1549 . 6 `*.37(v 1 ADC_InterruptHandeler 2 0 `E3237 1 acquasition_time 1 2 `E3247 1 conversion_clock 1 3 `E3222 1 channel_selected 1 4 `uc 1 voltage_reference 1 5 :1:0 
+`uc 1 result_format 1 5 :1:1 
+`uc 1 . 1 5 :6:2 
 ]
-"16
-[v gpio_pin_direction_intialize@_pin_config _pin_config `*.39CS36  1 p 2 19 ]
-"33
+"127
+[v ADC_SelectChannel@adc_obj adc_obj `*.39CS1549  1 p 2 1 ]
+[v ADC_SelectChannel@channel channel `E3148  1 p 1 3 ]
+"137
 } 0
-"143 C:\Users\Aya farid\Desktop\Ahmed_Abdelghfar_diploma\Ahmed_Abd_Elghfar_Diploma_\Lecture_Codes\Driver_Seperated\TEST\Code\MCAL_Layer/Interrupt_Driver/mcal_external_interrupt.c
-[v _Interrupt_INTx_Enable Interrupt_INTx_Enable `(uc  1 s 1 Interrupt_INTx_Enable ]
+"229
+[v _ADC_input_channel_port_configure ADC_input_channel_port_configure `(uc  1 s 1 ADC_input_channel_port_configure ]
 {
-"144
-[v Interrupt_INTx_Enable@ret ret `uc  1 a 1 21 ]
-[s S36 . 2 `uc 1 port 1 0 :4:0 
-`uc 1 pin 1 0 :3:4 
-`uc 1 directin 1 0 :1:7 
-`uc 1 logic 1 1 :1:0 
-]
-"143
-[s S703 . 7 `*.37(v 1 EXT_InterruptHandler 2 0 `S36 1 mcu_pin 2 2 `E3148 1 edge 1 4 `E3152 1 source 1 5 `E3141 1 priority 1 6 ]
-[v Interrupt_INTx_Enable@int_obj int_obj `*.39CS703  1 p 2 19 ]
-"202
-} 0
-"284
-[v _Interrupt_INTx_Edge_Init Interrupt_INTx_Edge_Init `(uc  1 s 1 Interrupt_INTx_Edge_Init ]
-{
-"285
-[v Interrupt_INTx_Edge_Init@ret ret `uc  1 a 1 0 ]
-[s S36 . 2 `uc 1 port 1 0 :4:0 
-`uc 1 pin 1 0 :3:4 
-`uc 1 directin 1 0 :1:7 
-`uc 1 logic 1 1 :1:0 
-]
-"284
-[s S703 . 7 `*.37(v 1 EXT_InterruptHandler 2 0 `S36 1 mcu_pin 2 2 `E3148 1 edge 1 4 `E3152 1 source 1 5 `E3141 1 priority 1 6 ]
-[v Interrupt_INTx_Edge_Init@int_obj int_obj `*.39CS703  1 p 2 19 ]
-"324
-} 0
-"211
-[v _Interrupt_INTx_Disable Interrupt_INTx_Disable `(uc  1 s 1 Interrupt_INTx_Disable ]
-{
-"212
-[v Interrupt_INTx_Disable@ret ret `uc  1 a 1 21 ]
-[s S36 . 2 `uc 1 port 1 0 :4:0 
-`uc 1 pin 1 0 :3:4 
-`uc 1 directin 1 0 :1:7 
-`uc 1 logic 1 1 :1:0 
-]
-"211
-[s S703 . 7 `*.37(v 1 EXT_InterruptHandler 2 0 `S36 1 mcu_pin 2 2 `E3148 1 edge 1 4 `E3152 1 source 1 5 `E3141 1 priority 1 6 ]
-[v Interrupt_INTx_Disable@int_obj int_obj `*.39CS703  1 p 2 19 ]
-"233
-} 0
-"351
-[v _Interrupt_INTx_Clear_Flag Interrupt_INTx_Clear_Flag `(uc  1 s 1 Interrupt_INTx_Clear_Flag ]
-{
-"352
-[v Interrupt_INTx_Clear_Flag@ret ret `uc  1 a 1 21 ]
-[s S36 . 2 `uc 1 port 1 0 :4:0 
-`uc 1 pin 1 0 :3:4 
-`uc 1 directin 1 0 :1:7 
-`uc 1 logic 1 1 :1:0 
-]
-"351
-[s S703 . 7 `*.37(v 1 EXT_InterruptHandler 2 0 `S36 1 mcu_pin 2 2 `E3148 1 edge 1 4 `E3152 1 source 1 5 `E3141 1 priority 1 6 ]
-[v Interrupt_INTx_Clear_Flag@int_obj int_obj `*.39CS703  1 p 2 19 ]
-"373
-} 0
-"52 C:\Users\Aya farid\Desktop\Ahmed_Abdelghfar_diploma\Ahmed_Abd_Elghfar_Diploma_\Lecture_Codes\Driver_Seperated\TEST\Code\MCAL_Layer/EEPROM_Driver/mcal_eeprom_prog.c
-[v _EEPROM_Read_DataByByte EEPROM_Read_DataByByte `(uc  1 e 1 0 ]
-{
-"53
-[v EEPROM_Read_DataByByte@Local_State Local_State `uc  1 a 1 19 ]
-"52
-[v EEPROM_Read_DataByByte@byteAddress byteAddress `us  1 p 2 0 ]
-[v EEPROM_Read_DataByByte@data data `*.39uc  1 p 2 2 ]
-"74
+[v ADC_input_channel_port_configure@channel channel `E3148  1 a 1 wreg ]
+[v ADC_input_channel_port_configure@channel channel `E3148  1 a 1 wreg ]
+[v ADC_input_channel_port_configure@channel channel `E3148  1 a 1 0 ]
+"286
 } 0
 "32 C:\Users\Aya farid\Desktop\Ahmed_Abdelghfar_diploma\Ahmed_Abd_Elghfar_Diploma_\Lecture_Codes\Driver_Seperated\TEST\Code\MCAL_Layer/Interrupt_Driver/mcal_iterrupt_mangaer.c
 [v _InterruptManager InterruptManager `II(v  1 e 1 0 ]
 {
-"85
+"90
 } 0
 "681 C:\Users\Aya farid\Desktop\Ahmed_Abdelghfar_diploma\Ahmed_Abd_Elghfar_Diploma_\Lecture_Codes\Driver_Seperated\TEST\Code\MCAL_Layer/Interrupt_Driver/mcal_external_interrupt.c
 [v _RB7_ISR RB7_ISR `(v  1 e 1 0 ]
@@ -760,20 +768,27 @@ HIGH 1
 {
 "90
 } 0
-"10 C:\Users\Aya farid\Desktop\Ahmed_Abdelghfar_diploma\Ahmed_Abd_Elghfar_Diploma_\Lecture_Codes\Driver_Seperated\TEST\Code\application.c
-[v _INT0_APP_ISR INT0_APP_ISR `(v  1 e 1 0 ]
+"287 C:\Users\Aya farid\Desktop\Ahmed_Abdelghfar_diploma\Ahmed_Abd_Elghfar_Diploma_\Lecture_Codes\Driver_Seperated\TEST\Code\MCAL_Layer/ADC_Driver/mcal_adc_prog.c
+[v _ADC_ISR ADC_ISR `(v  1 e 1 0 ]
 {
-"16
+"292
 } 0
-"14 C:\Users\Aya farid\Desktop\Ahmed_Abdelghfar_diploma\Ahmed_Abd_Elghfar_Diploma_\Lecture_Codes\Driver_Seperated\TEST\Code\MCAL_Layer/EEPROM_Driver/mcal_eeprom_prog.c
-[v _EEPROM_Write_DataByByte EEPROM_Write_DataByByte `(uc  1 e 1 0 ]
+"20 C:\Users\Aya farid\Desktop\Ahmed_Abdelghfar_diploma\Ahmed_Abd_Elghfar_Diploma_\Lecture_Codes\Driver_Seperated\TEST\Code\application.c
+[v _ADC_DefaultInterruptHandeler ADC_DefaultInterruptHandeler `(v  1 e 1 0 ]
 {
-"29
-[v EEPROM_Write_DataByByte@interrupt_Status interrupt_Status `uc  1 a 1 4 ]
-"15
-[v EEPROM_Write_DataByByte@Local_State Local_State `uc  1 a 1 3 ]
-"14
-[v EEPROM_Write_DataByByte@byteAddress byteAddress `us  1 p 2 0 ]
-[v EEPROM_Write_DataByByte@data data `uc  1 p 1 2 ]
-"45
+"22
+} 0
+"171 C:\Users\Aya farid\Desktop\Ahmed_Abdelghfar_diploma\Ahmed_Abd_Elghfar_Diploma_\Lecture_Codes\Driver_Seperated\TEST\Code\MCAL_Layer/ADC_Driver/mcal_adc_prog.c
+[v _ADC_GetConversionResult ADC_GetConversionResult `(uc  1 e 1 0 ]
+{
+"172
+[v ADC_GetConversionResult@Local_Status Local_Status `uc  1 a 1 7 ]
+[s S1549 . 6 `*.37(v 1 ADC_InterruptHandeler 2 0 `E3237 1 acquasition_time 1 2 `E3247 1 conversion_clock 1 3 `E3222 1 channel_selected 1 4 `uc 1 voltage_reference 1 5 :1:0 
+`uc 1 result_format 1 5 :1:1 
+`uc 1 . 1 5 :6:2 
+]
+"171
+[v ADC_GetConversionResult@adc_obj adc_obj `*.39CS1549  1 p 2 0 ]
+[v ADC_GetConversionResult@convesion_result convesion_result `*.39us  1 p 2 2 ]
+"188
 } 0
